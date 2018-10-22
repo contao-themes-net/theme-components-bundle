@@ -1,0 +1,52 @@
+<?php
+/**
+ * theme components bundle for Contao Open Source CMS
+ *
+ * Copyright (C) 2017 pdir / digital agentur <develop@pdir.de>
+ *
+ * @package    contao-themes-net/theme-components-bundle
+ * @link       https://github.com/contao-themes-net/theme-components-bundle
+ * @license    pdir contao theme licence
+ * @author     pdir GmbH <develop@pdir.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace ContaoThemesNet\ThemeComponentsBundle\Element;
+
+/**
+ * Class ContentProducts
+ *
+ * @author Philipp Seibt <develop@pdir.de>
+ */
+class ContentBoxElement extends \ContentElement
+{
+    /**
+     * Template
+     * @var string
+     */
+    protected $strTemplate = 'ce_cthemes_contentbox';
+
+    /**
+     * Generate the module
+     */
+    protected function compile()
+    {
+        if (TL_MODE == 'BE')
+        {
+            $this->strTemplate = 'be_wildcard';
+            $this->Template = new \BackendTemplate($this->strTemplate);
+            $this->Template->title = $this->headline;
+            $this->Template->text = \StringUtil::toHtml5($this->text);
+        }
+
+        if($this->ct_contentBox_customTpl != "") {
+            $this->Template->setName($this->ct_contentBox_customTpl);
+        }
+
+        $this->Template->page = $this->ct_contentBox_page;
+        $this->Template->href = \FilesModel::findByUuid($this->singleSRC)->path;
+        $this->Template->pageText = $this->ct_contentBox_pageText;
+    }
+}
