@@ -48,5 +48,14 @@ class ContentBoxElement extends \ContentElement
         $this->Template->page = $this->ct_contentBox_page;
         $this->Template->href = \FilesModel::findByUuid($this->singleSRC)->path;
         $this->Template->pageText = $this->ct_contentBox_pageText;
+
+        // overwrite link target
+        $this->Template->target = '';
+        $this->Template->rel = '';
+        if ($this->target)
+        {
+            $this->Template->target = ' target="_blank"';
+            $this->Template->rel = ' rel="noreferrer noopener"';
+        }
     }
 }

@@ -17,5 +17,14 @@ class FeatureElement extends \ContentElement
     {
         $this->Template->featureIcon = $this->ct_featureIcon;
         $this->Template->iconLink = $this->ct_iconLink;
+
+        // overwrite link target
+        $this->Template->target = '';
+        $this->Template->rel = '';
+        if ($this->target)
+        {
+            $this->Template->target = ' target="_blank"';
+            $this->Template->rel = ' rel="noreferrer noopener"';
+        }
     }
 }
