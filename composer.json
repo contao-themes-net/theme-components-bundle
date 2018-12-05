@@ -27,8 +27,8 @@
     "source" : "https://github.com/contao-themes-net/theme-components-bundle"
   },
   "require": {
-    "php": ">=7.1",
-    "contao/core-bundle": "^4.4",
+    "php": "^5.6 || ^7.0",
+    "contao/core-bundle": "^4.4"
     "contao-dd/advanced-classes-bundle": "^0.5"
   },
   "conflict": {
