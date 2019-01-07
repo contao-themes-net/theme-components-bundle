@@ -3,12 +3,20 @@
         <?php $this->block('content'); ?>
 
         <?php if ($this->addImage): ?>
+
+            <?php if ($this->page != ""): ?>
+                <a href="<?= $this->page ?>" title="<?= $this->pageText ?>">
+            <?php endif; ?>
+
             <?php $this->insert('image', $this->arrData); ?>
+
+            <?php if ($this->page != ""): ?></a><?php endif; ?>
+
         <?php endif; ?>
 
         <?php if ($this->headline): ?>
             <<?= $this->hl ?>>
-            <?php if($this->page != ""): ?><a href="{{link_url::<?= $this->page ?>}}"<?= $this->target ?><?= $this->rel ?>><?php endif; ?>
+            <?php if($this->page != ""): ?><a href="<?= $this->page ?>"<?= $this->target ?><?= $this->rel ?>><?php endif; ?>
                 <?= $this->headline ?>
                 <?php if($this->page != ""): ?></a><?php endif; ?>
         </<?= $this->hl ?>>
@@ -18,7 +26,7 @@
 
         <?php if($this->page != ""): ?>
             <div class="pageLink">
-                <a href="{{link_url::<?= $this->page ?>}}"<?= $this->target ?><?= $this->rel ?>><?= $this->pageText ?></a>
+                <a href="<?= $this->page ?>"<?= $this->target ?><?= $this->rel ?>><?= $this->pageText ?></a>
             </div>
         <?php endif; ?>
 
