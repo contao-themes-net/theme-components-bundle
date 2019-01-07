@@ -4,6 +4,7 @@ $GLOBALS['TL_LANG']['tl_content']['ct_contentBox_page'] = ['Link-Adresse','Geben
 $GLOBALS['TL_LANG']['tl_content']['ct_contentBox_pageText'] = ['Link-Text','Der Link-Text wird anstelle der Link-Adresse angezeigt.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_contentBox_settings'] = 'Content Box Einstellungen';
 $GLOBALS['TL_LANG']['tl_content']['ct_contentBox_customTpl'] = ['Individuelles Template','Hier können Sie ein individuelles Template auswählen.'];
+$GLOBALS['TL_LANG']['tl_content']['ct_contentBox_pageTitle'] = ['Link-Titel','Der Link-Titel wird als title-Attribut im HTML-Markup eingefügt.'];
 $GLOBALS['TL_LANG']['tl_content']['target'] = ['In einem neuen Fenster öffnen','Den Link in einem neuen Browserfenster öffnen.'];
 
 $GLOBALS['TL_LANG']['tl_content']['ct_featureIcon'] = ['Font Awesome 5 Icon (Klassen)','Geben Sie hier die Klassen des Font Awesome 5 Icons ein (z. B. "fas fa-check").'];
@@ -22,5 +23,6 @@ $GLOBALS['TL_LANG']['tl_content']['ct_teaserBox_page'] = ['Link-Adresse','Geben 
 $GLOBALS['TL_LANG']['tl_content']['ct_teaserBox_pageText'] = ['Link-Text','Der Link-Text wird anstelle der Link-Adresse angezeigt.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_teaserBox_settings'] = 'Teaser Box Einstellungen';
 $GLOBALS['TL_LANG']['tl_content']['ct_teaserBox_customTpl'] = ['Individuelles Template','Hier können Sie ein individuelles Template auswählen.'];
+$GLOBALS['TL_LANG']['tl_content']['ct_teaserBox_pageTitle'] = ['Link-Titel','Der Link-Titel wird als title-Attribut im HTML-Markup eingefügt.'];
 
 $GLOBALS['TL_LANG']['tl_content']['ct_wrapper_name'] = ['Bezeichnung','Hier können Sie eine Bezeichnung eingeben, die nur zur Übersicht im Backend dient.'];

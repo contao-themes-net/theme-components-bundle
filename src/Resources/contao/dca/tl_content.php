@@ -3,13 +3,13 @@
 /**
  * Add palette to tl_content
  */
-$GLOBALS['TL_DCA']['tl_content']['palettes']['ct_contentBox'] = '{type_legend},type,headline;{text_legend},text;{ct_contentBox_settings},ct_contentBox_page,target,ct_contentBox_pageText;{template_legend:hide},ct_contentBox_customTpl;{expert_legend:hide},cssID;{advanced_classes_legend},advancedCss;space';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['ct_contentBox'] = '{type_legend},type,headline;{text_legend},text;{ct_contentBox_settings},ct_contentBox_page,target,ct_contentBox_pageText,ct_contentBox_pageTitle;{template_legend:hide},ct_contentBox_customTpl;{expert_legend:hide},cssID;{advanced_classes_legend},advancedCss;space';
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['ct_featureElement'] = '{type_legend},type,headline;{text_legend},text,ct_featureIcon,ct_iconLink,target;{expert_legend:hide},guests,cssID;{advanced_classes_legend},advancedCss;{invisible_legend:hide},invisible,start,stop';
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['ct_priceBox'] = '{type_legend},type,headline;{text_legend},text,ct_price,ct_priceLabel,ct_priceBox_link1,ct_priceBox_linkText1,ct_priceBox_link2,ct_priceBox_linkText2,ct_popularPriceBox;{template_legend:hide},ct_priceBox_customTpl;{expert_legend:hide},guests,cssID;{advanced_classes_legend},advancedCss;{invisible_legend:hide},invisible,start,stop';
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['ct_teaserBox'] = '{type_legend},type,headline;{text_legend},text;{ct_teaserBox_settings},ct_teaserBox_page,target,ct_teaserBox_pageText;{image_legend},addImage;{template_legend:hide},ct_teaserBox_customTpl;{expert_legend:hide},cssID;{advanced_classes_legend},advancedCss;space';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['ct_teaserBox'] = '{type_legend},type,headline;{text_legend},text;{ct_teaserBox_settings},ct_teaserBox_page,target,ct_teaserBox_pageText,ct_teaserBox_pageTitle;{image_legend},addImage;{template_legend:hide},ct_teaserBox_customTpl;{expert_legend:hide},cssID;{advanced_classes_legend},advancedCss;space';
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['ct_wrapperStart'] = '{type_legend},type,ct_wrapper_name;{expert_legend:hide},guests,cssID;{advanced_classes_legend},advancedCss;{invisible_legend:hide},invisible,start,stop';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['ct_wrapperStop'] = '{type_legend},type;{invisible_legend:hide},invisible,start,stop';
@@ -26,7 +26,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['ct_contentBox_page'] = array
     'search' => true,
     'inputType' => 'text',
     'eval' => array('mandatory'=>false, 'rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>255, 'dcaPicker'=>true, 'addWizardClass'=>false, 'tl_class'=>'w50'),
-    'sql' => "varchar(255) NOT NULL default ''"
+    'sql' => "text NULL"
 );
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['target'] = array
@@ -45,7 +45,17 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['ct_contentBox_pageText'] = array
     'inputType' => 'text',
     'eval' => array('tl_class'=>'w50'),
     'reference' => &$GLOBALS['TL_LANG']['tl_content']['ct_ContentBox_pageText'],
-    'sql' => "varchar(255) NOT NULL default ''"
+    'sql' => "text NULL"
+);
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['ct_contentBox_pageTitle'] = array
+(
+    'label' => &$GLOBALS['TL_LANG']['tl_content']['ct_contentBox_pageTitle'],
+    'exclude' => true,
+    'inputType' => 'text',
+    'eval' => array('tl_class'=>'w50'),
+    'reference' => &$GLOBALS['TL_LANG']['tl_content']['ct_contentBox_pageTitle'],
+    'sql' => "text NULL"
 );
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['ct_contentBox_customTpl'] = array
@@ -66,7 +76,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['ct_featureIcon'] = array
     'exclude' => true,
     'inputType' => 'text',
     'eval' => array('tl_class'=>'w50 clr'),
-    'sql' => "varchar(255) NOT NULL default ''"
+    'sql' => "varchar(25) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['ct_iconLink'] = array
@@ -76,7 +86,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['ct_iconLink'] = array
     'search' => true,
     'inputType' => 'text',
     'eval' => array('mandatory'=>false, 'rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>255, 'dcaPicker'=>true, 'addWizardClass'=>false, 'tl_class'=>'w50 clr'),
-    'sql' => "varchar(255) NOT NULL default ''"
+    'sql' => "text NULL"
 );
 
 /* Price Box */
@@ -87,7 +97,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['ct_price'] = array
     'exclude' => true,
     'inputType' => 'text',
     'eval' => array('tl_class'=>'w50 clr'),
-    'sql' => "varchar(255) NOT NULL default ''"
+    'sql' => "varchar(20) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['ct_priceLabel'] = array
@@ -96,7 +106,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['ct_priceLabel'] = array
     'exclude' => true,
     'inputType' => 'text',
     'eval' => array('tl_class'=>'w50'),
-    'sql' => "varchar(255) NOT NULL default ''"
+    'sql' => "varchar(50) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['ct_priceBox_link1'] = array
@@ -106,7 +116,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['ct_priceBox_link1'] = array
     'search' => true,
     'inputType' => 'text',
     'eval' => array('mandatory'=>false, 'rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>255, 'dcaPicker'=>true, 'addWizardClass'=>false, 'tl_class'=>'w50 clr'),
-    'sql' => "varchar(255) NOT NULL default ''"
+    'sql' => "text NULL"
 );
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['ct_priceBox_linkText1'] = array
@@ -115,7 +125,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['ct_priceBox_linkText1'] = array
     'exclude' => true,
     'inputType' => 'text',
     'eval' => array('tl_class'=>'w50'),
-    'sql' => "varchar(255) NOT NULL default ''"
+    'sql' => "text NULL"
 );
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['ct_priceBox_link2'] = array
@@ -125,7 +135,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['ct_priceBox_link2'] = array
     'search' => true,
     'inputType' => 'text',
     'eval' => array('mandatory'=>false, 'rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>255, 'dcaPicker'=>true, 'addWizardClass'=>false, 'tl_class'=>'w50 clr'),
-    'sql' => "varchar(255) NOT NULL default ''"
+    'sql' => "text NULL"
 );
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['ct_priceBox_linkText2'] = array
@@ -134,7 +144,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['ct_priceBox_linkText2'] = array
     'exclude' => true,
     'inputType' => 'text',
     'eval' => array('tl_class'=>'w50'),
-    'sql' => "varchar(255) NOT NULL default ''"
+    'sql' => "text NULL"
 );
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['ct_popularPriceBox'] = array
@@ -143,7 +153,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['ct_popularPriceBox'] = array
     'exclude' => true,
     'inputType' => 'text',
     'eval' => array('tl_class'=>'w50 clr'),
-    'sql' => "varchar(255) NOT NULL default ''"
+    'sql' => "varchar(50) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['ct_priceBox_customTpl'] = array
@@ -165,7 +175,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['ct_teaserBox_page'] = array
     'search' => true,
     'inputType' => 'text',
     'eval' => array('mandatory'=>false, 'rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>255, 'dcaPicker'=>true, 'addWizardClass'=>false, 'tl_class'=>'w50'),
-    'sql' => "varchar(255) NOT NULL default ''"
+    'sql' => "text NULL"
 );
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['ct_teaserBox_pageText'] = array
@@ -174,7 +184,16 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['ct_teaserBox_pageText'] = array
     'exclude' => true,
     'inputType' => 'text',
     'eval' => array('tl_class'=>'w50'),
-    'sql' => "varchar(255) NOT NULL default ''"
+    'sql' => "text NULL"
+);
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['ct_teaserBox_pageTitle'] = array
+(
+    'label' => &$GLOBALS['TL_LANG']['tl_content']['ct_teaserBox_pageTitle'],
+    'exclude' => true,
+    'inputType' => 'text',
+    'eval' => array('tl_class'=>'w50'),
+    'sql' => "text NULL"
 );
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['ct_teaserBox_customTpl'] = array
@@ -195,7 +214,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['ct_wrapper_name'] = array
     'exclude' => true,
     'inputType' => 'text',
     'eval' => array('tl_class'=>'w50'),
-    'sql' => "varchar(255) NOT NULL default ''"
+    'sql' => "text NULL"
 );
 
 class tl_content_ct extends Backend {

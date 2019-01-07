@@ -57,5 +57,11 @@ class ContentBoxElement extends \ContentElement
             $this->Template->target = ' target="_blank"';
             $this->Template->rel = ' rel="noreferrer noopener"';
         }
+
+        //link title
+        $this->Template->pageTitle = "";
+        if( $this->ct_contentBox_pageTitle != "" ) {
+            $this->Template->pageTitle = ' title="'.$this->ct_contentBox_pageTitle.'"';
+        }
     }
 }
