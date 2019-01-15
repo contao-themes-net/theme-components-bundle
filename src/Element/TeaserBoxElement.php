@@ -23,6 +23,10 @@ class TeaserBoxElement extends \ContentElement
             $this->Template->text = \StringUtil::toHtml5($this->text);
         }
 
+        if($this->ct_teaserBox_customTpl != "") {
+            $this->Template->setName($this->ct_teaserBox_customTpl);
+        }
+
         $this->Template->page = $this->ct_teaserBox_page;
         $this->Template->picture = \FilesModel::findByUuid($this->singleSRC)->path;
         $this->Template->metaImg = unserialize(\FilesModel::findByUuid($this->singleSRC)->meta);
