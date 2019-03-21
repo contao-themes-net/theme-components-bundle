@@ -35,33 +35,32 @@ class ContentBoxElement extends \ContentElement
     {
         if (TL_MODE == 'BE')
         {
-            $this->strTemplate = 'be_wildcard';
-            $this->Template = new \BackendTemplate($this->strTemplate);
-            $this->Template->title = $this->headline;
-            $this->Template->text = \StringUtil::toHtml5($this->text);
-        }
+            $objTemplate = new \BackendTemplate('be_wildcard');
+            $objTemplate->title = $this->headline;
+            $objTemplate->text = $this->text;
+        } else {
+            if($this->ct_contentBox_customTpl != "") {
+                $this->Template->setName($this->ct_contentBox_customTpl);
+            }
 
-        if($this->ct_contentBox_customTpl != "") {
-            $this->Template->setName($this->ct_contentBox_customTpl);
-        }
+            $this->Template->page = $this->ct_contentBox_page;
+            $this->Template->href = \FilesModel::findByUuid($this->singleSRC)->path;
+            $this->Template->pageText = $this->ct_contentBox_pageText;
 
-        $this->Template->page = $this->ct_contentBox_page;
-        $this->Template->href = \FilesModel::findByUuid($this->singleSRC)->path;
-        $this->Template->pageText = $this->ct_contentBox_pageText;
+            // overwrite link target
+            $this->Template->target = '';
+            $this->Template->rel = '';
+            if ($this->target)
+            {
+                $this->Template->target = ' target="_blank"';
+                $this->Template->rel = ' rel="noreferrer noopener"';
+            }
 
-        // overwrite link target
-        $this->Template->target = '';
-        $this->Template->rel = '';
-        if ($this->target)
-        {
-            $this->Template->target = ' target="_blank"';
-            $this->Template->rel = ' rel="noreferrer noopener"';
-        }
-
-        //link title
-        $this->Template->pageTitle = "";
-        if( $this->ct_contentBox_pageTitle != "" ) {
-            $this->Template->pageTitle = ' title="'.$this->ct_contentBox_pageTitle.'"';
+            //link title
+            $this->Template->pageTitle = "";
+            if( $this->ct_contentBox_pageTitle != "" ) {
+                $this->Template->pageTitle = ' title="'.$this->ct_contentBox_pageTitle.'"';
+            }
         }
     }
 }
