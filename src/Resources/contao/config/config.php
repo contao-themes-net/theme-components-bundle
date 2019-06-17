@@ -6,6 +6,7 @@ use ContaoThemesNet\ThemeComponentsBundle\Element\PriceBoxElement;
 use ContaoThemesNet\ThemeComponentsBundle\Element\TeaserBoxElement;
 use ContaoThemesNet\ThemeComponentsBundle\Element\WrapperStartElement;
 use ContaoThemesNet\ThemeComponentsBundle\Element\WrapperStopElement;
+use ContaoThemesNet\ThemeComponentsBundle\Module\ModalModule;
 
 // Insert the mate theme category
 array_insert($GLOBALS['TL_CTE'], 1, array('contaoThemesNet' => array()));
@@ -19,6 +20,12 @@ $GLOBALS['TL_CTE']['contaoThemesNet']['ct_priceBox'] = PriceBoxElement::class;
 $GLOBALS['TL_CTE']['contaoThemesNet']['ct_teaserBox'] = TeaserBoxElement::class;
 $GLOBALS['TL_CTE']['contaoThemesNet']['ct_wrapperStart'] = WrapperStartElement::class;
 $GLOBALS['TL_CTE']['contaoThemesNet']['ct_wrapperStop'] = WrapperStopElement::class;
+
+/**
+ * Add modules
+ */
+
+$GLOBALS['FE_MOD']['contaoThemesNet']['ct_modal'] = ModalModule::class;
 
 /**
  * Wrapper elements
