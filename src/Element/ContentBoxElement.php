@@ -16,7 +16,7 @@
 namespace ContaoThemesNet\ThemeComponentsBundle\Element;
 
 /**
- * Class ContentProducts
+ * Class ContentBoxElement
  *
  * @author Philipp Seibt <develop@pdir.de>
  */
@@ -60,6 +60,17 @@ class ContentBoxElement extends \ContentElement
             $this->Template->pageTitle = "";
             if( $this->ct_contentBox_pageTitle != "" ) {
                 $this->Template->pageTitle = ' title="'.$this->ct_contentBox_pageTitle.'"';
+            }
+
+            // add an image
+            if ($this->addImage && $this->singleSRC != '')
+            {
+                $objModel = \FilesModel::findByUuid($this->singleSRC);
+                if ($objModel !== null && is_file(\System::getContainer()->getParameter('kernel.project_dir') . '/' . $objModel->path))
+                {
+                    $this->singleSRC = $objModel->path;
+                    $this->addImageToTemplate($this->Template, $this->arrData, null, null, $objModel);
+                }
             }
         }
     }
