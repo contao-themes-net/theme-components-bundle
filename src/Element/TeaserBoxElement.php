@@ -30,6 +30,17 @@ class TeaserBoxElement extends \ContentElement
             $this->Template->metaImg = unserialize(\FilesModel::findByUuid($this->singleSRC)->meta);
             $this->Template->pageText = $this->ct_teaserBox_pageText;
 
+            // add an image
+            if ($this->addImage && $this->singleSRC != '')
+            {
+                $objModel = \FilesModel::findByUuid($this->singleSRC);
+                if ($objModel !== null && is_file(\System::getContainer()->getParameter('kernel.project_dir') . '/' . $objModel->path))
+                {
+                    $this->singleSRC = $objModel->path;
+                    $this->addImageToTemplate($this->Template, $this->arrData, null, null, $objModel);
+                }
+            }
+
             // overwrite link target
             $this->Template->target = '';
             $this->Template->rel = '';
