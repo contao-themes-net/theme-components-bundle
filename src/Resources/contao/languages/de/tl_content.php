@@ -26,3 +26,10 @@ $GLOBALS['TL_LANG']['tl_content']['ct_teaserBox_customTpl'] = ['Individuelles Te
 $GLOBALS['TL_LANG']['tl_content']['ct_teaserBox_pageTitle'] = ['Link-Titel','Der Link-Titel wird als title-Attribut im HTML-Markup eingefügt.'];
 
 $GLOBALS['TL_LANG']['tl_content']['ct_wrapper_name'] = ['Bezeichnung','Hier können Sie eine Bezeichnung eingeben, die nur zur Übersicht im Backend dient.'];
+
+$GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_page'] = ['Zu verlinkende Seite','Wählen Sie die Seite aus zu der verlinkt werden soll.'];
+$GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_linkText'] = ['Link-Text',''];
+$GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_target'] = ['In einem neuen Fenster öffnen','Den Link in einem neuen Browserfenster öffnen.'];
+$GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_subHeadline'] = ['Unterüberschrift','Hier können Sie dem Inhaltselement eine Unterüberschrift hinzufügen.'];
+$GLOBALS['TL_LANG']['tl_content']['video_legend'] = 'Video-Einstellungen';
+$GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_playerSRC'] = ['Video','Wählen Sie hier ein Video aus, wenn es statt einem Bild angezeigt werden soll.'];

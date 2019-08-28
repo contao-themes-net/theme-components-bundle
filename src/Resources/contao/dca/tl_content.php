@@ -14,6 +14,8 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['ct_teaserBox'] = '{type_legend},ty
 $GLOBALS['TL_DCA']['tl_content']['palettes']['ct_wrapperStart'] = '{type_legend},type,ct_wrapper_name;{expert_legend:hide},guests,cssID;{advanced_classes_legend},advancedCss;{invisible_legend:hide},invisible,start,stop';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['ct_wrapperStop'] = '{type_legend},type;{invisible_legend:hide},invisible,start,stop';
 
+$GLOBALS['TL_DCA']['tl_content']['palettes']['ct_sliderElement'] = '{type_legend},type,headline,ct_sliderElement_subHeadline;{text_legend},text,ct_sliderElement_page,ct_sliderElement_target,ct_sliderElement_linkText;{image_legend},addImage;{video_legend},ct_sliderElement_playerSRC;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
+
 /**
  * Add fields to tl_content
  */
@@ -215,6 +217,54 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['ct_wrapper_name'] = array
     'inputType' => 'text',
     'eval' => array('tl_class'=>'w50'),
     'sql' => "text NULL"
+);
+
+/* Slider Element */
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['ct_sliderElement_page'] = array
+(
+    'label' => &$GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_page'],
+    'exclude' => true,
+    'search' => true,
+    'inputType' => 'text',
+    'eval' => array('mandatory'=>false, 'rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>255, 'dcaPicker'=>true, 'addWizardClass'=>false, 'tl_class'=>'w50'),
+    'sql' => "varchar(255) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['ct_sliderElement_linkText'] = array
+(
+    'label' => &$GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_linkText'],
+    'exclude' => true,
+    'inputType' => 'text',
+    'eval' => array('tl_class'=>'w50'),
+    'sql' => "varchar(255) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['ct_sliderElement_target'] = array
+(
+    'label' => &$GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_target'],
+    'exclude' => true,
+    'inputType' => 'checkbox',
+    'eval' => array('tl_class'=>'w50 m12'),
+    'sql' => "char(1) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['ct_sliderElement_subHeadline'] = array
+(
+    'label' => &$GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_subHeadline'],
+    'exclude' => true,
+    'inputType' => 'text',
+    'eval' => array('tl_class'=>'w50'),
+    'sql' => "varchar(255) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['ct_sliderElement_playerSRC'] = array
+(
+    'label' => &$GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_playerSRC'],
+    'exclude' => true,
+    'inputType' => 'fileTree',
+    'eval' => array('tl_class'=>'w50', 'fieldType'=>'radio', 'files'=>true),
+    'sql' => "blob NULL"
 );
 
 class tl_content_ct extends Backend {
