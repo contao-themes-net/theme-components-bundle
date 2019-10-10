@@ -9,6 +9,7 @@ $GLOBALS['TL_LANG']['tl_content']['target'] = ['In einem neuen Fenster öffnen',
 
 $GLOBALS['TL_LANG']['tl_content']['ct_featureIcon'] = ['Font Awesome 5 Icon (Klassen)','Geben Sie hier die Klassen des Font Awesome 5 Icons ein (z. B. "fas fa-check").'];
 $GLOBALS['TL_LANG']['tl_content']['ct_iconLink'] = ['Icon-Link','Geben Sie eine Web-Adresse (http://…), eine E-Mail-Adresse (mailto:…) oder ein Inserttag ein.'];
+$GLOBALS['TL_LANG']['tl_content']['ct_featureElement_customTpl'] = ['Individuelles Template','Hier können Sie ein individuelles Template auswählen.'];
 
 $GLOBALS['TL_LANG']['tl_content']['ct_price'] = ['Preis',''];
 $GLOBALS['TL_LANG']['tl_content']['ct_priceLabel'] = ['Preis-Unterschrift','Die Preis-Unterschrift wird direkt unter dem Preis ausgegeben.'];

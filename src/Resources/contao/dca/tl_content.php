@@ -5,7 +5,7 @@
  */
 $GLOBALS['TL_DCA']['tl_content']['palettes']['ct_contentBox'] = '{type_legend},type,headline;{text_legend},text;{ct_contentBox_settings},ct_contentBox_page,target,ct_contentBox_pageText,ct_contentBox_pageTitle;{template_legend:hide},ct_contentBox_customTpl;{expert_legend:hide},cssID;{advanced_classes_legend},advancedCss;space';
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['ct_featureElement'] = '{type_legend},type,headline;{text_legend},text,ct_featureIcon,ct_iconLink,target;{expert_legend:hide},guests,cssID;{advanced_classes_legend},advancedCss;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['ct_featureElement'] = '{type_legend},type,headline;{text_legend},text,ct_featureIcon,ct_iconLink,target;{template_legend:hide},ct_featureElement_customTpl;{expert_legend:hide},guests,cssID;{advanced_classes_legend},advancedCss;{invisible_legend:hide},invisible,start,stop';
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['ct_priceBox'] = '{type_legend},type,headline;{text_legend},text,ct_price,ct_priceLabel,ct_priceBox_link1,ct_priceBox_linkText1,ct_priceBox_link2,ct_priceBox_linkText2,ct_popularPriceBox;{template_legend:hide},ct_priceBox_customTpl;{expert_legend:hide},guests,cssID;{advanced_classes_legend},advancedCss;{invisible_legend:hide},invisible,start,stop';
 
@@ -89,6 +89,16 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['ct_iconLink'] = array
     'inputType' => 'text',
     'eval' => array('mandatory'=>false, 'rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>255, 'dcaPicker'=>true, 'addWizardClass'=>false, 'tl_class'=>'w50 clr'),
     'sql' => "text NULL"
+);
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['ct_featureElement_customTpl'] = array
+(
+    'label' => &$GLOBALS['TL_LANG']['tl_content']['ct_featureElement_customTpl'],
+    'exclude' => true,
+    'inputType' => 'select',
+    'options_callback' => array('tl_content_ct', 'getFeatureElementTemplates'),
+    'eval' => array('includeBlankOption'=>true, 'chosen'=>true, 'tl_class'=>'w50'),
+    'sql' => "varchar(64) NOT NULL default ''"
 );
 
 /* Price Box */
@@ -278,6 +288,11 @@ class tl_content_ct extends Backend {
     public function getContentBoxTemplates(DataContainer $dc)
     {
         return $this->getTemplateGroup('ce_cthemes_contentbox');
+    }
+
+    public function getFeatureElementTemplates(DataContainer $dc)
+    {
+        return $this->getTemplateGroup('ce_cthemes_feature_element');
     }
 
     public function getPriceBoxTemplates(DataContainer $dc)

@@ -15,6 +15,10 @@ class FeatureElement extends \ContentElement
      */
     protected function compile()
     {
+        if($this->ct_featureElement_customTpl != "") {
+            $this->Template->setName($this->ct_featureElement_customTpl);
+        }
+
         $this->Template->featureIcon = $this->ct_featureIcon;
         $this->Template->iconLink = $this->ct_iconLink;
 
