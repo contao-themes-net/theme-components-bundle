@@ -78,7 +78,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['ct_featureIcon'] = array
     'exclude' => true,
     'inputType' => 'text',
     'eval' => array('tl_class'=>'w50 clr'),
-    'sql' => "varchar(25) NOT NULL default ''"
+    'sql' => "varchar(64) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['ct_iconLink'] = array
