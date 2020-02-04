@@ -18,6 +18,7 @@
         </figure>
     <?php endif; ?>
 
+    <?php if(strpos($this->class,"only-image") === false): ?>
     <div class="text">
         <div class="container">
             <div class="inside">
@@ -42,4 +43,5 @@
             </div>
         </div>
     </div>
+    <?php endif; ?>
 </div>
