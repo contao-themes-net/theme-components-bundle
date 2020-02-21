@@ -24,7 +24,8 @@
     "forum": "https://community.contao.org",
     "email" : "develop@pdir.de",
     "issues" : "https://github.com/contao-themes-net/theme-components-bundle/issues",
-    "source" : "https://github.com/contao-themes-net/theme-components-bundle"
+    "source" : "https://github.com/contao-themes-net/theme-components-bundle",
+    "donate": "https://contao-themes.net/sponsoring.html"
   },
   "require": {
     "php": "^5.6 || ^7.0",
@@ -50,5 +51,15 @@
   },
   "extra": {
     "contao-manager-plugin": "ContaoThemesNet\\ThemeComponentsBundle\\ContaoManager\\Plugin"
-  }
+  },
+  "funding": [
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/user?u=28241718"
+    },
+    {
+      "type": "corporate",
+      "url": "https://contao-themes.net/sponsoring.html"
+    }
+  ]
 }
