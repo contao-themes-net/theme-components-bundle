@@ -1,7 +1,7 @@
 <?php
-$GLOBALS['TL_LANG']['tl_module']['modal_link_legend'] = 'Link Settings';
-$GLOBALS['TL_LANG']['tl_module']['modal_headline_legend'] = 'Modal Headline';
-$GLOBALS['TL_LANG']['tl_module']['modal_text_legend'] = 'Modal Content';
+$GLOBALS['TL_LANG']['tl_module']['modal_link_legend'] = 'Link settings';
+$GLOBALS['TL_LANG']['tl_module']['modal_headline_legend'] = 'Modal headline';
+$GLOBALS['TL_LANG']['tl_module']['modal_text_legend'] = 'Modal content';
 
 $GLOBALS['TL_LANG']['tl_module']['modal_linkText'] = ['Link text','Here you can enter a link text.'];
 $GLOBALS['TL_LANG']['tl_module']['modal_linkClass'] = ['Link classes','Here you can add more classes to the link.'];
