@@ -16,7 +16,7 @@ $GLOBALS['TL_LANG']['tl_content']['ct_priceLabel'] = ['Preis-Unterschrift','Die 
 $GLOBALS['TL_LANG']['tl_content']['ct_priceBox_link1'] = ['Link 1','Geben Sie eine Web-Adresse (http://…), eine E-Mail-Adresse (mailto:…) oder ein Inserttag ein.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_priceBox_link2'] = ['Link 2','Sie können optional noch einen zweiten Link angeben, der unter dem ersten Link dargestellt wird.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_priceBox_linkText1'] = ['Link-Text 1','Geben Sie einen Link-Text ein, der anstelle der Link-Adresse angezeigt wird.'];
-$GLOBALS['TL_LANG']['tl_content']['ct_priceBox_linkText1'] = ['Link-Text 2','Geben Sie einen Link-Text ein, der anstelle der Link-Adresse angezeigt wird.'];
+$GLOBALS['TL_LANG']['tl_content']['ct_priceBox_linkText2'] = ['Link-Text 2','Geben Sie einen Link-Text ein, der anstelle der Link-Adresse angezeigt wird.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_popularPriceBox'] = ['Bezeichnung für Hervorgehobene Box','Geben Sie hier eine Bezeichnung ein, wenn die Box hervorgehoben dargestellt werden soll.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_priceBox_customTpl'] = ['Individuelles Template','Hier können Sie ein individuelles Template auswählen.'];
 

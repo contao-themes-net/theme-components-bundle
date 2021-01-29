@@ -16,7 +16,7 @@ $GLOBALS['TL_LANG']['tl_content']['ct_priceLabel'] = ['Price subheadline','The p
 $GLOBALS['TL_LANG']['tl_content']['ct_priceBox_link1'] = ['Link 1','Please enter a web address (http://…), an e-mail address (mailto:…) or an insert tag.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_priceBox_link2'] = ['Link 2','You can optionally specify a second link, which is shown below the first link.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_priceBox_linkText1'] = ['Link text 1','The link text will be displayed instead of the target URL.'];
-$GLOBALS['TL_LANG']['tl_content']['ct_priceBox_linkText1'] = ['Link text 2','The link text will be displayed instead of the target URL.'];
+$GLOBALS['TL_LANG']['tl_content']['ct_priceBox_linkText2'] = ['Link text 2','The link text will be displayed instead of the target URL.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_popularPriceBox'] = ['Label for highlighted box','Here you can enter a label if the box should be displayed highlighted.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_priceBox_customTpl'] = ['Custom template','Here you can choose a custom template.'];
 
