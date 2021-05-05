@@ -32,9 +32,37 @@
 
 - [feature] add slider element
 
-.  
-.  
-.  
+## [1.2.2](https://github.com/contao-themes-net/theme-components-bundle/tree/1.2.2) – 2019-07-15
+
+- [fix] fix image in teaser box
+
+## [1.2.1](https://github.com/contao-themes-net/theme-components-bundle/tree/1.2.1) – 2019-07-12
+
+- [feature] add image to content box
+
+## [1.2.0](https://github.com/contao-themes-net/theme-components-bundle/tree/1.2.0) – 2019-06-28
+
+- [feature] add module translation
+
+## [1.1.3](https://github.com/contao-themes-net/theme-components-bundle/tree/1.1.3) – 2019-03-21
+
+- [fix] update teaserbox and contentbox backend wildcard
+
+## [1.1.2](https://github.com/contao-themes-net/theme-components-bundle/tree/1.1.2) – 2019-03-20
+
+- [fix] update advances classes version in composer.json
+
+## [1.1.1](https://github.com/contao-themes-net/theme-components-bundle/tree/1.1.1) – 2019-01-15
+
+- [fix] fix bug: can't select custom template for teaserbox
+
+## [1.1.0](https://github.com/contao-themes-net/theme-components-bundle/tree/1.1.0) – 2019-01-07
+
+- [feature] add link title for teaserbox and contentbox
+
+## [1.0.1](https://github.com/contao-themes-net/theme-components-bundle/tree/1.0.1) – 2019-01-07
+
+- [fix] update template for teaserbox and contentbox
 
 ## [1.0.0](https://github.com/contao-themes-net/theme-components-bundle/tree/1.0.0) – 2018-12-13
 
