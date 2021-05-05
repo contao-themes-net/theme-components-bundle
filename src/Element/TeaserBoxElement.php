@@ -26,8 +26,10 @@ class TeaserBoxElement extends \ContentElement
             }
 
             $this->Template->page = $this->ct_teaserBox_page;
-            $this->Template->picture = \FilesModel::findByUuid($this->singleSRC)->path;
-            $this->Template->metaImg = unserialize(\FilesModel::findByUuid($this->singleSRC)->meta);
+            if(!is_null($this->singleSRC)) {
+                $this->Template->picture = \FilesModel::findByUuid($this->singleSRC)->path;
+                $this->Template->metaImg = unserialize(\FilesModel::findByUuid($this->singleSRC)->meta);
+            }
             $this->Template->pageText = $this->ct_teaserBox_pageText;
 
             // add an image

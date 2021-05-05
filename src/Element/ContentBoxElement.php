@@ -44,7 +44,7 @@ class ContentBoxElement extends \ContentElement
             }
 
             $this->Template->page = $this->ct_contentBox_page;
-            $this->Template->href = \FilesModel::findByUuid($this->singleSRC)->path;
+            if(!is_null($this->singleSRC)) $this->Template->href = \FilesModel::findByUuid($this->singleSRC)->path;
             $this->Template->pageText = $this->ct_contentBox_pageText;
 
             // overwrite link target
