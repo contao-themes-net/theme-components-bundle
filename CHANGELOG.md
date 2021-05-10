@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.3.8](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.8) – 2021-05-10
+
+- [fix] remove link for image in slider element
+
 ## [1.3.7](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.7) – 2021-05-05
 
 - [fix] fix php 8 undefined array index errors
