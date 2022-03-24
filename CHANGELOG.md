@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.3.9](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.9) – 2022-03-24
+
+- [fix] add visibility legend for content box and teaser box
+
 ## [1.3.8](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.8) – 2021-05-10
 
 - [fix] remove link for image in slider element
