@@ -52,7 +52,6 @@ class TeaserBoxElement extends ContentElement
 
             if (null !== $this->singleSRC) {
                 $this->Template->picture = FilesModel::findByUuid($this->singleSRC)->path;
-                $this->Template->metaImg = unserialize(FilesModel::findByUuid($this->singleSRC)->meta);
             }
 
             $this->Template->pageText = $this->ct_teaserBox_pageText;

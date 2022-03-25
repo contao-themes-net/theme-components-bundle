@@ -4,6 +4,7 @@
 
 - [fix] add visibility legend for content box and teaser box
 - [fix] add protected legend and guests field in dca
+- [fix] remove unused line in TeaserBoxElement.php
 
 ## [1.3.8](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.8) – 2021-05-10
 
