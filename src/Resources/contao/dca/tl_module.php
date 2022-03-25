@@ -16,7 +16,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-$GLOBALS['TL_DCA']['tl_module']['palettes']['ct_modal'] = '{title_legend},name,type;{modal_link_legend},modal_linkText,modal_linkClass;{modal_headline_legend},headline;{modal_text_legend},modal_text,modal_class;{template_legend:hide},modal_customTpl;{expert_legend:hide},cssID,space';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['ct_modal'] = '{title_legend},name,type;{modal_link_legend},modal_linkText,modal_linkClass;{modal_headline_legend},headline;{modal_text_legend},modal_text,modal_class;{template_legend:hide},modal_customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID';
 
 /*
  * Add fields to tl_module
