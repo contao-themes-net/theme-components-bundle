@@ -1,38 +1,47 @@
 <?php
 
-/**
- * Contao Open Source CMS
+declare(strict_types=1);
+
+/*
+ * theme components bundle for Contao Open Source CMS
  *
- * Copyright (c) 2005-2016 Leo Feyer
+ * Copyright (C) 2022 pdir / digital agentur <develop@pdir.de>
  *
- * @license LGPL-3.0+
+ * @package    contao-themes-net/theme-components-bundle
+ * @link       https://github.com/contao-themes-net/theme-components-bundle
+ * @license    LGPL-3.0+
+ * @author     pdir GmbH <develop@pdir.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace ContaoThemesNet\ThemeComponentsBundle\Module;
 
+use Contao\BackendTemplate;
+
 /**
- * Class ModalModule
+ * Class ModalModule.
  *
  * @author Philipp Seibt <develop@pdir.de>
  */
 class ModalModule extends \Module
 {
     /**
-     * Display a wildcard in the back end
+     * Display a wildcard in the back end.
      *
      * @return string
      */
     public function generate()
     {
-        if (TL_MODE == 'BE')
-        {
-            /** @var \BackendTemplate|object $objTemplate */
-            $objTemplate = new \BackendTemplate('be_wildcard');
+        if (TL_MODE === 'BE') {
+            /** @var BackendTemplate|object $objTemplate */
+            $objTemplate = new BackendTemplate('be_wildcard');
 
             $objTemplate->wildcard = '### THEME MODAL ###';
             $objTemplate->title = $this->name;
             $objTemplate->id = $this->id;
-            $objTemplate->href = 'contao/main.php?do=themes&amp;table=tl_module&amp;act=edit&amp;id=' . $this->id;
+            $objTemplate->href = 'contao/main.php?do=themes&amp;table=tl_module&amp;act=edit&amp;id='.$this->id;
 
             return $objTemplate->parse();
         }
@@ -40,29 +49,28 @@ class ModalModule extends \Module
         return parent::generate();
     }
 
-
     /**
-     * Generate the module
+     * Generate the module.
      */
-    protected function compile()
+    protected function compile(): void
     {
-        if($this->modal_customTpl != "") {
+        if ('' !== $this->modal_customTpl) {
             $this->Template->setName($this->modal_customTpl);
         } else {
-            $this->Template->setName("mod_cthemes_modal");
+            $this->Template->setName('mod_cthemes_modal');
         }
         $this->Template->linkText = $this->modal_linkText;
 
-        if($this->modal_linkClass != "") {
-            $this->Template->linkClass = " ".$this->modal_linkClass;
+        if ('' !== $this->modal_linkClass) {
+            $this->Template->linkClass = ' '.$this->modal_linkClass;
         } else {
-            $this->Template->linkClass = "";
+            $this->Template->linkClass = '';
         }
 
-        if($this->modal_class != "") {
-            $this->Template->modalClass = " ".$this->modal_class;
+        if ('' !== $this->modal_class) {
+            $this->Template->modalClass = ' '.$this->modal_class;
         } else {
-            $this->Template->modalClass = "";
+            $this->Template->modalClass = '';
         }
 
         $this->Template->text = $this->modal_text;
