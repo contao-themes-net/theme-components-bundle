@@ -19,9 +19,10 @@ declare(strict_types=1);
 namespace ContaoThemesNet\ThemeComponentsBundle\Element;
 
 use Contao\BackendTemplate;
+use Contao\ContentElement;
 use Contao\StringUtil;
 
-class PriceBoxElement extends \ContentElement
+class PriceBoxElement extends ContentElement
 {
     /**
      * Template.

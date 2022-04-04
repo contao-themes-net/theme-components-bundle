@@ -19,6 +19,7 @@ declare(strict_types=1);
 namespace ContaoThemesNet\ThemeComponentsBundle\Element;
 
 use Contao\BackendTemplate;
+use Contao\ContentElement;
 use Contao\FilesModel;
 use Contao\System;
 
@@ -27,7 +28,7 @@ use Contao\System;
  *
  * @author Philipp Seibt <develop@pdir.de>
  */
-class ContentBoxElement extends \ContentElement
+class ContentBoxElement extends ContentElement
 {
     /**
      * Template.

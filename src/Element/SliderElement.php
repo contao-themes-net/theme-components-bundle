@@ -19,10 +19,11 @@ declare(strict_types=1);
 namespace ContaoThemesNet\ThemeComponentsBundle\Element;
 
 use Contao\BackendTemplate;
+use Contao\ContentElement;
 use Contao\FilesModel;
 use Contao\StringUtil;
 
-class SliderElement extends \ContentElement
+class SliderElement extends ContentElement
 {
     /**
      * Template.
@@ -60,14 +61,16 @@ class SliderElement extends \ContentElement
     {
         $this->Template->page = $this->ct_sliderElement_page;
         $this->Template->linkText = $this->ct_sliderElement_linkText;
-        if($this->singleSRC) $this->Template->metaImg = unserialize(FilesModel::findByUuid($this->singleSRC)->meta);
+
+        if (null !== $this->singleSRC) {
+            $this->Template->metaImg = unserialize(FilesModel::findByUuid($this->singleSRC)->meta);
+        }
         $this->Template->picture = $this->singleSRC;
         $this->Template->subheadline = $this->ct_sliderElement_subHeadline;
+        $this->Template->playerSRC = '';
 
         if ('' !== $this->ct_sliderElement_playerSRC) {
             $this->Template->playerSRC = FilesModel::findByUuid($this->ct_sliderElement_playerSRC)->path;
-        } else {
-            $this->Template->playerSRC = '';
         }
 
         // overwrite link target

@@ -19,8 +19,9 @@ declare(strict_types=1);
 namespace ContaoThemesNet\ThemeComponentsBundle\Element;
 
 use Contao\BackendTemplate;
+use Contao\ContentElement;
 
-class WrapperStopElement extends \ContentElement
+class WrapperStopElement extends ContentElement
 {
     /**
      * Template.

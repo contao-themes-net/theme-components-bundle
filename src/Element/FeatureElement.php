@@ -18,7 +18,9 @@ declare(strict_types=1);
 
 namespace ContaoThemesNet\ThemeComponentsBundle\Element;
 
-class FeatureElement extends \ContentElement
+use Contao\ContentElement;
+
+class FeatureElement extends ContentElement
 {
     /**
      * Template.
