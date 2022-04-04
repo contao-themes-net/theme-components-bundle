@@ -57,7 +57,7 @@ class TeaserBoxElement extends ContentElement
             $this->Template->pageText = $this->ct_teaserBox_pageText;
 
             // add an image
-            if ($this->addImage && '' !== $this->singleSRC) {
+            if ($this->addImage && null !== $this->singleSRC) {
                 $objModel = FilesModel::findByUuid($this->singleSRC);
 
                 if (null !== $objModel && is_file(System::getContainer()->getParameter('kernel.project_dir').'/'.$objModel->path)) {
