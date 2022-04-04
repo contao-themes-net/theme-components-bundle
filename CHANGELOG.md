@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.3.10](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.10) – 2022-04-04
+
+- [fix] bug fixed when no image is set
+
 ## [1.3.9](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.9) – 2022-03-25
 
 - [fix] add visibility legend for content box and teaser box

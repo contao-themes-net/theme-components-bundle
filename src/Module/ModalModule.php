@@ -19,13 +19,14 @@ declare(strict_types=1);
 namespace ContaoThemesNet\ThemeComponentsBundle\Module;
 
 use Contao\BackendTemplate;
+use Contao\Module;
 
 /**
  * Class ModalModule.
  *
  * @author Philipp Seibt <develop@pdir.de>
  */
-class ModalModule extends \Module
+class ModalModule extends Module
 {
     /**
      * Display a wildcard in the back end.
@@ -54,23 +55,22 @@ class ModalModule extends \Module
      */
     protected function compile(): void
     {
+        // set template values
+        $this->Template->setName('mod_cthemes_modal');
+        $this->Template->linkText = $this->modal_linkText;
+        $this->Template->linkClass = '';
+        $this->Template->modalClass = '';
+
         if ('' !== $this->modal_customTpl) {
             $this->Template->setName($this->modal_customTpl);
-        } else {
-            $this->Template->setName('mod_cthemes_modal');
         }
-        $this->Template->linkText = $this->modal_linkText;
 
         if ('' !== $this->modal_linkClass) {
             $this->Template->linkClass = ' '.$this->modal_linkClass;
-        } else {
-            $this->Template->linkClass = '';
         }
 
         if ('' !== $this->modal_class) {
             $this->Template->modalClass = ' '.$this->modal_class;
-        } else {
-            $this->Template->modalClass = '';
         }
 
         $this->Template->text = $this->modal_text;
