@@ -60,7 +60,7 @@ class SliderElement extends \ContentElement
     {
         $this->Template->page = $this->ct_sliderElement_page;
         $this->Template->linkText = $this->ct_sliderElement_linkText;
-        $this->Template->metaImg = unserialize(FilesModel::findByUuid($this->singleSRC)->meta);
+        if($this->singleSRC) $this->Template->metaImg = unserialize(FilesModel::findByUuid($this->singleSRC)->meta);
         $this->Template->picture = $this->singleSRC;
         $this->Template->subheadline = $this->ct_sliderElement_subHeadline;
 
