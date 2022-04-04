@@ -69,7 +69,7 @@ class SliderElement extends ContentElement
         $this->Template->subheadline = $this->ct_sliderElement_subHeadline;
         $this->Template->playerSRC = '';
 
-        if ('' !== $this->ct_sliderElement_playerSRC) {
+        if (null !== $this->ct_sliderElement_playerSRC) {
             $this->Template->playerSRC = FilesModel::findByUuid($this->ct_sliderElement_playerSRC)->path;
         }
 
