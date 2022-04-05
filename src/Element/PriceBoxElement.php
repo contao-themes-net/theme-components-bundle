@@ -18,12 +18,12 @@ declare(strict_types=1);
 
 namespace ContaoThemesNet\ThemeComponentsBundle\Element;
 
-use Contao\BackendTemplate;
 use Contao\ContentElement;
-use Contao\StringUtil;
 
 class PriceBoxElement extends ContentElement
 {
+    use ElementHelperTrait;
+
     /**
      * Template.
      *
@@ -36,13 +36,7 @@ class PriceBoxElement extends ContentElement
      */
     protected function compile(): void
     {
-        if (TL_MODE === 'BE') {
-            $this->strTemplate = 'be_wildcard';
-            $this->Template = new BackendTemplate($this->strTemplate);
-            $this->Template->wildcard = '### '.$this->headline.' ###';
-            $this->Template->text = StringUtil::toHtml5($this->text);
-        }
-
+        // Overwrite template
         if ('' !== $this->ct_priceBox_customTpl) {
             $this->Template->setName($this->ct_priceBox_customTpl);
         }
