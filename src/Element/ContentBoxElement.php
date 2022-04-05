@@ -18,7 +18,6 @@ declare(strict_types=1);
 
 namespace ContaoThemesNet\ThemeComponentsBundle\Element;
 
-use Contao\BackendTemplate;
 use Contao\ContentElement;
 use Contao\FilesModel;
 use Contao\System;
@@ -30,6 +29,8 @@ use Contao\System;
  */
 class ContentBoxElement extends ContentElement
 {
+    use ElementHelperTrait;
+
     /**
      * Template.
      *
@@ -42,47 +43,36 @@ class ContentBoxElement extends ContentElement
      */
     protected function compile(): void
     {
-        if (TL_MODE === 'BE') {
-            $objTemplate = new BackendTemplate('be_wildcard');
-            $objTemplate->title = $this->headline;
-            $objTemplate->text = $this->text;
-        } else {
-            if ('' !== $this->ct_contentBox_customTpl) {
-                $this->Template->setName($this->ct_contentBox_customTpl);
+        $this->Template->page = $this->ct_contentBox_page;
+        $this->Template->pageText = $this->ct_contentBox_pageText;
+        $this->Template->pageTitle = '';
+        $this->Template->target = '';
+        $this->Template->rel = '';
+
+        // Overwrite template
+        if ('' !== $this->ct_contentBox_customTpl) {
+            $this->Template->setName($this->ct_contentBox_customTpl);
+        }
+
+        // Overwrite page title
+        if ('' !== $this->ct_contentBox_pageTitle) {
+            $this->Template->pageTitle = ' title="'.$this->ct_contentBox_pageTitle.'"';
+        }
+
+        // Add an image
+        if ($this->addImage && '' !== $this->singleSRC) {
+            $objModel = FilesModel::findByUuid($this->singleSRC);
+
+            if (null !== $objModel && is_file(System::getContainer()->getParameter('kernel.project_dir').'/'.$objModel->path)) {
+                $this->singleSRC = $this->Template->href = $objModel->path;
+                $this->addImageToTemplate($this->Template, $this->arrData, null, null, $objModel);
             }
+        }
 
-            $this->Template->page = $this->ct_contentBox_page;
-
-            if (null !== $this->singleSRC) {
-                $this->Template->href = FilesModel::findByUuid($this->singleSRC)->path;
-            }
-            $this->Template->pageText = $this->ct_contentBox_pageText;
-
-            // overwrite link target
-            $this->Template->target = '';
-            $this->Template->rel = '';
-
-            if ($this->target) {
-                $this->Template->target = ' target="_blank"';
-                $this->Template->rel = ' rel="noreferrer noopener"';
-            }
-
-            //link title
-            $this->Template->pageTitle = '';
-
-            if ('' !== $this->ct_contentBox_pageTitle) {
-                $this->Template->pageTitle = ' title="'.$this->ct_contentBox_pageTitle.'"';
-            }
-
-            // add an image
-            if ($this->addImage && '' !== $this->singleSRC) {
-                $objModel = FilesModel::findByUuid($this->singleSRC);
-
-                if (null !== $objModel && is_file(System::getContainer()->getParameter('kernel.project_dir').'/'.$objModel->path)) {
-                    $this->singleSRC = $objModel->path;
-                    $this->addImageToTemplate($this->Template, $this->arrData, null, null, $objModel);
-                }
-            }
+        // Overwrite link target
+        if ($this->target) {
+            $this->Template->target = ' target="_blank"';
+            $this->Template->rel = ' rel="noreferrer noopener"';
         }
     }
 }

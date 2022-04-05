@@ -22,6 +22,8 @@ use Contao\ContentElement;
 
 class FeatureElement extends ContentElement
 {
+    use ElementHelperTrait;
+
     /**
      * Template.
      *
@@ -34,17 +36,17 @@ class FeatureElement extends ContentElement
      */
     protected function compile(): void
     {
+        $this->Template->featureIcon = $this->ct_featureIcon;
+        $this->Template->iconLink = $this->ct_iconLink;
+        $this->Template->target = '';
+        $this->Template->rel = '';
+
+        // Overwrite template
         if ('' !== $this->ct_featureElement_customTpl) {
             $this->Template->setName($this->ct_featureElement_customTpl);
         }
 
-        $this->Template->featureIcon = $this->ct_featureIcon;
-        $this->Template->iconLink = $this->ct_iconLink;
-
-        // overwrite link target
-        $this->Template->target = '';
-        $this->Template->rel = '';
-
+        // Overwrite link target
         if ($this->target) {
             $this->Template->target = ' target="_blank"';
             $this->Template->rel = ' rel="noreferrer noopener"';
