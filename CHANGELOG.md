@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.3.10](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.11) – 2022-04-05
+
+- [fix] meta info bug in slider element
+- [info] code styling and back end optimizations
+
 ## [1.3.10](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.10) – 2022-04-04
 
 - [fix] bug fixed when no image is set
