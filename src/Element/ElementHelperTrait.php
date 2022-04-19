@@ -30,7 +30,7 @@ trait ElementHelperTrait
     {
         if (TL_MODE === 'BE') {
             /** @var BackendTemplate|object $objTemplate */
-            $objTemplate = new BackendTemplate('be_wildcard');
+            $objTemplate = new BackendTemplate('be_wildcard_tcb');
 
             $objTemplate->title = $this->headline;
             $objTemplate->id = $this->id;
