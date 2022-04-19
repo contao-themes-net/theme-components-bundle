@@ -41,7 +41,7 @@ class WrapperStartElement extends ContentElement
             $objTemplate = new BackendTemplate($this->strTemplate);
             $this->Template = $objTemplate;
 
-            if ('' !== $this->ct_wrapper_name) {
+            if (null !== $this->ct_wrapper_name) {
                 $this->Template->wildcard = '### '.$this->ct_wrapper_name.' ###';
             }
         }
