@@ -20,6 +20,7 @@ namespace ContaoThemesNet\ThemeComponentsBundle\Element;
 
 use Contao\BackendTemplate;
 use Contao\ContentElement;
+use Contao\System;
 
 class WrapperStopElement extends ContentElement
 {
@@ -35,7 +36,7 @@ class WrapperStopElement extends ContentElement
      */
     protected function compile(): void
     {
-        if (TL_MODE === 'BE') {
+        if (System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest(System::getContainer()->get('request_stack')->getCurrentRequest() ?? Request::create(''))) {
             $this->strTemplate = 'be_wildcard';
             $this->Template = new BackendTemplate($this->strTemplate);
         }

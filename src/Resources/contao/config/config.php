@@ -26,7 +26,10 @@ use ContaoThemesNet\ThemeComponentsBundle\Element\WrapperStopElement;
 use ContaoThemesNet\ThemeComponentsBundle\Module\ModalModule;
 
 // Insert the mate theme category
-array_insert($GLOBALS['TL_CTE'], 1, ['contaoThemesNet' => []]);
+if (!isset($GLOBALS['TL_CTE']['contaoThemesNet']))
+{
+    $GLOBALS['TL_CTE']['contaoThemesNet'] = [];
+}
 
 /*
  * Add content element

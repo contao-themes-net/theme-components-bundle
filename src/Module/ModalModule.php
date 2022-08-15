@@ -20,6 +20,7 @@ namespace ContaoThemesNet\ThemeComponentsBundle\Module;
 
 use Contao\BackendTemplate;
 use Contao\Module;
+use Contao\System;
 
 /**
  * Class ModalModule.
@@ -35,7 +36,7 @@ class ModalModule extends Module
      */
     public function generate()
     {
-        if (TL_MODE === 'BE') {
+        if (System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest(System::getContainer()->get('request_stack')->getCurrentRequest() ?? Request::create(''))) {
             /** @var BackendTemplate|object $objTemplate */
             $objTemplate = new BackendTemplate('be_wildcard');
 
