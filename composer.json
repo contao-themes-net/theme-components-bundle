@@ -30,7 +30,7 @@
   "require": {
     "php": "^8.0",
     "contao/core-bundle": "^5.0",
-    "contao-dd/advanced-classes-bundle": "dev-contao5"
+    "contao-dd/advanced-classes-bundle": "^1.4"
   },
   "conflict": {
     "contao/core": "*"
