@@ -20,6 +20,7 @@ namespace ContaoThemesNet\ThemeComponentsBundle\Element;
 
 use Contao\BackendTemplate;
 use Contao\StringUtil;
+use Contao\System;
 
 trait ElementHelperTrait
 {
@@ -28,14 +29,14 @@ trait ElementHelperTrait
      */
     public function generate(): string
     {
-        if (TL_MODE === 'BE') {
+        if (System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest(System::getContainer()->get('request_stack')->getCurrentRequest() ?? Request::create(''))) {
             /** @var BackendTemplate|object $objTemplate */
             $objTemplate = new BackendTemplate('be_wildcard_tcb');
 
             $objTemplate->title = $this->headline;
             $objTemplate->id = $this->id;
             $objTemplate->link = $this->name;
-            $objTemplate->text = StringUtil::toHtml5($this->text);
+            $objTemplate->text = $this->text ?? '';
 
             return $objTemplate->parse();
         }
