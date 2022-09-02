@@ -10,10 +10,9 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
-## [2.0.0](https://github.com/contao-themes-net/theme-components-bundle/tree/2.0.0) – 2022-08-15
+## [2.0.0](https://github.com/contao-themes-net/theme-components-bundle/tree/2.0.0) – 2022-09-02
 
 - [Changed] Set Contao 5 as minimum requirement
-- [Added] demo data for Contao 5
 
 ## [1.3.12](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.12) – 2022-04-19
 
