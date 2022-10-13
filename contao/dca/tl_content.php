@@ -17,6 +17,7 @@ declare(strict_types=1);
  */
 
 use Contao\Backend;
+use Contao\DataContainer;
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['ct_contentBox'] = '{type_legend},type,headline;{text_legend},text;{ct_contentBox_settings},ct_contentBox_page,target,ct_contentBox_pageText,ct_contentBox_pageTitle;{template_legend:hide},ct_contentBox_customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{advanced_classes_legend},advancedCss;{invisible_legend:hide},invisible,start,stop;';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['ct_featureElement'] = '{type_legend},type,headline;{text_legend},text,ct_featureIcon,ct_iconLink,target;{template_legend:hide},ct_featureElement_customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{advanced_classes_legend},advancedCss;{invisible_legend:hide},invisible,start,stop;';

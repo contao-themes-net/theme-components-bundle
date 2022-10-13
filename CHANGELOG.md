@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.4.1](https://github.com/contao-themes-net/theme-components-bundle/tree/1.4.1) – 2022-10-13
+
+- [Fixed] add use statement in dca
+
 ## [1.4.0](https://github.com/contao-themes-net/theme-components-bundle/tree/1.4.0) – 2022-09-02
 
 - [Changed] Set Contao 5 as minimum requirement
