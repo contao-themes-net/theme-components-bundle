@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.4.2](https://github.com/contao-themes-net/theme-components-bundle/tree/1.4.2) – 2022-12-22
+
+- [Fixed] Fix advances classes settings for content elements
+
 ## [1.4.1](https://github.com/contao-themes-net/theme-components-bundle/tree/1.4.1) – 2022-10-13
 
 - [Fixed] add use statement in dca
