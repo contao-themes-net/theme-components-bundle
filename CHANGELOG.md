@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.3.13](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.13) – 2023-02-14
+
+- [Added] Add custom template to wrapper start and stop element
+
 ## [1.3.12](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.12) – 2022-04-19
 
 - [fix] backend wilcard
