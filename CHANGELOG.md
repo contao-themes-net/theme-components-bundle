@@ -10,7 +10,7 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
-## [1.4.3](https://github.com/contao-themes-net/theme-components-bundle/tree/1.4.3) – 2023-02-14
+## [1.4.3](https://github.com/contao-themes-net/theme-components-bundle/tree/1.4.3) – 2023-02-15
 
 - [Added] Add custom template to wrapper start and stop element
 
@@ -26,7 +26,7 @@ Types of changes
 
 - [Changed] Set Contao 5 as minimum requirement
 
-## [1.3.13](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.13) – 2023-02-14
+## [1.3.13](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.13) – 2023-02-15
 
 - [Added] Add custom template to wrapper start and stop element
 
