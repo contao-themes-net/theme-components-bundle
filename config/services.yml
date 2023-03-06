@@ -1,0 +1,9 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+    # Hooks
+  ctn.themecomponentsbundle.listener.replaceinserttags:
+    class: ContaoThemesNet\ThemeComponentsBundle\Listener\ReplaceInsertTagsListener
+    public: true

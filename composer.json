@@ -58,5 +58,13 @@
       "type": "corporate",
       "url": "https://contao-themes.net/sponsoring.html"
     }
-  ]
+  ],
+  "config": {
+    "allow-plugins": {
+      "contao-components/installer": true,
+      "php-http/discovery": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "contao/manager-plugin": true
+    }
+  }
 }
