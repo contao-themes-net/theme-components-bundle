@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.5.0](https://github.com/contao-themes-net/theme-components-bundle/tree/1.5.0) – 2023-03-09
+
+- [Added] Contrast and size switcher
+
 ## [1.4.3](https://github.com/contao-themes-net/theme-components-bundle/tree/1.4.3) – 2023-02-15
 
 - [Added] Add custom template to wrapper start and stop element
