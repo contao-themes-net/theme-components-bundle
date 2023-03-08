@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * theme components bundle for Contao Open Source CMS
  *
- * Copyright (C) 2022 pdir / digital agentur <develop@pdir.de>
+ * Copyright (C) 2023 pdir / digital agentur <develop@pdir.de>
  *
  * @package    contao-themes-net/theme-components-bundle
  * @link       https://github.com/contao-themes-net/theme-components-bundle
@@ -19,8 +19,8 @@ declare(strict_types=1);
 namespace ContaoThemesNet\ThemeComponentsBundle\Element;
 
 use Contao\BackendTemplate;
-use Contao\StringUtil;
 use Contao\System;
+use Symfony\Component\HttpFoundation\Request;
 
 trait ElementHelperTrait
 {

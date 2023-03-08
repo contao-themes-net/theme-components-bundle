@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * theme components bundle for Contao Open Source CMS
  *
- * Copyright (C) 2022 pdir / digital agentur <develop@pdir.de>
+ * Copyright (C) 2023 pdir / digital agentur <develop@pdir.de>
  *
  * @package    contao-themes-net/theme-components-bundle
  * @link       https://github.com/contao-themes-net/theme-components-bundle
@@ -19,7 +19,6 @@ declare(strict_types=1);
 namespace ContaoThemesNet\ThemeComponentsBundle\Element;
 
 use Contao\ContentElement;
-use Contao\FilesModel;
 use Contao\System;
 
 /**
@@ -60,8 +59,7 @@ class ContentBoxElement extends ContentElement
         }
 
         // Add image
-        if ($this->addImage)
-        {
+        if ($this->addImage) {
             $figure = System::getContainer()
                 ->get('contao.image.studio')
                 ->createFigureBuilder()
@@ -69,7 +67,8 @@ class ContentBoxElement extends ContentElement
                 ->setSize($this->size)
                 ->setMetadata($this->objModel->getOverwriteMetadata())
                 ->enableLightbox($this->fullsize)
-                ->buildIfResourceExists();
+                ->buildIfResourceExists()
+            ;
 
             $figure?->applyLegacyTemplateData($this->Template, null, $this->floating);
 
