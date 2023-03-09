@@ -29,20 +29,24 @@ class ReplaceInsertTagsListener
     public const TAG = 'comp';
 
     private const AssetsPath = 'bundles/themecomponents';
-    private bool $enable_high_contrast;
+    private bool $high_contrast;
 
-    private bool $enable_text_size;
+    private bool $text_size;
+
+    private $text_size_comment_page = 1;
 
     /**
      * Replace the icon insert tag.
      */
     public function __invoke($tag)
     {
+        global $objPage;
         // get the current root page
-        $page = PageModel::findOneByType('root');
+        $page = PageModel::findByPk($objPage->rootId);
 
         $this->high_contrast = $page->enable_high_contrast;
         $this->text_size = $page->enable_text_size;
+        $this->text_size_comment_page = $page->text_size_comment_page;
 
         $chunks = explode('::', $tag);
 
@@ -63,32 +67,46 @@ class ReplaceInsertTagsListener
         return $tag;
     }
 
+    /**
+     * @param array $chunks
+     * @return string
+     */
     private function generateContrastTag(array $chunks): string
     {
-        $svgCircle = self::AssetsPath.'/svg/circle-half-stroke-solid.svg';
+        $svgCircleIcon = self::AssetsPath.'/svg/circle_half_stroke.svg';
+        [$alt, $title] = $GLOBALS['TL_LANG']['WCAG']['enable_high_contrast'];
 
         $javascript = <<<'EOS'
             let b = document.querySelector(`body`);if(localStorage.getItem(`high-contrast`)===`on`) { localStorage.setItem(`high-contrast`, `off`);b.classList.remove(`high-contrast`); } else { localStorage.setItem(`high-contrast`, `on`);b.classList.add(`high-contrast`); };
-            EOS;
-
-        return $this->high_contrast ?
-            "<img src='$svgCircle' class='square16' alt='Kontrast' onclick='$javascript'>" :
-            "<img src='$svgCircle' class='square16' alt='Kontrast disabled'>"
-        ;
+EOS;
+        return $this->high_contrast ? "<img src='$svgCircleIcon' class='square16' alt='$alt' title='$title' onclick='$javascript'>" : "";
     }
 
+    /**
+     * @param array $chunks
+     * @return string
+     */
     private function generateSizeTag(array $chunks): string
     {
-        $html = 'size';
+        // text size is disabled
+        if(!(bool)$this->text_size) return '';
 
-        $targetPage = PageModel::findOneByAlias($chunks[2]);
+        $html = '';
 
-        if ($targetPage) {
-            $html .= Environment::get('requestUri');
+        $svgSizeIcon = self::AssetsPath.'/svg/format_size.svg';
+        [$alt, $title] = $GLOBALS['TL_LANG']['WCAG']['enable_text_size'];
+
+        // handle user defined uri like comp::text::uri
+        if(count($chunks)===3) return "<a href='{$chunks[2]}' alt='$alt' title='$title'><img src='$svgSizeIcon' class='square16'></a>";
+
+        // handle empty page selection
+        if($this->text_size_comment_page > 0) {
+            $targetPage = PageModel::findBypk($this->text_size_comment_page);
+            $href = $targetPage->getFrontendUrl();
         } else {
-            $html = 'alias nicht gefunden';
+            $href = '';
         }
 
-        return $html;
+        return "<a href='$href' alt='$alt' title='$title'><img src='$svgSizeIcon' class='square16'></a>";
     }
 }

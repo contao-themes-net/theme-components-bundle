@@ -27,8 +27,10 @@ class ParseFrontendTemplateHook
 {
     public function __invoke(string $buffer, string $templateName, FrontendTemplate $template): string
     {
+        global $objPage;
+
         // get the current root page
-        $page = PageModel::findOneByType('root');
+        $page = PageModel::findByPk($objPage->rootId);
 
         $high_contrast = $page->enable_high_contrast;
         //$text_size = $page->enable_text_size;

@@ -27,6 +27,7 @@ PaletteManipulator::create()
     // apply the new fields
     ->addField('enable_high_contrast', 'wcag_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('enable_text_size', 'wcag_legend', PaletteManipulator::POSITION_APPEND)
+    ->addField('text_size_comment_page', 'wcag_legend', PaletteManipulator::POSITION_APPEND)
     // register the palette for the root page
     ->applyToPalette('rootfallback', 'tl_page')
 ;
@@ -48,4 +49,14 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['enable_text_size'] = [
     'inputType' => 'checkbox',
     'eval' => ['tl_class' => 'w50'],
     'sql'  => ['type' => 'boolean', 'default' => true],
+];
+
+$GLOBALS['TL_DCA']['tl_page']['fields']['text_size_comment_page'] = [
+    'label' => &$GLOBALS['TL_LANG']['tl_page']['text_size_comment_page'],
+    'exclude' => true,
+    'inputType' => 'pageTree',
+    'foreignKey' => 'tl_page.title',
+    'eval' => ['multiple'=>false, 'fieldType'=>'radio', 'tl_class' => 'clr'],
+    'sql' => "int(10) unsigned NOT NULL default 0",
+    'relation' => array('type'=>'hasOne', 'load'=>'lazy')
 ];

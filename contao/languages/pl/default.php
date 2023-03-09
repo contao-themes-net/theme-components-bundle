@@ -19,12 +19,12 @@ declare(strict_types=1);
 $GLOBALS['TL_LANG']['CTE']['contaoThemesNet'] = 'Contao Themes';
 
 $GLOBALS['TL_LANG']['CTE']['ct_contentBox'][0] = 'Content Box';
-$GLOBALS['TL_LANG']['CTE']['ct_featureElement'][0] = 'Text und Icon';
-$GLOBALS['TL_LANG']['CTE']['ct_priceBox'][0] = 'Preis-Tabelle';
+$GLOBALS['TL_LANG']['CTE']['ct_featureElement'][0] = 'Tekst i ikona';
+$GLOBALS['TL_LANG']['CTE']['ct_priceBox'][0] = 'Tabela cenowa';
 $GLOBALS['TL_LANG']['CTE']['ct_sliderElement'][0] = 'Slider-Element';
 $GLOBALS['TL_LANG']['CTE']['ct_teaserBox'][0] = 'Teaser Box';
-$GLOBALS['TL_LANG']['CTE']['ct_wrapperStart'][0] = 'Inhaltscontainer Anfang';
-$GLOBALS['TL_LANG']['CTE']['ct_wrapperStop'][0] = 'Inhaltscontainer Ende';
+$GLOBALS['TL_LANG']['CTE']['ct_wrapperStart'][0] = 'Start kontenera treści';
+$GLOBALS['TL_LANG']['CTE']['ct_wrapperStop'][0] = 'Kontener treści koniec';
 
-$GLOBALS['TL_LANG']['WCAG']['enable_high_contrast'] = ['Kontrast umschalten', 'Hier können Sie den Modus mit hohem Kontrast umschalten.'];
-$GLOBALS['TL_LANG']['WCAG']['enable_text_size'] = ['Schriftgröße umschalten', 'Hier gelangen Sie zu einer Seite mit Erklärungen, wie Sie in modernen Browsern die Schriftgröße anpassen können.'];
+$GLOBALS['TL_LANG']['WCAG']['enable_high_contrast'] = ['Kontrast przełącznika', 'Tutaj można przełączyć tryb wysokiego kontrastu.'];
+$GLOBALS['TL_LANG']['WCAG']['enable_text_size'] = ['Przełączanie rozmiaru czcionki', 'Spowoduje to przejście do strony wyjaśniającej, jak dostosować rozmiar czcionki w nowoczesnych przeglądarkach.'];
