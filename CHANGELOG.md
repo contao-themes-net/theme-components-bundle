@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+# [1.4.4](https://github.com/contao-themes-net/theme-components-bundle/tree/1.4.4) – 2023-03-07
+
+- [Fixed] warning in debug mode in slider template
+
 ## [1.4.3](https://github.com/contao-themes-net/theme-components-bundle/tree/1.4.3) – 2023-02-15
 
 - [Added] Add custom template to wrapper start and stop element
