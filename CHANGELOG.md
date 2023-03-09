@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.3.14](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.14) – 2023-03-07
+
+- [Fixed] warning in debug mode in slider template
+
 ## [1.3.13](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.13) – 2023-02-14
 
 - [Added] Add custom template to wrapper start and stop element

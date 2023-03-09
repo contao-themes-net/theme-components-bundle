@@ -5,9 +5,9 @@
     <?php if($this->addImage): ?>
         <div class="image">
             <?php if($size == ""): ?>
-                {{image::<?= $this->href ?>?alt=<?= $this->metaImg[$GLOBALS['TL_LANGUAGE']]['alt'] ?>}}
+                {{image::<?= $this->href ?>?alt=<?= $this->metaImg ? $this->metaImg[$GLOBALS['TL_LANGUAGE']]['alt']: '' ?>}}
             <?php else: ?>
-                {{picture::<?= $this->href ?>?size=<?= $size ?>&alt=<?= $this->metaImg[$GLOBALS['TL_LANGUAGE']]['alt'] ?>}}
+                {{picture::<?= $this->href ?>?size=<?= $size ?>&alt=<?= $this->metaImg ? $this->metaImg[$GLOBALS['TL_LANGUAGE']]['alt']: '' ?>}}
             <?php endif; ?>
         </div>
     <?php elseif($this->playerSRC != ""): ?>
