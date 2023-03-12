@@ -12,6 +12,11 @@ Contained Elements:
 - Contrast switcher icon
 - Size icon insert tag with backlink
 
+## Available insert tags
+
+    {{comp::contrast}}
+    {{comp::size::barrierefreiheit.html#fontSize}}
+
 The SVG icons are from https://github.com/google/material-design-icons (See LICENSE_MATERIAL_DESIGN_ICONS for license information).
 
 # German
