@@ -24,11 +24,11 @@ The insert tags can be placed anywhere you like, and the appearance depends on y
 
 This symbol stands for _**switch between high and low contrast**_:
 
-![img.png](img.png)
+![img.png](https://user-images.githubusercontent.com/13376233/224686641-3b85ab24-8e71-497a-b480-511e4d06f1b0.png)
 
 and this for _**change font size**_:
 
-![img_1.png](img_1.png)
+![img_1.png](https://user-images.githubusercontent.com/13376233/224646586-0caf797b-51bd-4cc9-b95d-6e339487bc60.png)
 
 But these are only two examples. The appearance depends on your theme and styling.
 
@@ -39,7 +39,7 @@ You have the option to configure the use of _**high contrast**_ and _**font size
 This is done in the start point of the website for the entire page tree below.  
 You can find the options under ► _**pages**_ ► _**website start page**_ under the legend ► _**WCAG settings (Web Content Accessibility Guidelines)**_.
 WCAG here stands for the official [Web Content Accessibility Guide](https://www.w3.org/Translations/WCAG20-de/).
-![img_3.png](img_3.png)
+![img_3.png](https://user-images.githubusercontent.com/13376233/224686701-6c18b41f-d869-4653-9d18-295124b9f593.png)
 
 Here you can de/activate features (i.e. insert tags) individually and define the assignment between the _**page explaining the
 font size change**_ and the icon.
@@ -69,11 +69,11 @@ Wird kein **_link_** angegeben, so generiert das Tag einen Link auf die Root-Pag
 
 Dabei steht dieses Symbol für _**hohen Kontrast umschalten**_:
 
-![img.png](img.png)
+![img.png](https://user-images.githubusercontent.com/13376233/224686641-3b85ab24-8e71-497a-b480-511e4d06f1b0.png)
 
 und dieses für _**Schriftgröße ändern**_:
 
-![img_1.png](img_1.png)
+![img_1.png](https://user-images.githubusercontent.com/13376233/224646586-0caf797b-51bd-4cc9-b95d-6e339487bc60.png)
 
 Das sind aber nur zwei Beispiele. Die Darstellung ist von Ihrem Theme und vom Styling abhängig.
 
@@ -83,9 +83,9 @@ The SVG icons stammen aus: https://github.com/google/material-design-icons (Sieh
 Sie haben die Möglichkeit, die Verwendung von _**hohem Kontrast**_ und _**Schriftgröße**_ in geringen Umfang zu konfigurieren.
 Das geschieht im Startpunkt der Website für den gesamten darunter liegenden Seitenbaum.  
 Sie finden die Optionen unter ► _**Seiten**_ ► _**Website-Startseite**_ unter der Legende ► _**WCAG-Einstellungen (Web Content Accessibility Guidelines)**_.
-WCAG steht hier für den offiziellen [Standard zur barrierefreihen Gestaltung von Websites](https://www.w3.org/Translations/WCAG20-de/). 
+WCAG steht hier für die offiziellen [Richtlinien zur barrierefreihen Gestaltung von Websites](https://www.w3.org/Translations/WCAG20-de/). 
 
-![img_2.png](img_2.png)
+![img_2.png](https://user-images.githubusercontent.com/13376233/224686682-556eda31-d828-486e-b17d-a16b242dcfa2.png)
 
 Hier können Sie Features (sprich Insert-Tags) einzeln de/aktivieren und die Zuordnung zwischen der _**Seite zur Erläuterung der 
 Schriftgrößenänderung**_ und dem Icon festlegen.

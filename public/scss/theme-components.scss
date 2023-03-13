@@ -1,15 +1,43 @@
-.square32 {
-  width: 32px;
-  height: 32px;
+/* high contrast from theme-components-bundle */
+
+.wcag-square,
+.wcag-size {
+  transform: scale(.4);
 }
 
-.square16 {
-  min-width: 16px;
-  width: 16px ;
-  height: 16px;
+.wcag-size:visited {
+  color: #000;
 }
 
-.high-contrast #wrapper {
-  background-color: black !important;
-  color: white;
+.high-contrast {
+  a,
+  a:visited {
+    color: #fff !important;
+    text-decoration: underline;
+  }
+
+  /* Header */
+  .navbar .logo img,
+  .mod_search.header-search .open-search img {
+    filter: invert(1);
+  }
+
+  /* Main */
+  #wrapper,
+  nav {
+    background: black !important;
+    color: white !important;
+  }
+
+  #main .mod_article img {
+    /* @todo was ist mit Bilder? filter: invert(1); */
+    filter: grayscale(1);
+  }
+
+  .wcag-square,
+  .wcag-size,
+  .wcag-size:visited {
+    color: #fff;
+    fill: #fff;
+  }
 }

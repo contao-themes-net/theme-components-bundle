@@ -36,7 +36,7 @@ class ParseFrontendTemplateHook
         //$text_size = $page->enable_text_size;
 
         if ($high_contrast) {
-            // waiting for a fe_page call
+            // waiting for a fe_page_* call
             if ('fe_page' === substr($templateName, 0, 7)) {
                 $script = <<<'EOS'
                       <script>
