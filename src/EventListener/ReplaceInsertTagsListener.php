@@ -25,12 +25,18 @@ use Contao\PageModel;
 #[AsHook('replaceInsertTags', priority: 100)]
 class ReplaceInsertTagsListener
 {
-    // tag com means (theme) components
+    // tag 'comp' means (theme) components
     public const TAG = 'comp';
 
     private const AssetsPath = 'bundles/themecomponents';
+    /**
+     * @var string contao char(1) = '1' flag to allow to switch in high contrast mode
+     */
     private bool $high_contrast;
 
+    /**
+     * @var string contao char(1) = '1' flag to show a text size link
+     */
     private bool $text_size;
 
     private $text_size_comment_page = 1;
@@ -44,8 +50,8 @@ class ReplaceInsertTagsListener
         // get the current root page
         $page = PageModel::findByPk($objPage->rootId);
 
-        $this->high_contrast = $page->enable_high_contrast;
-        $this->text_size = $page->enable_text_size;
+        $this->high_contrast = (bool)$page->enable_high_contrast;
+        $this->text_size = (bool)$page->enable_text_size;
         $this->text_size_comment_page = $page->text_size_comment_page;
 
         $chunks = explode('::', $tag);
@@ -89,7 +95,7 @@ EOS;
     private function generateSizeTag(array $chunks): string
     {
         // text size is disabled
-        if(!(bool)$this->text_size) return '';
+        if(!$this->text_size) return '';
 
         $html = '';
 
@@ -97,7 +103,7 @@ EOS;
         [$alt, $title] = $GLOBALS['TL_LANG']['WCAG']['enable_text_size'];
 
         // handle user defined uri like comp::text::uri
-        if(count($chunks)===3) return "<a href='{$chunks[2]}' alt='$alt' title='$title'><img src='$svgSizeIcon' class='square16'></a>";
+        if(count($chunks)===3) return "<a href='{$chunks[2]}' title='$title'><img src='$svgSizeIcon' class='square16' alt='$alt'></a>";
 
         // handle empty page selection
         if($this->text_size_comment_page > 0) {
@@ -107,6 +113,6 @@ EOS;
             $href = '';
         }
 
-        return "<a href='$href' alt='$alt' title='$title'><img src='$svgSizeIcon' class='square16'></a>";
+        return "<a href='$href' title='$title'><img src='$svgSizeIcon' class='square16' alt='$alt'></a>";
     }
 }
