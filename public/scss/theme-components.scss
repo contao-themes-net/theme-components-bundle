@@ -10,28 +10,31 @@
 }
 
 .high-contrast {
+  * {
+    color: #fff;
+  }
+
   a,
   a:visited {
     color: #fff !important;
     text-decoration: underline;
   }
 
-  /* Header */
-  .navbar .logo img,
-  .mod_search.header-search .open-search img {
+  .hc-invert,
+  .hc-invert-pictures img,
+  .hc-invert-pictures svg {
     filter: invert(1);
   }
 
-  /* Main */
-  #wrapper,
-  nav {
-    background: black !important;
-    color: white !important;
+  .hc-greyscale,
+  .hc-greyscale-pictures img,
+  .hc-greyscale-pictures svg {
+    filter: grayscale(1);
   }
 
-  #main .mod_article img {
-    /* @todo was ist mit Bilder? filter: invert(1); */
-    filter: grayscale(1);
+  .hc-bg-black {
+    background: black !important;
+    color: white !important;
   }
 
   .wcag-square,
