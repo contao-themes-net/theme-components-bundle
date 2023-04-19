@@ -27,4 +27,4 @@ $GLOBALS['TL_LANG']['CTE']['ct_wrapperStart'][0] = 'Conteneur de contenu Début'
 $GLOBALS['TL_LANG']['CTE']['ct_wrapperStop'][0] = 'Conteneur de contenu Fin';
 
 $GLOBALS['TL_LANG']['WCAG']['enable_high_contrast'] = ['Commuter le contraste', 'Permet de passer en mode contraste élevé.'];
-$GLOBALS['TL_LANG']['WCAG']['enable_text_size'] = ['Changer la taille de la police', 'Vous accédez ici à une page expliquant comment adapter la taille des caractères dans les navigateurs modernes.'];
+$GLOBALS['TL_LANG']['WCAG']['enable_font_size'] = ['Changer la taille de la police', 'Vous accédez ici à une page expliquant comment adapter la taille des caractères dans les navigateurs modernes.'];

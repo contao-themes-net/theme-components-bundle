@@ -26,8 +26,9 @@ PaletteManipulator::create()
     ->addLegend('wcag_legend', 'publish_legend', PaletteManipulator::POSITION_BEFORE)
     // apply the new fields
     ->addField('enable_high_contrast', 'wcag_legend', PaletteManipulator::POSITION_APPEND)
-    ->addField('enable_text_size', 'wcag_legend', PaletteManipulator::POSITION_APPEND)
-    ->addField('text_size_comment_page', 'wcag_legend', PaletteManipulator::POSITION_APPEND)
+    ->addField('enable_font_size', 'wcag_legend', PaletteManipulator::POSITION_APPEND)
+    ->addField('enable_font_size_switcher', 'wcag_legend', PaletteManipulator::POSITION_APPEND)
+    ->addField('font_size_comment_page', 'wcag_legend', PaletteManipulator::POSITION_APPEND)
     // register the palette for the root page
     ->applyToPalette('rootfallback', 'tl_page')
 ;
@@ -36,23 +37,27 @@ PaletteManipulator::create()
  * Add fields to tl_page
  */
 $GLOBALS['TL_DCA']['tl_page']['fields']['enable_high_contrast'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_page']['enable_high_contrast'],
     'exclude' => true,
     'inputType' => 'checkbox',
     'eval' => ['tl_class' => 'w50'],
     'sql'  => ['type' => 'boolean', 'default' => true],
 ];
 
-$GLOBALS['TL_DCA']['tl_page']['fields']['enable_text_size'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_page']['enable_text_size'],
+$GLOBALS['TL_DCA']['tl_page']['fields']['enable_font_size'] = [
     'exclude' => true,
     'inputType' => 'checkbox',
     'eval' => ['tl_class' => 'w50'],
     'sql'  => ['type' => 'boolean', 'default' => true],
 ];
 
-$GLOBALS['TL_DCA']['tl_page']['fields']['text_size_comment_page'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_page']['text_size_comment_page'],
+$GLOBALS['TL_DCA']['tl_page']['fields']['enable_font_size_switcher'] = [
+    'exclude' => true,
+    'inputType' => 'checkbox',
+    'eval' => ['tl_class' => 'w50'],
+    'sql'  => ['type' => 'boolean', 'default' => true],
+];
+
+$GLOBALS['TL_DCA']['tl_page']['fields']['font_size_comment_page'] = [
     'exclude' => true,
     'inputType' => 'pageTree',
     'foreignKey' => 'tl_page.title',

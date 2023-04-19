@@ -19,6 +19,7 @@ declare(strict_types=1);
 namespace ContaoThemesNet\ThemeComponentsBundle\EventListener;
 
 use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
+use Contao\FrontendTemplate;
 use Contao\PageModel;
 use Contao\System;
 
@@ -38,11 +39,11 @@ class ReplaceInsertTagsListener
     private bool $high_contrast;
 
     /**
-     * @var string contao char(1) = '1' flag to show a text size link
+     * @var string contao char(1) = '1' flag to show a font size link
      */
-    private bool $text_size;
+    private bool $font_size;
 
-    private $text_size_comment_page = 1;
+    private $font_size_comment_page = 1;
 
     /**
      * Replace the icon insert tag.
@@ -72,12 +73,16 @@ class ReplaceInsertTagsListener
                     break;
 
                 case 'size':
-                    //[$alt, $title] = $GLOBALS['TL_LANG']['WCAG']['enable_text_size'];
+                    //[$alt, $title] = $GLOBALS['TL_LANG']['WCAG']['enable_font_size'];
                     $tag = sprintf(
                         self::SVG_SIZE_TEMPLATE,
                         'wcag-size', // css class
                         '$title'
                     );
+                    break;
+
+                case 'text-size-switcher':
+                    $tag = $this->generateTextSizeSwitcherTag($chunks);
                     break;
 
                 default:
@@ -88,8 +93,9 @@ class ReplaceInsertTagsListener
             $page = PageModel::findByPk($objPage->rootId);
 
             $this->high_contrast = (bool) $page->enable_high_contrast;
-            $this->text_size = (bool) $page->enable_text_size;
-            $this->text_size_comment_page = $page->text_size_comment_page;
+            $this->font_size = (bool) $page->enable_font_size;
+            $this->font_size_switcher = (bool) $page->enable_font_size_switcher;
+            $this->font_size_comment_page = $page->font_size_comment_page;
 
             switch ($chunks[1]) {
                 case 'contrast':
@@ -98,6 +104,10 @@ class ReplaceInsertTagsListener
 
                 case 'size':
                     $tag = $this->generateSizeTag($chunks);
+                    break;
+
+                case 'text-size-switcher':
+                    $tag = $this->generateTextSizeSwitcherTag($chunks);
                     break;
 
                 default:
@@ -128,12 +138,12 @@ class ReplaceInsertTagsListener
 
     private function generateSizeTag(array $chunks): string
     {
-        // text size is disabled
-        if (!$this->text_size) {
+        // font size is disabled
+        if (!$this->font_size) {
             return '';
         }
 
-        [$alt, $title] = $GLOBALS['TL_LANG']['WCAG']['enable_text_size'];
+        [$alt, $title] = $GLOBALS['TL_LANG']['WCAG']['enable_font_size'];
 
         $svgSizeIcon = sprintf(
             self::SVG_SIZE_TEMPLATE,
@@ -147,13 +157,32 @@ class ReplaceInsertTagsListener
         }
 
         // handle empty page selection
-        if ($this->text_size_comment_page > 0) {
-            $targetPage = PageModel::findBypk($this->text_size_comment_page);
+        if ($this->font_size_comment_page > 0) {
+            $targetPage = PageModel::findBypk($this->font_size_comment_page);
             $href = $targetPage->getFrontendUrl();
         } else {
             $href = '';
         }
 
         return "<a href='$href' title='$title'>$svgSizeIcon</a>";
+    }
+
+    private function generateTextSizeSwitcherTag(array $chunks): string
+    {
+        [$title, $description] = $GLOBALS['TL_LANG']['WCAG']['enable_font_size_switcher'];
+
+        $javascript = '';
+
+        $template = new FrontendTemplate('ce_font_size_switcher');
+
+        $template->smallerButtonTitle = $GLOBALS['TL_LANG']['WCAG']['font_size_switch_smaller'][0];
+        $template->normalButtonTitle = $GLOBALS['TL_LANG']['WCAG']['font_size_switch_normal'][0];
+        $template->greaterButtonTitle = $GLOBALS['TL_LANG']['WCAG']['font_size_switch_greater'][0];
+
+        $template->smallerButtonText = $GLOBALS['TL_LANG']['WCAG']['font_size_switch_smaller'][1];
+        $template->normalButtonText = $GLOBALS['TL_LANG']['WCAG']['font_size_switch_normal'][1];
+        $template->greaterButtonText = $GLOBALS['TL_LANG']['WCAG']['font_size_switch_greater'][1];
+
+        return $this->font_size_switcher ? $template->parse() : '';
     }
 }

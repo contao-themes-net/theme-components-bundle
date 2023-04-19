@@ -27,4 +27,4 @@ $GLOBALS['TL_LANG']['CTE']['ct_wrapperStart'][0] = 'Inicio del contenedor de con
 $GLOBALS['TL_LANG']['CTE']['ct_wrapperStop'][0] = 'Fin del contenedor de contenidos';
 
 $GLOBALS['TL_LANG']['WCAG']['enable_high_contrast'] = ['Contraste del interruptor', 'Aquí puedes cambiar el modo de alto contraste.'];
-$GLOBALS['TL_LANG']['WCAG']['enable_text_size'] = ['Cambiar el tamaño de letra', 'Esto le llevará a una página que explica cómo ajustar el tamaño de la fuente en los navegadores modernos.'];
+$GLOBALS['TL_LANG']['WCAG']['enable_font_size'] = ['Cambiar el tamaño de letra', 'Esto le llevará a una página que explica cómo ajustar el tamaño de la fuente en los navegadores modernos.'];

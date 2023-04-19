@@ -33,7 +33,7 @@ class ParseFrontendTemplateHook
         $page = PageModel::findByPk($objPage->rootId);
 
         $high_contrast = $page->enable_high_contrast;
-        //$text_size = $page->enable_text_size;
+        $font_size_switcher = $page->enable_font_size_switcher;
 
         if ($high_contrast) {
             // waiting for a fe_page_* call
@@ -41,7 +41,22 @@ class ParseFrontendTemplateHook
                 $script = <<<'EOS'
                       <script>
                         document.addEventListener('DOMContentLoaded', (event) => {
-                          if(localStorage.getItem('high-contrast')==='on') document.querySelector('body').classList.add('high-contrast');  
+                          if(localStorage.getItem('high-contrast')==='on') document.querySelector('body').classList.add('high-contrast');
+                        })
+                      </script>
+                    EOS;
+
+                $buffer = preg_replace('/<\/head/', "$script$0", $buffer);
+            }
+        }
+
+        if ($font_size_switcher) {
+            // waiting for a fe_page_* call
+            if ('fe_page' === substr($templateName, 0, 7)) {
+                $script = <<<'EOS'
+                      <script>
+                        document.addEventListener('DOMContentLoaded', (event) => {
+                          if(localStorage.getItem('font-size')!=='') document.querySelector('body').style.fontSize = localStorage.getItem('font-size');
                         })
                       </script>
                     EOS;

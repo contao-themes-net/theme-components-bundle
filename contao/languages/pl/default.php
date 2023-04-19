@@ -27,4 +27,4 @@ $GLOBALS['TL_LANG']['CTE']['ct_wrapperStart'][0] = 'Start kontenera treści';
 $GLOBALS['TL_LANG']['CTE']['ct_wrapperStop'][0] = 'Kontener treści koniec';
 
 $GLOBALS['TL_LANG']['WCAG']['enable_high_contrast'] = ['Kontrast przełącznika', 'Tutaj można przełączyć tryb wysokiego kontrastu.'];
-$GLOBALS['TL_LANG']['WCAG']['enable_text_size'] = ['Przełączanie rozmiaru czcionki', 'Spowoduje to przejście do strony wyjaśniającej, jak dostosować rozmiar czcionki w nowoczesnych przeglądarkach.'];
+$GLOBALS['TL_LANG']['WCAG']['enable_font_size'] = ['Przełączanie rozmiaru czcionki', 'Spowoduje to przejście do strony wyjaśniającej, jak dostosować rozmiar czcionki w nowoczesnych przeglądarkach.'];
