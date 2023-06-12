@@ -169,10 +169,6 @@ class ReplaceInsertTagsListener
 
     private function generateTextSizeSwitcherTag(array $chunks): string
     {
-        [$title, $description] = $GLOBALS['TL_LANG']['WCAG']['enable_font_size_switcher'];
-
-        $javascript = '';
-
         $template = new FrontendTemplate('ce_font_size_switcher');
 
         $template->smallerButtonTitle = $GLOBALS['TL_LANG']['WCAG']['font_size_switch_smaller'][0];
