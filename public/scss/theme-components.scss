@@ -1,0 +1,164 @@
+/* high contrast from theme-components-bundle */
+
+:root {
+  --hc-black: black;
+  --hc-black-bis: hsl(0, 0%, 7%);
+  --hc-black-ter: hsl(0, 0%, 14%);
+  --hc-grey-darker: hsl(0, 0%, 21%);
+  --hc-grey-dark: hsl(0, 0%, 29%);
+  --hc-grey: hsl(0, 0%, 48%);
+  --hc-white: white;
+}
+
+.wcag-square,
+.wcag-size {
+  transform: scale(.4);
+}
+
+.wcag-size:visited {
+  color: var(--hc-black);
+}
+
+.high-contrast {
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  .hc-invert:not(.hc-greyscale),
+  .hc-invert-pictures:not(.hc-greyscale-pictures) img,
+  .hc-invert-pictures:not(.hc-greyscale-pictures) svg {
+    filter: invert(1);
+  }
+
+  .hc-greyscale:not(.hc-invert),
+  .hc-greyscale-pictures:not(.hc-invert-pictures) img,
+  .hc-greyscale-pictures:not(.hc-invert-pictures) svg {
+    filter: grayscale(1);
+  }
+
+  .hc-invert.hc-greyscale,
+  .hc-invert-pictures.hc-greyscale-pictures img,
+  .hc-invert-pictures.hc-greyscale-pictures svg {
+    filter: invert(1) grayscale(1);
+  }
+
+  .hc-bg-black {
+    background: var(--hc-black) !important;
+
+    &, * {
+      color: var(--hc-white) !important;
+    }
+  }
+
+  .hc-bg-black-bis {
+    background: var(--hc-black-bis) !important;
+
+    &, * {
+      color: var(--hc-white) !important;
+    }
+  }
+
+  .hc-bg-black-ter {
+    background: var(--hc-black-ter) !important;
+
+    &, * {
+      color: var(--hc-white) !important;
+    }
+  }
+
+  .hc-bg-grey-darker {
+    background: var(--hc-grey-darker) !important;
+
+    &, * {
+      color: var(--hc-white) !important;
+    }
+  }
+
+  .hc-bg-grey-dark {
+    background: var(--hc-grey-dark) !important;
+
+    &, * {
+      color: var(--hc-white) !important;
+    }
+  }
+
+  .hc-bg-grey {
+    background: var(--hc-grey) !important;
+
+    &, * {
+      color: var(--hc-white) !important;
+    }
+  }
+
+  .hc-bg-white {
+    background: var(--hc-white) !important;
+
+    &, * {
+      color: var(--hc-black) !important;
+    }
+  }
+
+  .hc-text-white {
+    &, * {
+      color: var(--hc-white) !important;
+    }
+  }
+
+  .hc-hover-text-white:hover {
+    &, * {
+      color: var(--hc-white) !important;
+    }
+  }
+
+  .hc-text-black {
+    &, * {
+      color: var(--hc-black) !important;
+    }
+  }
+
+  .hc-hover-text-black:hover {
+    &, * {
+      color: var(--hc-black) !important;
+    }
+  }
+
+  .hc-hover-bg-black:hover {
+    background: var(--hc-black) !important;
+  }
+
+  .hc-hover-bg-black-bis:hover {
+    background: var(--hc-black-bis) !important;
+  }
+
+  .hc-hover-bg-black-ter:hover {
+    background: var(--hc-black-ter) !important;
+  }
+
+  .hc-hover-bg-grey-darker:hover {
+    background: var(--hc-grey-darker) !important;
+  }
+
+  .hc-hover-bg-grey-dark:hover {
+    background: var(--hc-grey-dark) !important;
+  }
+
+  .hc-hover-bg-grey:hover {
+    background: var(--hc-grey) !important;
+  }
+
+  .hc-hover-bg-white:hover {
+    background: var(--hc-white) !important;
+  }
+
+  .wcag-square,
+  .wcag-size,
+  .wcag-size:visited {
+    color: #fff;
+    fill: #fff;
+  }
+
+  .text-decoration-none, .text-decoration-none a {
+    text-decoration: none;
+  }
+}

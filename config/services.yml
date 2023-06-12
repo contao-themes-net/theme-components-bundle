@@ -1,0 +1,18 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+    # Hooks
+  ctn.themecomponentsbundle.eventlistener.replaceinserttags:
+    class: ContaoThemesNet\ThemeComponentsBundle\EventListener\ReplaceInsertTagsListener
+    public: true
+
+  # ToDo: remove this hook later
+  ctn.themecomponentsbundle.eventlistener.generatepagehook:
+    class: ContaoThemesNet\ThemeComponentsBundle\EventListener\GeneratePageHook
+    public: true
+
+  ctn.themecomponentsbundle.eventlistener.parsefrontendtemplatehook:
+    class: ContaoThemesNet\ThemeComponentsBundle\EventListener\ParseFrontendTemplateHook
+    public: true

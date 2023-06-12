@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.5.0](https://github.com/contao-themes-net/theme-components-bundle/tree/1.5.0) – 2023-06-12
+
+- [Added] Contrast and size switcher
+
 # [1.4.4](https://github.com/contao-themes-net/theme-components-bundle/tree/1.4.4) – 2023-03-09
 
 - [Fixed] warning in debug mode in slider template

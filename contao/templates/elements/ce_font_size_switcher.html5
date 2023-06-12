@@ -1,0 +1,5 @@
+<div class="font-size-switcher">
+  <button title="<?= $this->smallerButtonLabel ?>" class="btn ce_hyperlink btn-sm" onclick="let fontSizeSmaller = '0.7rem';if(localStorage.getItem(`font-size`)!==fontSizeSmaller) { localStorage.setItem(`font-size`, fontSizeSmaller);b.style.fontSize = fontSizeSmaller; }">-A</button>
+  <button title="<?= $this->normalButtonLabel ?>" class="btn ce_hyperlink btn-sm" onclick="let fontSizeNormal = '1rem';if(localStorage.getItem(`font-size`)!==fontSizeNormal) { localStorage.setItem(`font-size`, fontSizeNormal);b.style.fontSize = fontSizeNormal; }">A</button>
+  <button title="<?= $this->greaterButtonLabel ?>" class="btn ce_hyperlink btn-sm" onclick="let fontSizeGreater = '1.2rem';if(localStorage.getItem(`font-size`)!==fontSizeGreater) { localStorage.setItem(`font-size`, fontSizeGreater);b.style.fontSize = fontSizeGreater; }">A+</button>
+</div>
