@@ -10,9 +10,13 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
-## [1.5.0](https://github.com/contao-themes-net/theme-components-bundle/tree/1.5.0) – 2023-03-09
+## [1.5.0](https://github.com/contao-themes-net/theme-components-bundle/tree/1.5.0) – 2023-06-12
 
 - [Added] Contrast and size switcher
+
+# [1.4.4](https://github.com/contao-themes-net/theme-components-bundle/tree/1.4.4) – 2023-03-09
+
+- [Fixed] warning in debug mode in slider template
 
 ## [1.4.3](https://github.com/contao-themes-net/theme-components-bundle/tree/1.4.3) – 2023-02-15
 
@@ -29,6 +33,10 @@ Types of changes
 ## [1.4.0](https://github.com/contao-themes-net/theme-components-bundle/tree/1.4.0) – 2022-09-02
 
 - [Changed] Set Contao 5 as minimum requirement
+
+## [1.3.14](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.14) – 2023-03-09
+
+- [Fixed] warning in debug mode in slider template
 
 ## [1.3.13](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.13) – 2023-02-15
 
