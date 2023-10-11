@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.5.1](https://github.com/contao-themes-net/theme-components-bundle/tree/1.5.1) – 2023-10-11
+
+- [Fixed] encode emails in elements and modules
+
 ## [1.5.0](https://github.com/contao-themes-net/theme-components-bundle/tree/1.5.0) – 2023-06-12
 
 - [Added] Contrast and size switcher
@@ -33,6 +37,10 @@ Types of changes
 ## [1.4.0](https://github.com/contao-themes-net/theme-components-bundle/tree/1.4.0) – 2022-09-02
 
 - [Changed] Set Contao 5 as minimum requirement
+
+## [1.3.15](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.15) – 2023-10-11
+
+- [Fixed] encode emails in elements and modules
 
 ## [1.3.14](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.14) – 2023-03-09
 

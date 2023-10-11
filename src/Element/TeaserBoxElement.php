@@ -19,6 +19,7 @@ declare(strict_types=1);
 namespace ContaoThemesNet\ThemeComponentsBundle\Element;
 
 use Contao\ContentElement;
+use Contao\StringUtil;
 use Contao\System;
 
 class TeaserBoxElement extends ContentElement
@@ -42,6 +43,7 @@ class TeaserBoxElement extends ContentElement
         $this->Template->pageTitle = '';
         $this->Template->target = '';
         $this->Template->rel = '';
+        $this->Template->text = StringUtil::encodeEmail((string) $this->text);
 
         // Overwrite template
         if ('' !== $this->ct_teaserBox_customTpl) {
