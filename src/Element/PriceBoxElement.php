@@ -19,6 +19,7 @@ declare(strict_types=1);
 namespace ContaoThemesNet\ThemeComponentsBundle\Element;
 
 use Contao\ContentElement;
+use Contao\StringUtil;
 
 class PriceBoxElement extends ContentElement
 {
@@ -48,5 +49,6 @@ class PriceBoxElement extends ContentElement
         $this->Template->linkText1 = $this->ct_priceBox_linkText1;
         $this->Template->linkText2 = $this->ct_priceBox_linkText2;
         $this->Template->popularBox = $this->ct_popularPriceBox;
+        $this->Template->text = StringUtil::encodeEmail((string) $this->text);
     }
 }
