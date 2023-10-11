@@ -19,6 +19,7 @@ declare(strict_types=1);
 namespace ContaoThemesNet\ThemeComponentsBundle\Element;
 
 use Contao\ContentElement;
+use Contao\StringUtil;
 
 class FeatureElement extends ContentElement
 {
@@ -40,6 +41,7 @@ class FeatureElement extends ContentElement
         $this->Template->iconLink = $this->ct_iconLink;
         $this->Template->target = '';
         $this->Template->rel = '';
+        $this->Template->text = StringUtil::encodeEmail((string) $this->text);
 
         // Overwrite template
         if ('' !== $this->ct_featureElement_customTpl) {
