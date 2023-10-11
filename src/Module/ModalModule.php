@@ -20,6 +20,7 @@ namespace ContaoThemesNet\ThemeComponentsBundle\Module;
 
 use Contao\BackendTemplate;
 use Contao\Module;
+use Contao\StringUtil;
 
 /**
  * Class ModalModule.
@@ -73,6 +74,6 @@ class ModalModule extends Module
             $this->Template->modalClass = ' '.$this->modal_class;
         }
 
-        $this->Template->text = $this->modal_text;
+        $this->Template->text = StringUtil::encodeEmail((string) $this->modal_text);
     }
 }

@@ -1,5 +1,19 @@
 # Changelog
 
+[//]: <> (
+Types of changes
+    Added for new Addeds.
+    Changed for changes in existing functionality.
+    Deprecated for soon-to-be removed Addeds.
+    Removed for now removed Addeds.
+    Fixed for any bug fixes.
+    Security in case of vulnerabilities.
+)
+
+## [1.3.15](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.15) – 2023-10-11
+
+- [Fixed] encode emails in elements and modules
+
 ## [1.3.14](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.14) – 2023-03-09
 
 - [Fixed] warning in debug mode in slider template
