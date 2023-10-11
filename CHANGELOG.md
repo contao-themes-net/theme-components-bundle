@@ -38,6 +38,10 @@ Types of changes
 
 - [Changed] Set Contao 5 as minimum requirement
 
+## [1.3.15](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.15) – 2023-10-11
+
+- [Fixed] encode emails in elements and modules
+
 ## [1.3.14](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.14) – 2023-03-09
 
 - [Fixed] warning in debug mode in slider template
