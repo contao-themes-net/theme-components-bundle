@@ -50,3 +50,6 @@ $GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_target'] = ['Open in a new t
 $GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_subHeadline'] = ['Subheadline', 'Here you can enter a subheadline.'];
 $GLOBALS['TL_LANG']['tl_content']['video_legend'] = 'Video settings';
 $GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_playerSRC'] = ['Video', 'Here you can select a video if it should be displayed instead of a image.'];
+
+$GLOBALS['TL_LANG']['tl_content']['subline'] = ['Subheadline', 'The content of the field can be placed above or before the actual heading.'];
+$GLOBALS['TL_LANG']['tl_content']['headline_inline'] = ['Display headings next to each other', 'If the checkbox is activated, both headings are displayed next to each other instead of below each other.'];

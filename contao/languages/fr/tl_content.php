@@ -50,3 +50,6 @@ $GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_target'] = ['Ouvrir dans une
 $GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_subHeadline'] = ['Sous-titres', 'Ici, vous pouvez ajouter un sous-titre à l\'élément de contenu.'];
 $GLOBALS['TL_LANG']['tl_content']['video_legend'] = 'Paramètres vidéo';
 $GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_playerSRC'] = ['Vidéo', 'Sélectionnez ici une vidéo si vous souhaitez qu\'elle s\'affiche à la place d\'une image.'];
+
+$GLOBALS['TL_LANG']['tl_content']['subline'] = ['Sous-titre', 'Le contenu du champ peut être placé au-dessus ou avant l\'en-tête proprement dit.'];
+$GLOBALS['TL_LANG']['tl_content']['headline_inline'] = ['Afficher les titres côte à côte', 'Si la case à cocher est activée, les deux titres sont affichés l\'un à côté de l\'autre et non l\'un sous l\'autre.'];

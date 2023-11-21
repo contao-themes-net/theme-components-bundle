@@ -50,3 +50,6 @@ $GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_target'] = ['In einem neuen 
 $GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_subHeadline'] = ['Unterüberschrift', 'Hier können Sie dem Inhaltselement eine Unterüberschrift hinzufügen.'];
 $GLOBALS['TL_LANG']['tl_content']['video_legend'] = 'Video-Einstellungen';
 $GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_playerSRC'] = ['Video', 'Wählen Sie hier ein Video aus, wenn es statt einem Bild angezeigt werden soll.'];
+
+$GLOBALS['TL_LANG']['tl_content']['subline'] = ['Dachzeile / Zweigeteilte Überschrift', 'Der Inhalt des Feldes kann über oder vor der eigentlichen Überschrift stehen.'];
+$GLOBALS['TL_LANG']['tl_content']['headline_inline'] = ['Überschriften nebeneinander anzeigen', 'Wenn die Checkbox aktiv ist, werden beide Überschriften nebeneinander statt untereinander dargestellt.'];

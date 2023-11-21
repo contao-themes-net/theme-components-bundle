@@ -1,0 +1,10 @@
+
+<<?= $this->hl ?> class="<?= $this->class ?>"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
+  <?php if($this->subline): ?>
+    <span class="first-headline"><?= $this->subline ?></span>
+  <?php endif; ?>
+
+  <?php if($this->headline): ?>
+    <span class="main-headline"><?= $this->headline ?></span>
+  <?php endif; ?>
+</<?= $this->hl ?>>
