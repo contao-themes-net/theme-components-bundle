@@ -162,3 +162,17 @@
     text-decoration: none;
   }
 }
+
+/* Headline */
+
+.first-headline.block, .subheadline {
+  font-size: .7em;
+}
+
+.first-headline:not(.block) {
+  font-weight: 300;
+
+  + .main-headline {
+    font-weight: 700;
+  }
+}

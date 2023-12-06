@@ -53,3 +53,4 @@ $GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_playerSRC'] = ['Vidéo', 'S�
 
 $GLOBALS['TL_LANG']['tl_content']['subline'] = ['Sous-titre', 'Le contenu du champ peut être placé au-dessus ou avant l\'en-tête proprement dit.'];
 $GLOBALS['TL_LANG']['tl_content']['headline_inline'] = ['Afficher les titres côte à côte', 'Si la case à cocher est activée, les deux titres sont affichés l\'un à côté de l\'autre et non l\'un sous l\'autre.'];
+$GLOBALS['TL_LANG']['tl_content']['subheadline'] = ['Sous-titre', 'Afficher le 2e titre comme sous-titre.'];

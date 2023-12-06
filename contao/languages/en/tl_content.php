@@ -53,3 +53,4 @@ $GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_playerSRC'] = ['Video', 'Her
 
 $GLOBALS['TL_LANG']['tl_content']['subline'] = ['Subheadline', 'The content of the field can be placed above or before the actual heading.'];
 $GLOBALS['TL_LANG']['tl_content']['headline_inline'] = ['Display headings next to each other', 'If the checkbox is activated, both headings are displayed next to each other instead of below each other.'];
+$GLOBALS['TL_LANG']['tl_content']['subheadline'] = ['Subheadline', 'Display the 2nd heading as a subheading.'];

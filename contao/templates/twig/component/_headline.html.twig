@@ -24,13 +24,16 @@
         {%- if as_editor_view -%}
             {{ headline.text }}
         {%- else -%}
-            {%- if data.subline -%}
+            {%- if (data.subline) and (data.subheadline is not same as('1')) -%}
                 <span class="first-headline{%- if data.headline_inline is not same as('1') -%}{{ ' block' }}{%- endif -%}">{{ data.subline }}</span>
                 {%- if data.headline_inline is same as('1') -%}{{ ' ' }}{%- endif -%}
             {%- endif -%}
             {%- if data.subline -%}<span class="main-headline">{%- endif -%}
             {{ headline.text|insert_tag_raw }}
             {%- if data.subline -%}</span>{%- endif -%}
+            {%- if data.subheadline is same as('1') -%}
+                <span class="subheadline block">{{ data.subline }}</span>
+            {%- endif -%}
         {%- endif -%}
     {%- endblock -%}
     </{{ tag_name }}>

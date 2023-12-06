@@ -23,6 +23,7 @@ use Contao\DataContainer;
 PaletteManipulator::create()
     ->addField('subline', 'headline')
     ->addField('headline_inline', 'subline')
+    ->addField('subheadline', 'headline_inline')
     ->applyToPalette('headline', 'tl_content')
     ->applyToPalette('text', 'tl_content')
 ;
@@ -44,7 +45,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['subline'] = [
     'exclude' => true,
     'search' => true,
     'inputType' => 'text',
-    'eval' => ['tl_class' => 'w25'],
+    'eval' => ['tl_class' => 'w50'],
     'sql' => 'text NULL',
 ];
 
@@ -52,7 +53,15 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['headline_inline'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['headline_inline'],
     'exclude' => true,
     'inputType' => 'checkbox',
-    'eval' => ['tl_class' => 'w25'],
+    'eval' => ['tl_class' => 'w50 clr'],
+    'sql' => "char(1) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['subheadline'] = [
+    'label' => &$GLOBALS['TL_LANG']['tl_content']['subheadline'],
+    'exclude' => true,
+    'inputType' => 'checkbox',
+    'eval' => ['tl_class' => 'w50'],
     'sql' => "char(1) NOT NULL default ''",
 ];
 
