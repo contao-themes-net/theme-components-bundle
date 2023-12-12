@@ -10,7 +10,7 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
-## [1.6.0](https://github.com/contao-themes-net/theme-components-bundle/tree/1.6.0) – 2023-11-21
+## [1.6.0](https://github.com/contao-themes-net/theme-components-bundle/tree/1.6.0) – 2023-12-12
 
 - [Added] Add subheadline
 
