@@ -50,3 +50,7 @@ $GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_target'] = ['Otwórz w nowym
 $GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_subHeadline'] = ['Podpozycja', 'Tutaj możesz dodać podtytuł do elementu treści.'];
 $GLOBALS['TL_LANG']['tl_content']['video_legend'] = 'Ustawienia wideo';
 $GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_playerSRC'] = ['Wideo', 'Wybierz tutaj film, jeśli ma być wyświetlany zamiast zdjęcia.'];
+
+$GLOBALS['TL_LANG']['tl_content']['subline'] = ['Podtytuł', 'Zawartość pola jest wyświetlana nad nagłówkiem. Pole może być również wyświetlane obok lub pod nim za pomocą następujących pól wyboru.'];
+$GLOBALS['TL_LANG']['tl_content']['headline_inline'] = ['Pokaż obok', 'Wyświetla podtytuł po lewej stronie nagłówka.'];
+$GLOBALS['TL_LANG']['tl_content']['subheadline'] = ['Pokaż poniżej', 'Wyświetla podtytuł poniżej nagłówka.'];
