@@ -6,8 +6,8 @@
       <<?= $this->hl ?>>
     <?php endif; ?>
 
-    <?php if($this->subline && '1' !== $this->subheadline): ?>
-      <span class="first-headline<?php if('1' !== $this->headline_inline): ?> block<?php endif; ?>"><?= $this->subline ?></span>
+    <?php if($this->subline && !$this->subheadline): ?>
+      <span class="first-headline<?php if(!$this->headline_inline): ?> block<?php endif; ?>"><?= $this->subline ?></span>
     <?php endif; ?>
 
     <?php if($this->headline): ?>
@@ -16,7 +16,7 @@
       <?php if($this->subline): ?></span><?php endif; ?>
     <?php endif; ?>
 
-    <?php if('1' === $this->subheadline): ?>
+    <?php if($this->subheadline): ?>
       <span class="subheadline"><?= $this->subline ?></span>
     <?php endif; ?>
 
