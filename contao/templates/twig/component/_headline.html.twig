@@ -31,7 +31,7 @@
             {%- if data.subline -%}<span class="main-headline">{%- endif -%}
             {{ headline.text|insert_tag_raw }}
             {%- if data.subline -%}</span>{%- endif -%}
-            {%- if data.subheadline is same as('1') -%}
+            {%- if data.subheadline -%}
                 <span class="subheadline block">{{ data.subline }}</span>
             {%- endif -%}
         {%- endif -%}

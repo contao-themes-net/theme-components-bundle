@@ -51,6 +51,6 @@ $GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_subHeadline'] = ['Sous-titre
 $GLOBALS['TL_LANG']['tl_content']['video_legend'] = 'Paramètres vidéo';
 $GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_playerSRC'] = ['Vidéo', 'Sélectionnez ici une vidéo si vous souhaitez qu\'elle s\'affiche à la place d\'une image.'];
 
-$GLOBALS['TL_LANG']['tl_content']['subline'] = ['Sous-titre', 'Le contenu du champ peut être placé au-dessus ou avant l\'en-tête proprement dit.'];
-$GLOBALS['TL_LANG']['tl_content']['headline_inline'] = ['Afficher les titres côte à côte', 'Si la case à cocher est activée, les deux titres sont affichés l\'un à côté de l\'autre et non l\'un sous l\'autre.'];
-$GLOBALS['TL_LANG']['tl_content']['subheadline'] = ['Sous-titre', 'Afficher le 2e titre comme sous-titre.'];
+$GLOBALS['TL_LANG']['tl_content']['subline'] = ['Sous-titre', 'Le contenu du champ est affiché au-dessus de la rubrique. Le champ peut également être affiché à côté ou en dessous de la rubrique à l\'aide des cases à cocher suivantes.'];
+$GLOBALS['TL_LANG']['tl_content']['headline_inline'] = ['Spectacle à côté', 'Afficher le sous-titre à gauche du titre.'];
+$GLOBALS['TL_LANG']['tl_content']['subheadline'] = ['Voir ci-dessous', 'Afficher le sous-titre sous le titre.'];
