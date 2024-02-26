@@ -50,3 +50,8 @@ $GLOBALS['FE_MOD']['contaoThemesNet']['ct_modal'] = ModalModule::class;
  */
 $GLOBALS['TL_WRAPPERS']['start'][] = 'ct_wrapperStart';
 $GLOBALS['TL_WRAPPERS']['stop'][] = 'ct_wrapperStop';
+
+/*
+ * Styling
+ */
+$GLOBALS['TL_CSS'][] = 'bundles/themecomponents//scss/theme-components.scss|static';

@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.3.16](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.16) – 2024-02-26
+
+- [Added] Add subheadline
+
 ## [1.3.15](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.15) – 2023-10-11
 
 - [Fixed] encode emails in elements and modules
