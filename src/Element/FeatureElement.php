@@ -43,6 +43,10 @@ class FeatureElement extends ContentElement
         $this->Template->rel = '';
         $this->Template->text = StringUtil::encodeEmail((string) $this->text);
 
+        if ($this->titleText) {
+            $this->Template->linkTitle = StringUtil::specialchars($this->titleText);
+        }
+
         // Overwrite template
         if ('' !== $this->ct_featureElement_customTpl) {
             $this->Template->setName($this->ct_featureElement_customTpl);
