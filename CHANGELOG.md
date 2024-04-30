@@ -10,7 +10,7 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
-## [1.3.17](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.17) – 2024-xx-xx
+## [1.3.17](https://github.com/contao-themes-net/theme-components-bundle/tree/1.3.17) – 2024-04-30
 
 - [Added] Add link title field to feature element
 
