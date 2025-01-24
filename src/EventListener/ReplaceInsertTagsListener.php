@@ -153,7 +153,7 @@ class ReplaceInsertTagsListener
 
         // handle user defined uri like comp::text::uri
         if (3 === \count($chunks)) {
-            return "<a href='{$chunks[2]}' title='$title'>$svgSizeIcon</a>";
+            return "<a href='{$chunks[2]}' title='$alt'>$svgSizeIcon</a>";
         }
 
         // handle empty page selection
