@@ -12,7 +12,8 @@ Types of changes
 
 ## [1.6.2](https://github.com/contao-themes-net/theme-components-bundle/tree/1.6.2) – 2025-01-24
 
-- [Fixed] Fix redundant title text for font size switcher
+- [Fixed] Fix redundant title text (font size switcher)
+- [Fixed] Fix device dependent event handler (contrast switcher)
 
 ## [1.6.1](https://github.com/contao-themes-net/theme-components-bundle/tree/1.6.1) – 2024-04-30
 
