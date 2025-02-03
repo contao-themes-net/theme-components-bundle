@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.6.3](https://github.com/contao-themes-net/theme-components-bundle/tree/1.6.3) – 2025-02-03
+
+- [Fixed] Change contrast switcher from link to button to improve seo score
+
 ## [1.6.2](https://github.com/contao-themes-net/theme-components-bundle/tree/1.6.2) – 2025-01-24
 
 - [Fixed] Fix redundant title text (font size switcher)
