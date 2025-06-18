@@ -10,6 +10,11 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.7.0](https://github.com/contao-themes-net/theme-components-bundle/tree/1.7.0) – 2025-06-18
+
+- [Added] Add new templates for accessibility (_bf) to avoid multiple identical links
+- [Fixed] Fix warning: Attempt to read property "rootId" on null [#64](https://github.com/contao-themes-net/odd-theme-bundle/issues/64)
+
 ## [1.6.3](https://github.com/contao-themes-net/theme-components-bundle/tree/1.6.3) – 2025-02-03
 
 - [Fixed] Change contrast switcher from link to button to improve seo score

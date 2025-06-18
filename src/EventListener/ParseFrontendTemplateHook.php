@@ -29,16 +29,17 @@ class ParseFrontendTemplateHook
     {
         global $objPage;
 
-        // get the current root page
-        $page = PageModel::findByPk($objPage->rootId);
+        if ($objPage->rootId !== null) {
+            // get the current root page
+            $page = PageModel::findByPk($objPage->rootId);
 
-        $high_contrast = $page->enable_high_contrast;
-        $font_size_switcher = $page->enable_font_size_switcher;
+            $high_contrast = $page->enable_high_contrast;
+            $font_size_switcher = $page->enable_font_size_switcher;
 
-        if ($high_contrast) {
-            // waiting for a fe_page_* call
-            if ('fe_page' === substr($templateName, 0, 7)) {
-                $script = <<<'EOS'
+            if ($high_contrast) {
+                // waiting for a fe_page_* call
+                if ('fe_page' === substr($templateName, 0, 7)) {
+                    $script = <<<'EOS'
                       <script>
                         document.addEventListener('DOMContentLoaded', (event) => {
                           if(localStorage.getItem('high-contrast')==='on') document.querySelector('body').classList.add('high-contrast');
@@ -46,14 +47,14 @@ class ParseFrontendTemplateHook
                       </script>
                     EOS;
 
-                $buffer = preg_replace('/<\/head/', "$script$0", $buffer);
+                    $buffer = preg_replace('/<\/head/', "$script$0", $buffer);
+                }
             }
-        }
 
-        if ($font_size_switcher) {
-            // waiting for a fe_page_* call
-            if ('fe_page' === substr($templateName, 0, 7)) {
-                $script = <<<'EOS'
+            if ($font_size_switcher) {
+                // waiting for a fe_page_* call
+                if ('fe_page' === substr($templateName, 0, 7)) {
+                    $script = <<<'EOS'
                       <script>
                         document.addEventListener('DOMContentLoaded', (event) => {
                           if(localStorage.getItem('font-size')!=='') document.querySelector('body').style.fontSize = localStorage.getItem('font-size');
@@ -61,7 +62,8 @@ class ParseFrontendTemplateHook
                       </script>
                     EOS;
 
-                $buffer = preg_replace('/<\/head/', "$script$0", $buffer);
+                    $buffer = preg_replace('/<\/head/', "$script$0", $buffer);
+                }
             }
         }
 
