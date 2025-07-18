@@ -10,6 +10,11 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.7.1](https://github.com/contao-themes-net/theme-components-bundle/tree/1.7.1) – 2025-07-18
+
+- [Added] Add faqlist template (_bf) to avoid multiple identical links
+- [Added] Add custom template field to slider element
+
 ## [1.7.0](https://github.com/contao-themes-net/theme-components-bundle/tree/1.7.0) – 2025-06-18
 
 - [Added] Add new templates for accessibility (_bf) to avoid multiple identical links
