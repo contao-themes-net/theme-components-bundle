@@ -6,7 +6,7 @@
   <h2><?= $category['headline'] ?></h2>
   <ul>
     <?php foreach ($category['items'] as $faq): ?>
-    <li><a href="<?= $faq['href'] ?>"<?php if ($faq['title'] !== $faq['question']): ?> title="<?= $faq['title'] ?>"<?php endif; ?>><?= $faq['question'] ?></a></li>
+      <li><a href="<?= $faq['href'] ?>"<?php if ($faq['title'] !== $faq['question']): ?> title="<?= $faq['title'] ?>"<?php endif; ?>><?= $faq['question'] ?></a></li>
     <?php endforeach; ?>
   </ul>
 <?php endforeach; ?>
