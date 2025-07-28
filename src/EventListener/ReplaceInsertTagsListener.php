@@ -123,7 +123,7 @@ class ReplaceInsertTagsListener
     {
         [$title, $description] = $GLOBALS['TL_LANG']['WCAG']['enable_high_contrast'];
 
-        $javascript = 'let b = document.querySelector(`body`);if(localStorage.getItem(`high-contrast`)===`on`) { localStorage.setItem(`high-contrast`, `off`);b.classList.remove(`high-contrast`); } else { localStorage.setItem(`high-contrast`, `on`);b.classList.add(`high-contrast`); };';
+        $javascript = 'let b = document.querySelector(`body`), h = document.documentElement; if(localStorage.getItem(`high-contrast`)===`on`) { localStorage.setItem(`high-contrast`, `off`); b.classList.remove(`high-contrast`); h.setAttribute(`data-contrast-mode`, `off`); } else { localStorage.setItem(`high-contrast`, `on`); b.classList.add(`high-contrast`); h.setAttribute(`data-contrast-mode`, `on`); };';
 
         $svgCircleIcon = sprintf(
             self::SVG_CIRCLE_TEMPLATE,

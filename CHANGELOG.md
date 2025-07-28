@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.7.2](https://github.com/contao-themes-net/theme-components-bundle/tree/1.7.2) – 2025-07-28
+
+- [Added] Set data-contrast-mode attribute on document root
+
 ## [1.7.1](https://github.com/contao-themes-net/theme-components-bundle/tree/1.7.1) – 2025-07-18
 
 - [Added] Add faqlist template (_bf) to avoid multiple identical links

@@ -42,7 +42,10 @@ class ParseFrontendTemplateHook
                     $script = <<<'EOS'
                       <script>
                         document.addEventListener('DOMContentLoaded', (event) => {
-                          if(localStorage.getItem('high-contrast')==='on') document.querySelector('body').classList.add('high-contrast');
+                          if(localStorage.getItem('high-contrast')==='on') {
+                              document.querySelector('body').classList.add('high-contrast');
+                              document.documentElement.setAttribute('data-contrast-mode', 'on');
+                          }
                         })
                       </script>
                     EOS;
