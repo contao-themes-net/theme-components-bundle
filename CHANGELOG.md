@@ -10,7 +10,7 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
-## [1.7.2](https://github.com/contao-themes-net/theme-components-bundle/tree/1.7.2) – 2025-07-28
+## [1.7.2](https://github.com/contao-themes-net/theme-components-bundle/tree/1.7.2) – 2025-08-08
 
 - [Added] Set data-contrast-mode attribute on document root
 
