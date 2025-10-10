@@ -48,6 +48,8 @@ class PriceBoxElement extends ContentElement
         $this->Template->link2 = $this->ct_priceBox_link2;
         $this->Template->linkText1 = $this->ct_priceBox_linkText1;
         $this->Template->linkText2 = $this->ct_priceBox_linkText2;
+        $this->Template->linkTitle1 = $this->ct_priceBox_linkTitle1;
+        $this->Template->linkTitle2 = $this->ct_priceBox_linkTitle2;
         $this->Template->popularBox = $this->ct_popularPriceBox;
         $this->Template->text = StringUtil::encodeEmail((string) $this->text);
     }
