@@ -33,6 +33,8 @@ $GLOBALS['TL_LANG']['tl_content']['ct_priceBox_link1'] = ['Lien 1', 'Saisissez u
 $GLOBALS['TL_LANG']['tl_content']['ct_priceBox_link2'] = ['Lien 2', 'Vous pouvez éventuellement indiquer un deuxième lien qui sera affiché sous le premier.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_priceBox_linkText1'] = ['Texte du lien 1', 'Saisissez un texte de lien qui s\'affichera à la place de l\'adresse du lien.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_priceBox_linkText2'] = ['Texte du lien 2', 'Saisissez un texte de lien qui s\'affichera à la place de l\'adresse du lien.'];
+$GLOBALS['TL_LANG']['tl_content']['ct_priceBox_linkTitle1'] = ['Titre du lien 1', 'Le titre du lien est inséré comme attribut title dans le balisage HTML.'];
+$GLOBALS['TL_LANG']['tl_content']['ct_priceBox_linkTitle2'] = ['Titre du lien 2', 'Le titre du lien est inséré comme attribut title dans le balisage HTML.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_popularPriceBox'] = ['Désignation de la boîte en surbrillance', 'Saisissez ici une désignation si la boîte doit être affichée en surbrillance.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_priceBox_customTpl'] = ['Modèle personnalisé', 'Ici, vous pouvez choisir un modèle individuel.'];
 

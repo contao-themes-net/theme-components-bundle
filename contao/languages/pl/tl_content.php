@@ -33,6 +33,8 @@ $GLOBALS['TL_LANG']['tl_content']['ct_priceBox_link1'] = ['Związek 1', 'Wprowad
 $GLOBALS['TL_LANG']['tl_content']['ct_priceBox_link2'] = ['Związek 2', 'Możesz opcjonalnie określić drugi link, który będzie wyświetlany pod pierwszym linkiem.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_priceBox_linkText1'] = ['Tekst odnośnika 1', 'Wprowadź tekst linku, który ma być wyświetlany zamiast adresu linku.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_priceBox_linkText2'] = ['Tekst odnośnika 2', 'Wprowadź tekst linku, który ma być wyświetlany zamiast adresu linku.'];
+$GLOBALS['TL_LANG']['tl_content']['ct_priceBox_linkTitle1'] = ['Tytuł łącza 1', 'Tytuł linku jest wstawiany jako atrybut title w znaczniku HTML.'];
+$GLOBALS['TL_LANG']['tl_content']['ct_priceBox_linkTitle2'] = ['Tytuł łącza 2', 'Tytuł linku jest wstawiany jako atrybut title w znaczniku HTML.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_popularPriceBox'] = ['Podświetlona nazwa box', 'Wprowadź tutaj nazwę, jeśli pole ma być wyświetlane jako podświetlone.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_priceBox_customTpl'] = ['Szablon indywidualny', 'Tutaj można wybrać indywidualny szablon.'];
 

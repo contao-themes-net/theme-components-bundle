@@ -23,8 +23,13 @@
             <?= $this->text ?>
         </div>
 
-        <div class="first-link"><a href="<?= $this->link1 ?>"><?= $this->linkText1 ?></a></div>
-        <div class="second-link"><a href="<?= $this->link2 ?>"><?= $this->linkText2 ?></a></div>
+        <?php if ($this->link1 && $this->linkText1): ?>
+            <div class="first-link"><a href="<?= $this->link1 ?>"<?php if ($this->linkTitle1): ?> title="<?= $this->linkTitle1 ?>"<?php endif; ?>><?= $this->linkText1 ?></a></div>
+        <?php endif; ?>
+
+        <?php if ($this->link2 && $this->linkText2): ?>
+            <div class="second-link"><a href="<?= $this->link2 ?>"<?php if ($this->linkTitle2): ?> title="<?= $this->linkTitle2 ?>"<?php endif; ?>><?= $this->linkText2 ?></a></div>
+        <?php endif; ?>
 
     </div>
 

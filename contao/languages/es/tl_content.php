@@ -33,6 +33,8 @@ $GLOBALS['TL_LANG']['tl_content']['ct_priceBox_link1'] = ['Enlace 1', 'Introduzc
 $GLOBALS['TL_LANG']['tl_content']['ct_priceBox_link2'] = ['Enlace 2', 'Opcionalmente, puede especificar un segundo enlace, que se mostrará debajo del primero.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_priceBox_linkText1'] = ['Enlace texto 1', 'Introduzca un texto de enlace que se mostrará en lugar de la dirección del enlace.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_priceBox_linkText2'] = ['Enlace texto 2', 'Introduzca un texto de enlace que se mostrará en lugar de la dirección del enlace.'];
+$GLOBALS['TL_LANG']['tl_content']['ct_priceBox_linkTitle1'] = ['Título del enlace 1', 'El título del enlace se inserta como atributo title en el marcado HTML.'];
+$GLOBALS['TL_LANG']['tl_content']['ct_priceBox_linkTitle2'] = ['Título del enlace 2', 'El título del enlace se inserta como atributo title en el marcado HTML.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_popularPriceBox'] = ['Designación de la casilla resaltada', 'Introduzca aquí un nombre si desea que la casilla aparezca resaltada.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_priceBox_customTpl'] = ['Plantilla individual', 'Aquí puede seleccionar una plantilla individual.'];
 
