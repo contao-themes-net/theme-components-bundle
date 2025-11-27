@@ -26,6 +26,7 @@ PaletteManipulator::create()
     ->addLegend('wcag_legend', 'publish_legend', PaletteManipulator::POSITION_BEFORE)
     // apply the new fields
     ->addField('enable_high_contrast', 'wcag_legend', PaletteManipulator::POSITION_APPEND)
+    ->addField('enable_auto_high_contrast', 'wcag_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('enable_font_size', 'wcag_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('enable_font_size_switcher', 'wcag_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('font_size_comment_page', 'wcag_legend', PaletteManipulator::POSITION_APPEND)
@@ -37,6 +38,13 @@ PaletteManipulator::create()
  * Add fields to tl_page
  */
 $GLOBALS['TL_DCA']['tl_page']['fields']['enable_high_contrast'] = [
+    'exclude' => true,
+    'inputType' => 'checkbox',
+    'eval' => ['tl_class' => 'w50'],
+    'sql'  => ['type' => 'boolean', 'default' => true],
+];
+
+$GLOBALS['TL_DCA']['tl_page']['fields']['enable_auto_high_contrast'] = [
     'exclude' => true,
     'inputType' => 'checkbox',
     'eval' => ['tl_class' => 'w50'],

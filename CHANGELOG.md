@@ -10,9 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
-## [1.7.4](https://github.com/contao-themes-net/theme-components-bundle/tree/1.7.3) – 2025-10-10
+## [1.8.0](https://github.com/contao-themes-net/theme-components-bundle/tree/1.8.0) – 2025-11-27
 
-- [Fixed] Improve accessbility
+- [Fixed] Updated CSS to include :focus states in addition to :hover for better keyboard accessibility
+- [Added] Optional automatic contrast mode switching based on the system dark mode setting
 
 ## [1.7.3](https://github.com/contao-themes-net/theme-components-bundle/tree/1.7.3) – 2025-10-10
 

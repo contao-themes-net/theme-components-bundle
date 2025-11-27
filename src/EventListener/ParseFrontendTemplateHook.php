@@ -34,12 +34,31 @@ class ParseFrontendTemplateHook
             $page = PageModel::findByPk($objPage->rootId);
 
             $high_contrast = $page->enable_high_contrast;
+            $auto_high_contrast = $page->enable_auto_high_contrast;
             $font_size_switcher = $page->enable_font_size_switcher;
 
-            if ($high_contrast) {
+            if ($high_contrast && !$auto_high_contrast) {
                 // waiting for a fe_page_* call
                 if ('fe_page' === substr($templateName, 0, 7)) {
                     $script = <<<'EOS'
+                      <script>
+                        document.addEventListener('DOMContentLoaded', (event) => {
+                          if(localStorage.getItem('high-contrast')==='on') {
+                              document.querySelector('body').classList.add('high-contrast');
+                              document.documentElement.setAttribute('data-contrast-mode', 'on');
+                          }
+                        })
+                      </script>
+                    EOS;
+
+                    $buffer = preg_replace('/<\/head/', "$script$0", $buffer);
+                }
+            }
+
+            if ($auto_high_contrast) {
+                // waiting for a fe_page_* call
+                if ('fe_page' === substr($templateName, 0, 7)) {
+                    $script = <<<EOS
                       <script>
                         document.addEventListener('DOMContentLoaded', () => {
                           const body = document.body;
