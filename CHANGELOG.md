@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.7.4](https://github.com/contao-themes-net/theme-components-bundle/tree/1.7.3) – 2025-10-10
+
+- [Fixed] Improve accessbility
+
 ## [1.7.3](https://github.com/contao-themes-net/theme-components-bundle/tree/1.7.3) – 2025-10-10
 
 - [Added] Add link title field to price box element
