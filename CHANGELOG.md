@@ -10,6 +10,11 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.8.0](https://github.com/contao-themes-net/theme-components-bundle/tree/1.8.0) – 2025-11-27
+
+- [Fixed] Updated CSS to include :focus states in addition to :hover for better keyboard accessibility
+- [Added] Optional automatic contrast mode switching based on the system dark mode setting
+
 ## [1.7.3](https://github.com/contao-themes-net/theme-components-bundle/tree/1.7.3) – 2025-10-10
 
 - [Added] Add link title field to price box element

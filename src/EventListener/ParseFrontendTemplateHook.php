@@ -34,9 +34,10 @@ class ParseFrontendTemplateHook
             $page = PageModel::findByPk($objPage->rootId);
 
             $high_contrast = $page->enable_high_contrast;
+            $auto_high_contrast = $page->enable_auto_high_contrast;
             $font_size_switcher = $page->enable_font_size_switcher;
 
-            if ($high_contrast) {
+            if ($high_contrast && !$auto_high_contrast) {
                 // waiting for a fe_page_* call
                 if ('fe_page' === substr($templateName, 0, 7)) {
                     $script = <<<'EOS'
@@ -54,6 +55,56 @@ class ParseFrontendTemplateHook
                 }
             }
 
+            if ($auto_high_contrast) {
+                // waiting for a fe_page_* call
+                if ('fe_page' === substr($templateName, 0, 7)) {
+                    $script = <<<EOS
+                      <script>
+                        document.addEventListener('DOMContentLoaded', () => {
+                          const body = document.body;
+                          const root = document.documentElement;
+
+                          // Attribut immer setzen, unabhängig von Zustand
+                          root.setAttribute('data-contrast-mode', 'on');
+
+                          const applyHighContrast = () => {
+                            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                            const prefersContrast = window.matchMedia('(prefers-contrast: more)').matches;
+                            const localContrast = localStorage.getItem('high-contrast') === 'on';
+
+                            // Wenn irgendeine dieser Bedingungen zutrifft → .high-contrast hinzufügen
+                            if (localContrast || prefersDark || prefersContrast) {
+                              body.classList.add('high-contrast');
+                            } else {
+                              body.classList.remove('high-contrast');
+                            }
+                          };
+
+                          // Initial prüfen
+                          applyHighContrast();
+
+                          // Änderungen an Systemmodus überwachen
+                          const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+                          const contrastQuery = window.matchMedia('(prefers-contrast: more)');
+
+                          const handleChange = () => applyHighContrast();
+
+                          if (darkQuery.addEventListener) {
+                            darkQuery.addEventListener('change', handleChange);
+                            contrastQuery.addEventListener('change', handleChange);
+                          } else if (darkQuery.addListener) {
+                            // Fallback für ältere Browser
+                            darkQuery.addListener(handleChange);
+                            contrastQuery.addListener(handleChange);
+                          }
+                        });
+                      </script>
+                    EOS;
+
+                    $buffer = preg_replace('/<\/body/', "$script$0", $buffer);
+                }
+            }
+
             if ($font_size_switcher) {
                 // waiting for a fe_page_* call
                 if ('fe_page' === substr($templateName, 0, 7)) {
@@ -65,7 +116,7 @@ class ParseFrontendTemplateHook
                       </script>
                     EOS;
 
-                    $buffer = preg_replace('/<\/head/', "$script$0", $buffer);
+                    $buffer = preg_replace('/<\/body/', "$script$0", $buffer);
                 }
             }
         }
