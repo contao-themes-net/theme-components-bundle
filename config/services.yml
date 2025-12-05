@@ -3,6 +3,9 @@ services:
     autowire: true
     autoconfigure: true
 
+  ContaoThemesNet\ThemeComponentsBundle\:
+      resource: ../src/
+
     # Hooks
   ctn.themecomponentsbundle.eventlistener.replaceinserttags:
     class: ContaoThemesNet\ThemeComponentsBundle\EventListener\ReplaceInsertTagsListener
