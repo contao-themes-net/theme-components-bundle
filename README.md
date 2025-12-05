@@ -60,11 +60,14 @@ These classes can be used to control how the website behaves when high contrast 
 All classes can be found [here](public/scss/theme-components.scss).
 
 ## Configuration
-You have the option to configure the use of _**high contrast**_ and _**font size**_ to a small extent.
+You have the option to configure the use of _**high contrast**_, _**auto high contrast**_ and _**font size**_ to a small extent.
 This is done in the start point of the website for the entire page tree below.
 You can find the options under ► _**pages**_ ► _**website start page**_ under the legend ► _**WCAG settings (Web Content Accessibility Guidelines)**_.
 WCAG here stands for the official [Web Content Accessibility Guide](https://www.w3.org/Translations/WCAG20-de/).
-![img_3.png](https://user-images.githubusercontent.com/13376233/224686701-6c18b41f-d869-4653-9d18-295124b9f593.png)
+
+The difference between _**High Contrast**_ and _**Auto High Contrast**_ is that High Contrast allows users to manually activate the contrast mode with a click, while Auto High Contrast automatically enables the contrast mode when the system’s dark mode is active.
+
+![wcag-settings](https://github.com/user-attachments/assets/59f5cc3c-9e27-4826-9e6c-5a284b19b0c9)
 
 Here you can de/activate features (i.e. insert tags) individually and define the assignment between the _**page explaining the
 font size change**_ and the icon.
@@ -132,14 +135,16 @@ Mit diesen Klassen kann gesteuert werden, wie sich die Website bei der Anwendung
 Alle Klassen sind [hier](public/scss/theme-components.scss) zu finden.
 
 ## Konfiguration
-Es gibt die die Möglichkeit, die Verwendung von _**hohem Kontrast**_ und _**Schriftgröße**_ in geringen Umfang zu
+Es gibt die die Möglichkeit, die Verwendung von _**hohem Kontrast**_, _**automatischem hohem Kontrast**_ und _**Schriftgröße**_ in geringen Umfang zu
 konfigurieren.
 Das geschieht im Startpunkt der Website für den gesamten darunter liegenden Seitenbaum.
 Die Optionen ist unter ► _**Seiten**_ ► _**Website-Startseite**_ unter der Legende ► _**WCAG-Einstellungen
 (Web Content Accessibility Guidelines)**_ zu finden.
 WCAG steht hier für die offiziellen [Richtlinien zur barrierefreihen Gestaltung von Websites](https://www.w3.org/Translations/WCAG20-de/).
 
-![img_2.png](https://user-images.githubusercontent.com/13376233/224686682-556eda31-d828-486e-b17d-a16b242dcfa2.png)
+Der Unterschied zwischen _**hohem Kontrast**_ und _**automatischem hohem Kontrast**_ besteht darin, dass High Contrast manuell per Mausklick aktiviert werden kann, während Auto High Contrast den Kontrastmodus automatisch einschaltet, sobald in den Systemeinstellungen der Dark Mode aktiviert ist.
+
+![wcag-einstellungen](https://github.com/user-attachments/assets/6d8b8443-e0ae-471b-bd74-07e48253ac95)
 
 Hier können Sie Features (sprich Insert-Tags) einzeln de/aktivieren und die Zuordnung zwischen der _**Seite zur Erläuterung
 der Schriftgrößenänderung**_ und dem Icon festlegen.
