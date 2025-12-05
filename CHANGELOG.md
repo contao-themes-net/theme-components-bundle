@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.8.1](https://github.com/contao-themes-net/theme-components-bundle/tree/1.8.1) – 2025-12-05
+
+- [Fixed] The automatic contrast mode is now set to false by default. It can be manually enabled in the root page settings.
+
 ## [1.8.0](https://github.com/contao-themes-net/theme-components-bundle/tree/1.8.0) – 2025-11-27
 
 - [Fixed] Updated CSS to include :focus states in addition to :hover for better keyboard accessibility
