@@ -48,7 +48,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['enable_auto_high_contrast'] = [
     'exclude' => true,
     'inputType' => 'checkbox',
     'eval' => ['tl_class' => 'w50'],
-    'sql'  => ['type' => 'boolean', 'default' => true],
+    'sql'  => ['type' => 'boolean', 'default' => false],
 ];
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['enable_font_size'] = [
