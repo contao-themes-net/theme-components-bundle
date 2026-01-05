@@ -29,7 +29,7 @@ class ParseFrontendTemplateHook
     {
         global $objPage;
 
-        if ($objPage->rootId !== null) {
+        if ($objPage !== null && $objPage->rootId !== null) {
             // get the current root page
             $page = PageModel::findByPk($objPage->rootId);
 
