@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.8.3](https://github.com/contao-themes-net/theme-components-bundle/tree/1.8.3) – 2026-01-05
+
+- [Fixed] Remove warning `Attempt to read property "rootId" on null`
+
 ## [1.8.2](https://github.com/contao-themes-net/theme-components-bundle/tree/1.8.2) – 2025-12-05
 
 - [Fixed] Adjusted the BreadcrumbController so the active page title is correctly displayed in the breadcrumb.
