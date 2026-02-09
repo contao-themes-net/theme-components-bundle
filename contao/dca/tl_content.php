@@ -39,29 +39,29 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['ct_wrapperStop'] = '{type_legend},
 $GLOBALS['TL_DCA']['tl_content']['palettes']['ct_sliderElement'] = '{type_legend},type,headline,ct_sliderElement_subHeadline;{text_legend},text,ct_sliderElement_page,ct_sliderElement_target,ct_sliderElement_linkText;{image_legend},addImage;{video_legend},ct_sliderElement_playerSRC;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop;';
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['feature_section'] = '
-    {type_legend},type,fsVariant;
+    {type_legend},type,headline,fsVariant;
 ';
 
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v1'] = '
-    headline,text,fsLogo,fsLogoSize,fsBgLeft,fsBgLeftSize;
+    text,fsLogo,fsLogoSize,fsBgLeft,fsBgLeftSize;
     {fs_aside_legend},fsGallery,fsGallerySize,fsBgRight,fsBgRightSize;
     {color_legend},fsBgColor,fsColor,fsColorHeadline
 ';
 
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v2'] = '
-    headline,text,fsLogo,fsLogoSize,fsBgLeft,fsBgLeftSize;
+    text,fsLogo,fsLogoSize,fsBgLeft,fsBgLeftSize;
     {fs_aside_legend},fsGallery,fsGallerySize,fsBgRight,fsBgRightSize;
     {color_legend},fsBgColor,fsColor,fsColorHeadline
 ';
 
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v3'] = '
-    headline,text,fsLogo,fsLogoSize,fsBgLeft,fsBgLeftSize;
+    text,fsLogo,fsLogoSize,fsBgLeft,fsBgLeftSize;
     {fs_aside_legend},fsGallery,fsGallerySize;
     {color_legend},fsBgColor,fsColor,fsColorHeadline
 ';
 
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v4'] = '
-    headline,text,fsLogo,fsLogoSize,fsBgLeft,fsBgLeftSize;
+    text,fsLogo,fsLogoSize,fsBgLeft,fsBgLeftSize;
     {fs_aside_legend},fsGallery,fsGallerySize;
     {color_legend},fsBgColor,fsColor,fsColorHeadline
 ';
