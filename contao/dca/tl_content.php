@@ -354,7 +354,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['fsLogo'] = [
     'eval'      => [
         'filesOnly'  => true,
         'fieldType'  => 'radio',
-        'extensions' => 'svg,png,jpg,jpeg,webp',
+        'extensions' => 'svg,png,jpg,jpeg,webp,svg,avif',
         'mandatory'  => false,
         'tl_class' => 'clr'
     ],
@@ -367,7 +367,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['fsBgLeft'] = [
     'eval'      => [
         'filesOnly'  => true,
         'fieldType'  => 'radio',
-        'extensions' => 'jpg,jpeg,png,webp',
+        'extensions' => 'jpg,jpeg,png,webp,svg,avif',
         'mandatory'  => false,
         'tl_class' => 'clr'
     ],
@@ -380,7 +380,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['fsBgRight'] = [
     'eval'      => [
         'filesOnly'  => true,
         'fieldType'  => 'radio',
-        'extensions' => 'jpg,jpeg,png,webp',
+        'extensions' => 'jpg,jpeg,png,webp,svg,avif',
         'mandatory'  => false,
         'tl_class' => 'clr'
     ],
@@ -395,7 +395,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['fsGallery'] = [
         'fieldType'  => 'checkbox',
         'filesOnly'  => true,
         'orderField' => 'fsGalleryOrder',
-        'extensions' => 'jpg,jpeg,png,webp',
+        'extensions' => 'jpg,jpeg,png,webp,svg,avif',
         'mandatory'  => false,
         'tl_class' => 'clr'
     ],
