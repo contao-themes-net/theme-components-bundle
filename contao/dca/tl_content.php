@@ -43,25 +43,25 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['feature_section'] = '
 ';
 
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v1'] = '
-    {fs_content_legend},headline,text,fsLogo,fsLogoSize,fsBgLeft,fsBgLeftSize;
+    headline,text,fsLogo,fsLogoSize,fsBgLeft,fsBgLeftSize;
     {fs_aside_legend},fsGallery,fsGallerySize,fsBgRight,fsBgRightSize;
     {color_legend},fsBgColor,fsColor,fsColorHeadline
 ';
 
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v2'] = '
-    {fs_content_legend},headline,text,fsLogo,fsLogoSize,fsBgLeft,fsBgLeftSize;
+    headline,text,fsLogo,fsLogoSize,fsBgLeft,fsBgLeftSize;
     {fs_aside_legend},fsGallery,fsGallerySize,fsBgRight,fsBgRightSize;
     {color_legend},fsBgColor,fsColor,fsColorHeadline
 ';
 
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v3'] = '
-    {fs_content_legend},headline,text,fsLogo,fsLogoSize,fsBgLeft,fsBgLeftSize;
+    headline,text,fsLogo,fsLogoSize,fsBgLeft,fsBgLeftSize;
     {fs_aside_legend},fsGallery,fsGallerySize;
     {color_legend},fsBgColor,fsColor,fsColorHeadline
 ';
 
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v4'] = '
-    {fs_content_legend},headline,text,fsLogo,fsLogoSize,fsBgLeft,fsBgLeftSize;
+    headline,text,fsLogo,fsLogoSize,fsBgLeft,fsBgLeftSize;
     {fs_aside_legend},fsGallery,fsGallerySize;
     {color_legend},fsBgColor,fsColor,fsColorHeadline
 ';
