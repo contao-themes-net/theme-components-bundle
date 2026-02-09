@@ -43,25 +43,25 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['feature_section'] = '
 ';
 
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v1'] = '
-    text,fsLogo,fsLogoSize,fsBgLeft,fsBgLeftSize;
-    {fs_aside_legend},fsGallery,fsGallerySize,fsBgRight,fsBgRightSize;
+    text,fsLogo,fsBgLeft,fsLogoSize,fsBgLeftSize;
+    {fs_aside_legend},fsGallery,fsBgRight,fsGallerySize,fsBgRightSize;
     {color_legend},fsBgColor,fsColor,fsColorHeadline
 ';
 
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v2'] = '
-    text,fsLogo,fsLogoSize,fsBgLeft,fsBgLeftSize;
-    {fs_aside_legend},fsGallery,fsGallerySize,fsBgRight,fsBgRightSize;
+    text,fsLogo,fsBgLeft,fsLogoSize,fsBgLeftSize;
+    {fs_aside_legend},fsGallery,fsBgRight,fsGallerySize,fsBgRightSize;
     {color_legend},fsBgColor,fsColor,fsColorHeadline
 ';
 
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v3'] = '
-    text,fsLogo,fsLogoSize,fsBgLeft,fsBgLeftSize;
+    text,fsLogo,fsBgLeft,fsLogoSize,fsBgLeftSize;
     {fs_aside_legend},fsGallery,fsGallerySize;
     {color_legend},fsBgColor,fsColor,fsColorHeadline
 ';
 
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v4'] = '
-    text,fsLogo,fsLogoSize,fsBgLeft,fsBgLeftSize;
+    text,fsLogo,fsBgLeft,fsLogoSize,fsBgLeftSize;
     {fs_aside_legend},fsGallery,fsGallerySize;
     {color_legend},fsBgColor,fsColor,fsColorHeadline
 ';
@@ -356,7 +356,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['fsLogo'] = [
         'fieldType'  => 'radio',
         'extensions' => 'svg,png,jpg,jpeg,webp',
         'mandatory'  => false,
-        'tl_class' => 'w50'
+        'tl_class' => 'clr'
     ],
     'sql'       => "binary(16) NULL",
 ];
@@ -369,7 +369,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['fsBgLeft'] = [
         'fieldType'  => 'radio',
         'extensions' => 'jpg,jpeg,png,webp',
         'mandatory'  => false,
-        'tl_class' => 'w50'
+        'tl_class' => 'clr'
     ],
     'sql'       => "binary(16) NULL",
 ];
@@ -382,7 +382,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['fsBgRight'] = [
         'fieldType'  => 'radio',
         'extensions' => 'jpg,jpeg,png,webp',
         'mandatory'  => false,
-        'tl_class' => 'w50'
+        'tl_class' => 'clr'
     ],
     'sql'       => "binary(16) NULL",
 ];
@@ -397,7 +397,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['fsGallery'] = [
         'orderField' => 'fsGalleryOrder',
         'extensions' => 'jpg,jpeg,png,webp',
         'mandatory'  => false,
-        'tl_class' => 'w50'
+        'tl_class' => 'clr'
     ],
     'sql'       => "blob NULL",
 ];
@@ -405,7 +405,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['fsGallery'] = [
 $GLOBALS['TL_DCA']['tl_content']['fields']['fsLogoSize'] = [
     'inputType' => 'imageSize',
     'reference' => &$GLOBALS['TL_LANG']['MSC'],
-    'eval'      => ['rgxp' => 'natural', 'includeBlankOption' => true, 'nospace' => true, 'helpwizard' => true, 'tl_class' => 'w50'],
+    'eval'      => ['rgxp' => 'natural', 'includeBlankOption' => true, 'nospace' => true, 'helpwizard' => true, 'tl_class' => 'clr'],
     'options_callback' => static fn () => System::getContainer()->get('contao.image.sizes')->getOptionsForUser(BackendUser::getInstance()),
     'sql'       => "varchar(64) NOT NULL default ''",
 ];
@@ -413,7 +413,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['fsLogoSize'] = [
 $GLOBALS['TL_DCA']['tl_content']['fields']['fsBgLeftSize'] = [
     'inputType' => 'imageSize',
     'reference' => &$GLOBALS['TL_LANG']['MSC'],
-    'eval'      => ['rgxp' => 'natural', 'includeBlankOption' => true, 'nospace' => true, 'helpwizard' => true, 'tl_class' => 'w50'],
+    'eval'      => ['rgxp' => 'natural', 'includeBlankOption' => true, 'nospace' => true, 'helpwizard' => true, 'tl_class' => 'clr'],
     'options_callback' => static fn () => System::getContainer()->get('contao.image.sizes')->getOptionsForUser(BackendUser::getInstance()),
     'sql'       => "varchar(64) NOT NULL default ''",
 ];
@@ -421,7 +421,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['fsBgLeftSize'] = [
 $GLOBALS['TL_DCA']['tl_content']['fields']['fsBgRightSize'] = [
     'inputType' => 'imageSize',
     'reference' => &$GLOBALS['TL_LANG']['MSC'],
-    'eval'      => ['rgxp' => 'natural', 'includeBlankOption' => true, 'nospace' => true, 'helpwizard' => true, 'tl_class' => 'w50'],
+    'eval'      => ['rgxp' => 'natural', 'includeBlankOption' => true, 'nospace' => true, 'helpwizard' => true, 'tl_class' => 'clr'],
     'options_callback' => static fn () => System::getContainer()->get('contao.image.sizes')->getOptionsForUser(BackendUser::getInstance()),
     'sql'       => "varchar(64) NOT NULL default ''",
 ];
@@ -429,7 +429,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['fsBgRightSize'] = [
 $GLOBALS['TL_DCA']['tl_content']['fields']['fsGallerySize'] = [
     'inputType' => 'imageSize',
     'reference' => &$GLOBALS['TL_LANG']['MSC'],
-    'eval'      => ['rgxp' => 'natural', 'includeBlankOption' => true, 'nospace' => true, 'helpwizard' => true, 'tl_class' => 'w50'],
+    'eval'      => ['rgxp' => 'natural', 'includeBlankOption' => true, 'nospace' => true, 'helpwizard' => true, 'tl_class' => 'clr'],
     'options_callback' => static fn () => System::getContainer()->get('contao.image.sizes')->getOptionsForUser(BackendUser::getInstance()),
     'sql'       => "varchar(64) NOT NULL default ''",
 ];
