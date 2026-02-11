@@ -19,7 +19,7 @@
 
             <div class="feature-section__hero-inner">
 
-                {% if variant not in ['v1', 'v2'] %}
+                {% if logo is defined and logo and variant not in ['v1', 'v2'] %}
                     <div class="feature-section__brand">
                         {{ contao_figure(logo, logoSize) }}
                     </div>
@@ -59,9 +59,11 @@
                     </div>
                 {% endif %}
 
-                <div class="feature-section__brand">
-                    {{ contao_figure(logo, logoSize) }}
-                </div>
+                {% if logo is defined and logo %}
+                    <div class="feature-section__brand">
+                        {{ contao_figure(logo, logoSize) }}
+                    </div>
+                {% endif %}
 
                 {% if headline.text and variant === 'v1' %}
                     <div class="feature-section__headline">

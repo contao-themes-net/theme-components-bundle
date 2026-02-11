@@ -45,25 +45,25 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['feature_section'] = '
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v1'] = '
     text,fsLogo,fsBgLeft,fsLogoSize,fsBgLeftSize;
     {fs_aside_legend},fsGallery,fsBgRight,fsGallerySize,fsBgRightSize;
-    {color_legend},fsBgColor,fsColor,fsColorHeadline
+    {fs_color_legend},fsBgColor,fsColor,fsColorHeadline
 ';
 
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v2'] = '
     text,fsLogo,fsBgLeft,fsLogoSize,fsBgLeftSize;
     {fs_aside_legend},fsGallery,fsBgRight,fsGallerySize,fsBgRightSize;
-    {color_legend},fsBgColor,fsColor,fsColorHeadline
+    {fs_color_legend},fsBgColor,fsColor,fsColorHeadline
 ';
 
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v3'] = '
     text,fsLogo,fsBgLeft,fsLogoSize,fsBgLeftSize;
     {fs_aside_legend},fsGallery,fsGallerySize;
-    {color_legend},fsBgColor,fsColor,fsColorHeadline
+    {fs_color_legend},fsBgColor,fsColor,fsColorHeadline
 ';
 
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v4'] = '
     text,fsLogo,fsBgLeft,fsLogoSize,fsBgLeftSize;
     {fs_aside_legend},fsGallery,fsGallerySize;
-    {color_legend},fsBgColor,fsColor,fsColorHeadline
+    {fs_color_legend},fsBgColor,fsColor,fsColorHeadline
 ';
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'fsVariant';
