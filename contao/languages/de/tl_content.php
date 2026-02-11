@@ -126,4 +126,5 @@ $GLOBALS['TL_LANG']['tl_content']['fsVariantOptions'] = [
     'v2' => 'Variante 2',
     'v3' => 'Variante 3',
     'v4' => 'Variante 4',
+    'v5' => 'Variante 5',
 ];

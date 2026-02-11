@@ -41,7 +41,7 @@
         {% if variant not in ['v1', 'v2'] %}
             <!-- RIGHT: image stack -->
             <div class="feature-section__aside">
-                {% if gallery is not empty %}
+                {% if gallery is defined and gallery is not empty %}
                     {% for uuid in gallery %}
                         {{ contao_figure(uuid, gallerySize) }}
                     {% endfor %}
@@ -73,7 +73,7 @@
 
                 {% if variant === 'v1' %}</div>{% endif %}
 
-                {% if gallery is not empty %}
+                {% if gallery is defined and gallery is not empty %}
                     <div class="content-gallery content-gallery--cols-{{ gallery|length }}">
                         <ul>
                             {% for uuid in gallery %}

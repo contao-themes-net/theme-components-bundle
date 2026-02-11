@@ -66,6 +66,11 @@ $GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v4'] = '
     {fs_color_legend},fsBgColor,fsColor,fsColorHeadline
 ';
 
+$GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v5'] = '
+    text,fsLogo,fsBgLeft,fsLogoSize,fsBgLeftSize;
+    {fs_color_legend},fsBgColor,fsColor,fsColorHeadline
+';
+
 $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'fsVariant';
 
 /*
@@ -440,7 +445,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['fsGalleryOrder'] = [
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['fsVariant'] = [
     'inputType' => 'select',
-    'options'   => ['v1', 'v2', 'v3', 'v4'],
+    'options'   => ['v1', 'v2', 'v3', 'v4', 'v5'],
     'reference' => &$GLOBALS['TL_LANG']['tl_content']['fsVariantOptions'],
     'eval'      => ['includeBlankOption' => true, 'chosen' => true, 'tl_class' => 'w50', 'submitOnChange'=> true],
     'sql'       => "varchar(8) NOT NULL default ''",
