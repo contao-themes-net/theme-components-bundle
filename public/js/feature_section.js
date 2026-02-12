@@ -3,37 +3,58 @@
 
         const sections = document.querySelectorAll('.content-feature-section');
 
-        const setAsideHeight = (section) => {
+        const updateLayout = (section) => {
+            /* ----------------------------------
+               1) Deine bestehende Höhenlogik
+            ---------------------------------- */
             const heroInner = section.querySelector('.feature-section__hero-inner');
-            const aside = section.querySelector('.feature-section__aside');
+            if (heroInner) {
+                const h = heroInner.getBoundingClientRect().height;
 
-            const h = heroInner.getBoundingClientRect().height;
+                const minH = window.innerHeight; // 100vh
+                const finalH = Math.max(h, minH);
 
-            const minH = window.innerHeight; // 100vh
-            const finalH = Math.max(h, minH);
+                section.style.setProperty('--aside-h', `${finalH}px`);
+            }
 
-            section.style.setProperty('--aside-h', `${finalH}px`);
+            /* ----------------------------------
+               2) Neue Logik: Prüfen ob Galerie voll ist
+            ---------------------------------- */
+            const gallery = section.querySelector('.feature-section__gallery');
+            const content = section.querySelector('.content-gallery');
+
+            if (!gallery || !content) return;
+
+            const galleryWidth = gallery.getBoundingClientRect().width;
+            const contentWidth = content.getBoundingClientRect().width;
+
+            const tolerance = 2; // gegen Subpixel-Rundung
+
+            if (contentWidth < galleryWidth - tolerance) {
+                gallery.classList.add('is-not-full');
+            } else {
+                gallery.classList.remove('is-not-full');
+            }
         };
 
         const bind = (section) => {
-            // Initial
-            setAsideHeight(section);
+            updateLayout(section);
 
             const heroInner = section.querySelector('.feature-section__hero-inner');
-            if (!heroInner) return;
+            const gallery   = section.querySelector('.feature-section__gallery');
 
-            // Observe layout changes
-            const ro = new ResizeObserver(() => setAsideHeight(section));
-            ro.observe(heroInner);
+            const ro = new ResizeObserver(() => updateLayout(section));
 
-            // Also recompute on resize
-            window.addEventListener('resize', () => setAsideHeight(section));
+            if (heroInner) ro.observe(heroInner);
+            if (gallery)   ro.observe(gallery);
+
+            // Recompute on viewport resize
+            window.addEventListener('resize', () => updateLayout(section));
         };
 
         sections.forEach(bind);
     };
 
-    // Ensure DOM is ready (Contao often loads scripts in head)
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', run);
     } else {

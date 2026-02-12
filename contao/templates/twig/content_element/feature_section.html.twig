@@ -59,7 +59,7 @@
                     </div>
                 {% endif %}
 
-                {% if logo is defined and logo %}
+                {% if logo is defined and logo and variant === 'v1' %}
                     <div class="feature-section__brand">
                         {{ contao_figure(logo, logoSize) }}
                     </div>
@@ -75,6 +75,12 @@
 
                 {% if gallery is defined and gallery is not empty %}
                     <div class="content-gallery content-gallery--cols-{{ gallery|length }}">
+                        {% if logo is defined and logo and variant === 'v2' %}
+                            <div class="feature-section__brand">
+                                {{ contao_figure(logo, logoSize) }}
+                            </div>
+                        {% endif %}
+
                         <ul>
                             {% for uuid in gallery %}
                                 <li>
