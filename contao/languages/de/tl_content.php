@@ -106,9 +106,24 @@ $GLOBALS['TL_LANG']['tl_content']['fsBgColor'] = [
     'Farbe als Hex- oder RGB-Wert angeben.'
 ];
 
+$GLOBALS['TL_LANG']['tl_content']['fsBgColorGallery'] = [
+    'Hintergrundfarbe (Bilderbereich)',
+    'Farbe als Hex- oder RGB-Wert angeben.'
+];
+
 $GLOBALS['TL_LANG']['tl_content']['fsColor'] = [
     'Textfarbe',
     'Farbe als Hex- oder RGB-Wert angeben.'
+];
+
+$GLOBALS['TL_LANG']['tl_content']['fsOpacityContentBg'] = [
+    'Deckkraft für Hintergrundbild (Inhaltsbereich)',
+    'Gebe einen Wert zwischen 0 und 1 ein (z. B. 0.5).'
+];
+
+$GLOBALS['TL_LANG']['tl_content']['fsOpacityGalleryBg'] = [
+    'Deckkraft für Hintergrundbild (Bilderbereich)',
+    'Gebe einen Wert zwischen 0 und 1 ein (z. B. 0.5).'
 ];
 
 $GLOBALS['TL_LANG']['tl_content']['fsColorHeadline'] = [

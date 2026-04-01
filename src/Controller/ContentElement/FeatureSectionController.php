@@ -18,7 +18,10 @@ class FeatureSectionController extends AbstractContentElementController
         $template->text = $model->text;
         $template->variant = $model->fsVariant;
         $template->bgColor = $model->fsBgColor;
+        $template->bgColorGallery = $model->fsBgColorGallery;
         $template->color = $model->fsColor;
+        $template->opacityContentBg = $model->fsOpacityContentBg;
+        $template->opacityGalleryBg = $model->fsOpacityGalleryBg;
 
         if ($model->fsLogo) {
             $template->logo = $model->fsLogo;
@@ -45,11 +48,20 @@ class FeatureSectionController extends AbstractContentElementController
         if ($model->fsBgColor) {
             $inlineStyle[] = '--fs-bg-color: ' . $model->fsBgColor;
         }
+        if ($model->fsBgColorGallery) {
+            $inlineStyle[] = '--fs-gallery-bg-color: ' . $model->fsBgColorGallery;
+        }
         if ($model->fsColor) {
             $inlineStyle[] = '--fs-color: ' . $model->fsColor;
         }
         if ($model->fsColorHeadline) {
             $inlineStyle[] = '--fs-headline-color: ' . $model->fsColorHeadline;
+        }
+        if ($model->fsOpacityContentBg) {
+            $inlineStyle[] = '--fs-opacity: ' . $model->fsOpacityContentBg;
+        }
+        if ($model->fsOpacityGalleryBg) {
+            $inlineStyle[] = '--fs-opacity: ' . $model->fsOpacityGalleryBg;
         }
         $template->inlineStyle = 'style="' . implode(';', $inlineStyle) . '"';
 

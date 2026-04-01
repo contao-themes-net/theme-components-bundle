@@ -39,36 +39,36 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['ct_wrapperStop'] = '{type_legend},
 $GLOBALS['TL_DCA']['tl_content']['palettes']['ct_sliderElement'] = '{type_legend},type,headline,ct_sliderElement_subHeadline;{text_legend},text,ct_sliderElement_page,ct_sliderElement_target,ct_sliderElement_linkText;{image_legend},addImage;{video_legend},ct_sliderElement_playerSRC;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop;';
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['feature_section'] = '
-    {type_legend},type,headline,fsVariant;
+    {type_legend},type,headline,fsVariant;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop;
 ';
 
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v1'] = '
     text,fsLogo,fsBgLeft,fsLogoSize,fsBgLeftSize;
     {fs_aside_legend},fsGallery,fsBgRight,fsGallerySize,fsBgRightSize;
-    {fs_color_legend},fsBgColor,fsColor,fsColorHeadline
+    {fs_color_legend},fsBgColorGallery,fsBgColor,fsColor,fsColorHeadline,fsOpacityGalleryBg;
 ';
 
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v2'] = '
     text,fsLogo,fsBgLeft,fsLogoSize,fsBgLeftSize;
     {fs_aside_legend},fsGallery,fsBgRight,fsGallerySize,fsBgRightSize;
-    {fs_color_legend},fsBgColor,fsColor,fsColorHeadline
+    {fs_color_legend},fsBgColor,fsColor,fsColorHeadline,fsOpacityContentBg;
 ';
 
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v3'] = '
     text,fsLogo,fsBgLeft,fsLogoSize,fsBgLeftSize;
     {fs_aside_legend},fsGallery,fsGallerySize;
-    {fs_color_legend},fsBgColor,fsColor,fsColorHeadline
+    {fs_color_legend},fsBgColor,fsColor,fsColorHeadline;
 ';
 
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v4'] = '
     text,fsLogo,fsBgLeft,fsLogoSize,fsBgLeftSize;
     {fs_aside_legend},fsGallery,fsGallerySize;
-    {fs_color_legend},fsBgColor,fsColor,fsColorHeadline
+    {fs_color_legend},fsBgColor,fsColor,fsColorHeadline,fsOpacityContentBg;
 ';
 
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v5'] = '
     text,fsLogo,fsBgLeft,fsLogoSize,fsBgLeftSize;
-    {fs_color_legend},fsBgColor,fsColor,fsColorHeadline
+    {fs_color_legend},fsBgColor,fsColor,fsColorHeadline;
 ';
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'fsVariant';
@@ -402,7 +402,8 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['fsGallery'] = [
         'orderField' => 'fsGalleryOrder',
         'extensions' => 'jpg,jpeg,png,webp,svg,avif',
         'mandatory'  => false,
-        'tl_class' => 'clr'
+        'tl_class' => 'clr',
+        'isSortable' => true
     ],
     'sql'       => "blob NULL",
 ];
@@ -452,6 +453,24 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['fsVariant'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['fsBgColor'] = [
+    'inputType' => 'text',
+    'eval'      => ['tl_class' => 'w50'],
+    'sql'       => "varchar(255) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['fsBgColorGallery'] = [
+    'inputType' => 'text',
+    'eval'      => ['tl_class' => 'w50'],
+    'sql'       => "varchar(255) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['fsOpacityContentBg'] = [
+    'inputType' => 'text',
+    'eval'      => ['tl_class' => 'w50'],
+    'sql'       => "varchar(255) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['fsOpacityGalleryBg'] = [
     'inputType' => 'text',
     'eval'      => ['tl_class' => 'w50'],
     'sql'       => "varchar(255) NOT NULL default ''",

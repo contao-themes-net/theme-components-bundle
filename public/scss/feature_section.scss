@@ -1,8 +1,10 @@
 :root {
   --fs-grid-bg-color: transparent;
   --fs-bg-color: #191919;
+  --fs-gallery-bg-color: none;
   --fs-color: #fff;
   --fs-headline-color: --fs-color;
+  --fs-opacity: 1;
 }
 
 .content-feature-section {
@@ -27,6 +29,7 @@
       flex-direction: column;
       justify-content: space-between;
       padding: 8rem 0 0;
+      background: var(--fs-gallery-bg-color);
 
       .content-gallery {
         margin-right: -90%;
@@ -153,6 +156,11 @@
       color: var(--fs-color);
       float: left;
       padding: 8rem;
+      direction: ltr;
+
+      strong {
+        color: var(--fs-color);
+      }
 
       h1, h2, h3, h4, h5, h6 {
         color: var(--fs-headline-color);
@@ -262,6 +270,10 @@
         max-width: 800px;
       }
     }
+  }
+
+  .feature-section__hero > .feature-section__bg-image {
+    opacity: var(--fs-opacity);
   }
 
   .feature-section__gallery {
