@@ -1,0 +1,40 @@
+.icon-tile {
+  --icon-tile-background: #f2f2f2;
+  --icon-tile-color: #070707;
+  --icon-tile-background-hover: #eaeaea;
+  --icon-tile-color-hover: #000;
+  --icon-tile-border-radius: 5px;
+
+  a {
+    background: var(--icon-tile-background);
+    display: flex;
+    flex-wrap: wrap;
+    color: var(--icon-tile-color);
+    padding: 15px;
+    text-align: center;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: var(--icon-tile-border-radius);
+    overflow: hidden;
+    min-height: 180px;
+
+    &:hover, &:focus {
+      background: var(--icon-tile-background-hover);
+      color: var(--icon-tile-color-hover);
+    }
+  }
+
+  figure {
+    margin: 0 0 10px;
+  }
+}
+
+.icon-tile__label {
+  hyphens: auto;
+}
+
+.content .icon-tile figure:not([class]):not(:last-child) {
+  margin: 0 0 10px;
+}
