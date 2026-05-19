@@ -1,8 +1,8 @@
 /* alle reveal-Varianten – egal an welcher Position im class-Attribut */
 [class^="reveal"],
 [class*=" reveal"] {
-    --distance: 40px;
-    --duration: 700ms;
+    --distance: 10px;
+    --duration: 500ms;
 
     opacity: 0;
     transition: opacity var(--duration) ease,
