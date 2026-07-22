@@ -34,5 +34,16 @@ class GeneratePageHook
     {
         // load some specific styles
         $GLOBALS['TL_CSS']['tcb'] = self::AssetsPath.'/scss/theme-components.scss|static';
+
+        global $objPage;
+
+        if ($objPage !== null && $objPage->rootId !== null) {
+            $page = PageModel::findByPk($objPage->rootId);
+
+            if (true === $page->animateOnScroll) {
+                $GLOBALS['TL_CSS']['reveal'] = self::AssetsPath.'/css/reveal.css|static';
+                $GLOBALS['TL_JAVASCRIPT']['reveal'] = self::AssetsPath.'/js/reveal.js|static';
+            }
+        }
     }
 }

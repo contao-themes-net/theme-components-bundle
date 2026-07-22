@@ -4,7 +4,7 @@ services:
     autoconfigure: true
 
   ContaoThemesNet\ThemeComponentsBundle\:
-      resource: ../src/
+    resource: ../src/
 
     # Hooks
   ctn.themecomponentsbundle.eventlistener.replaceinserttags:

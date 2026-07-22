@@ -22,14 +22,16 @@ use Contao\CoreBundle\DataContainer\PaletteManipulator;
  *  apply new field for the root page
  */
 PaletteManipulator::create()
-    // create a new legend after tabnav_legend
+    // create a new legend
     ->addLegend('wcag_legend', 'publish_legend', PaletteManipulator::POSITION_BEFORE)
+    ->addLegend('theme_components_legend', 'publish_legend', PaletteManipulator::POSITION_BEFORE)
     // apply the new fields
     ->addField('enable_high_contrast', 'wcag_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('enable_auto_high_contrast', 'wcag_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('enable_font_size', 'wcag_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('enable_font_size_switcher', 'wcag_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('font_size_comment_page', 'wcag_legend', PaletteManipulator::POSITION_APPEND)
+    ->addField('animateOnScroll', 'theme_components_legend', PaletteManipulator::POSITION_APPEND)
     // register the palette for the root page
     ->applyToPalette('rootfallback', 'tl_page')
 ;
@@ -72,4 +74,11 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['font_size_comment_page'] = [
     'eval' => ['multiple'=>false, 'fieldType'=>'radio', 'tl_class' => 'clr'],
     'sql' => "int(10) unsigned NOT NULL default 0",
     'relation' => array('type'=>'hasOne', 'load'=>'lazy')
+];
+
+$GLOBALS['TL_DCA']['tl_page']['fields']['animateOnScroll'] = [
+    'exclude' => true,
+    'inputType' => 'checkbox',
+    'eval' => ['tl_class' => 'w50'],
+    'sql'  => ['type' => 'boolean', 'default' => false],
 ];

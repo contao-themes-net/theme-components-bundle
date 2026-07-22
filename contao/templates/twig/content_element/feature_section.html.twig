@@ -1,0 +1,98 @@
+{% extends "@Contao/content_element/_base.html.twig" %}
+
+{% block wrapper %}
+    {% set classes = ['feature-section--' ~ (variant|default('v1'))] %}
+    {% set attributes = attrs(attributes|default).addClass(classes) %}
+    {{ parent() }}
+{% endblock %}
+
+{%- block inner %}
+    <div class="feature-section__grid"{% if inlineStyle %} {{ inlineStyle|raw }}{% endif %}>
+
+        <!-- LEFT: Hero area -->
+        <div class="feature-section__hero">
+            {% if bgLeft is defined and bgLeft %}
+                <div class="feature-section__bg-image">
+                    {{ contao_figure(bgLeft, bgLeftSize) }}
+                </div>
+            {% endif %}
+
+            <div class="feature-section__hero-inner">
+
+                {% if logo is defined and logo and variant not in ['v1', 'v2'] %}
+                    <div class="feature-section__brand">
+                        {{ contao_figure(logo, logoSize) }}
+                    </div>
+                {% endif %}
+
+                {% if headline.text and variant !== 'v1' %}
+                    <div class="feature-section__headline">
+                        {{ block('headline_component') }}
+                    </div>
+                {% endif %}
+
+                <div class="feature-section__content">
+                    {{ text|raw }}
+                </div>
+
+            </div>
+        </div>
+
+        {% if variant not in ['v1', 'v2'] %}
+            <!-- RIGHT: image stack -->
+            <div class="feature-section__aside">
+                {% if gallery is defined and gallery is not empty %}
+                    {% for uuid in gallery %}
+                        {{ contao_figure(uuid, gallerySize) }}
+                    {% endfor %}
+                {% endif %}
+            </div>
+        {% endif %}
+
+        {% if variant in ['v1', 'v2'] %}
+            <!-- RIGHT: image stack -->
+            <div class="feature-section__gallery">
+                <div>
+                {% if bgRight is defined and bgRight %}
+                    <div class="feature-section__bg-image">
+                        {{ contao_figure(bgRight, bgRightSize) }}
+                    </div>
+                {% endif %}
+
+                {% if logo is defined and logo and variant === 'v1' %}
+                    <div class="feature-section__brand">
+                        {{ contao_figure(logo, logoSize) }}
+                    </div>
+                {% endif %}
+
+                {% if headline.text and variant === 'v1' %}
+                    <div class="feature-section__headline">
+                        {{ block('headline_component') }}
+                    </div>
+                {% endif %}
+
+                {% if variant === 'v1' %}</div>{% endif %}
+
+                {% if gallery is defined and gallery is not empty %}
+                    <div class="content-gallery content-gallery--cols-{{ gallery|length }}">
+                        {% if logo is defined and logo and variant === 'v2' %}
+                            <div class="feature-section__brand">
+                                {{ contao_figure(logo, logoSize) }}
+                            </div>
+                        {% endif %}
+
+                        <ul>
+                            {% for uuid in gallery %}
+                                <li>
+                                    {{ contao_figure(uuid, gallerySize) }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+                {% if variant === 'v2' %}</div>{% endif %}
+            </div>
+        {% endif %}
+
+    </div>
+{% endblock -%}

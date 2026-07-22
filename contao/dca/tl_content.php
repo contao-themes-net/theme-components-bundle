@@ -17,8 +17,10 @@ declare(strict_types=1);
  */
 
 use Contao\Backend;
+use Contao\BackendUser;
 use Contao\CoreBundle\DataContainer\PaletteManipulator;
 use Contao\DataContainer;
+use Contao\System;
 
 PaletteManipulator::create()
     ->addField('subline', 'headline')
@@ -35,6 +37,41 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['ct_teaserBox'] = '{type_legend},ty
 $GLOBALS['TL_DCA']['tl_content']['palettes']['ct_wrapperStart'] = '{type_legend},type,ct_wrapper_name;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['ct_wrapperStop'] = '{type_legend},type;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests;{invisible_legend:hide},invisible,start,stop';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['ct_sliderElement'] = '{type_legend},type,headline,ct_sliderElement_subHeadline;{text_legend},text,ct_sliderElement_page,ct_sliderElement_target,ct_sliderElement_linkText;{image_legend},addImage;{video_legend},ct_sliderElement_playerSRC;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop;';
+
+$GLOBALS['TL_DCA']['tl_content']['palettes']['feature_section'] = '
+    {type_legend},type,headline,fsVariant;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop;
+';
+
+$GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v1'] = '
+    text,fsLogo,fsBgLeft,fsLogoSize,fsBgLeftSize;
+    {fs_aside_legend},fsGallery,fsBgRight,fsGallerySize,fsBgRightSize;
+    {fs_color_legend},fsBgColorGallery,fsBgColor,fsColor,fsColorHeadline,fsOpacityGalleryBg;
+';
+
+$GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v2'] = '
+    text,fsLogo,fsBgLeft,fsLogoSize,fsBgLeftSize;
+    {fs_aside_legend},fsGallery,fsBgRight,fsGallerySize,fsBgRightSize;
+    {fs_color_legend},fsBgColor,fsColor,fsColorHeadline,fsOpacityContentBg;
+';
+
+$GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v3'] = '
+    text,fsLogo,fsBgLeft,fsLogoSize,fsBgLeftSize;
+    {fs_aside_legend},fsGallery,fsGallerySize;
+    {fs_color_legend},fsBgColor,fsColor,fsColorHeadline;
+';
+
+$GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v4'] = '
+    text,fsLogo,fsBgLeft,fsLogoSize,fsBgLeftSize;
+    {fs_aside_legend},fsGallery,fsGallerySize;
+    {fs_color_legend},fsBgColor,fsColor,fsColorHeadline,fsOpacityContentBg;
+';
+
+$GLOBALS['TL_DCA']['tl_content']['subpalettes']['fsVariant_v5'] = '
+    text,fsLogo,fsBgLeft,fsLogoSize,fsBgLeftSize;
+    {fs_color_legend},fsBgColor,fsColor,fsColorHeadline;
+';
+
+$GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'fsVariant';
 
 /*
  * Add fields to tl_content
@@ -310,6 +347,145 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['ct_sliderElement_playerSRC'] = [
     'inputType' => 'fileTree',
     'eval' => ['tl_class' => 'w50', 'fieldType' => 'radio', 'files' => true],
     'sql' => 'blob NULL',
+];
+
+// ------------------------------------------------------------
+// Feature section
+// ------------------------------------------------------------
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['fsLogo'] = [
+    'exclude'   => true,
+    'inputType' => 'fileTree',
+    'eval'      => [
+        'filesOnly'  => true,
+        'fieldType'  => 'radio',
+        'extensions' => 'svg,png,jpg,jpeg,webp,svg,avif',
+        'mandatory'  => false,
+        'tl_class' => 'clr'
+    ],
+    'sql'       => "binary(16) NULL",
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['fsBgLeft'] = [
+    'exclude'   => true,
+    'inputType' => 'fileTree',
+    'eval'      => [
+        'filesOnly'  => true,
+        'fieldType'  => 'radio',
+        'extensions' => 'jpg,jpeg,png,webp,svg,avif',
+        'mandatory'  => false,
+        'tl_class' => 'clr'
+    ],
+    'sql'       => "binary(16) NULL",
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['fsBgRight'] = [
+    'exclude'   => true,
+    'inputType' => 'fileTree',
+    'eval'      => [
+        'filesOnly'  => true,
+        'fieldType'  => 'radio',
+        'extensions' => 'jpg,jpeg,png,webp,svg,avif',
+        'mandatory'  => false,
+        'tl_class' => 'clr'
+    ],
+    'sql'       => "binary(16) NULL",
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['fsGallery'] = [
+    'exclude'   => true,
+    'inputType' => 'fileTree',
+    'eval'      => [
+        'multiple'   => true,
+        'fieldType'  => 'checkbox',
+        'filesOnly'  => true,
+        'orderField' => 'fsGalleryOrder',
+        'extensions' => 'jpg,jpeg,png,webp,svg,avif',
+        'mandatory'  => false,
+        'tl_class' => 'clr',
+        'isSortable' => true
+    ],
+    'sql'       => "blob NULL",
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['fsLogoSize'] = [
+    'inputType' => 'imageSize',
+    'reference' => &$GLOBALS['TL_LANG']['MSC'],
+    'eval'      => ['rgxp' => 'natural', 'includeBlankOption' => true, 'nospace' => true, 'helpwizard' => true, 'tl_class' => 'clr'],
+    'options_callback' => static fn () => System::getContainer()->get('contao.image.sizes')->getOptionsForUser(BackendUser::getInstance()),
+    'sql'       => "varchar(64) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['fsBgLeftSize'] = [
+    'inputType' => 'imageSize',
+    'reference' => &$GLOBALS['TL_LANG']['MSC'],
+    'eval'      => ['rgxp' => 'natural', 'includeBlankOption' => true, 'nospace' => true, 'helpwizard' => true, 'tl_class' => 'clr'],
+    'options_callback' => static fn () => System::getContainer()->get('contao.image.sizes')->getOptionsForUser(BackendUser::getInstance()),
+    'sql'       => "varchar(64) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['fsBgRightSize'] = [
+    'inputType' => 'imageSize',
+    'reference' => &$GLOBALS['TL_LANG']['MSC'],
+    'eval'      => ['rgxp' => 'natural', 'includeBlankOption' => true, 'nospace' => true, 'helpwizard' => true, 'tl_class' => 'clr'],
+    'options_callback' => static fn () => System::getContainer()->get('contao.image.sizes')->getOptionsForUser(BackendUser::getInstance()),
+    'sql'       => "varchar(64) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['fsGallerySize'] = [
+    'inputType' => 'imageSize',
+    'reference' => &$GLOBALS['TL_LANG']['MSC'],
+    'eval'      => ['rgxp' => 'natural', 'includeBlankOption' => true, 'nospace' => true, 'helpwizard' => true, 'tl_class' => 'clr'],
+    'options_callback' => static fn () => System::getContainer()->get('contao.image.sizes')->getOptionsForUser(BackendUser::getInstance()),
+    'sql'       => "varchar(64) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['fsGalleryOrder'] = [
+    'sql' => "blob NULL",
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['fsVariant'] = [
+    'inputType' => 'select',
+    'options'   => ['v1', 'v2', 'v3', 'v4', 'v5'],
+    'reference' => &$GLOBALS['TL_LANG']['tl_content']['fsVariantOptions'],
+    'eval'      => ['includeBlankOption' => true, 'chosen' => true, 'tl_class' => 'w50', 'submitOnChange'=> true],
+    'sql'       => "varchar(8) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['fsBgColor'] = [
+    'inputType' => 'text',
+    'eval'      => ['tl_class' => 'w50'],
+    'sql'       => "varchar(255) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['fsBgColorGallery'] = [
+    'inputType' => 'text',
+    'eval'      => ['tl_class' => 'w50'],
+    'sql'       => "varchar(255) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['fsOpacityContentBg'] = [
+    'inputType' => 'text',
+    'eval'      => ['tl_class' => 'w50'],
+    'sql'       => "varchar(255) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['fsOpacityGalleryBg'] = [
+    'inputType' => 'text',
+    'eval'      => ['tl_class' => 'w50'],
+    'sql'       => "varchar(255) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['fsColor'] = [
+    'inputType' => 'text',
+    'eval'      => ['tl_class' => 'w50'],
+    'sql'       => "varchar(255) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['fsColorHeadline'] = [
+    'inputType' => 'text',
+    'eval'      => ['tl_class' => 'w50'],
+    'sql'       => "varchar(255) NOT NULL default ''",
 ];
 
 class tl_content_ct extends Backend

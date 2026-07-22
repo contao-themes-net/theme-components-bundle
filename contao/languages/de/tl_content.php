@@ -56,3 +56,90 @@ $GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_playerSRC'] = ['Video', 'Wä
 $GLOBALS['TL_LANG']['tl_content']['subline'] = ['Dachzeile', 'Der Inhalt des Feldes wird über der Überschrift angezeigt. Mit den nachfolgenden Checkboxen kann man das Feld auch daneben oder darunter anzeigen lassen.'];
 $GLOBALS['TL_LANG']['tl_content']['headline_inline'] = ['nebeneinander anzeigen', 'Die Dachzeile links neben der Überschrift anzeigen.'];
 $GLOBALS['TL_LANG']['tl_content']['subheadline'] = ['darunter anzeigen', 'Die Dachzeile unter der Überschrift anzeigen.'];
+
+$GLOBALS['TL_LANG']['tl_content']['fs_content_legend'] = 'Inhaltsbereich';
+$GLOBALS['TL_LANG']['tl_content']['fs_aside_legend']   = 'Bilderbereich';
+$GLOBALS['TL_LANG']['tl_content']['fs_color_legend']   = 'Farben & Darstellung';
+
+$GLOBALS['TL_LANG']['tl_content']['fsLogo'] = [
+    'Logo',
+    'Logo-Datei auswählen (z. B. SVG oder PNG).'
+];
+
+$GLOBALS['TL_LANG']['tl_content']['fsLogoSize'] = [
+    'Bildgröße für Logo',
+    'Bildgröße festlegen, in der das Logo ausgegeben wird.'
+];
+
+$GLOBALS['TL_LANG']['tl_content']['fsBgLeft'] = [
+    'Hintergrundbild (Inhaltsbereich)',
+    'Hintergrundbild für den Inhaltsbereich auswählen.'
+];
+
+$GLOBALS['TL_LANG']['tl_content']['fsBgRight'] = [
+    'Hintergrundbild (Bilderbereich)',
+    'Hintergrundbild für den Bilderbereich auswählen.'
+];
+
+$GLOBALS['TL_LANG']['tl_content']['fsBgLeftSize'] = [
+    'Bildgröße für Hintergrundbild (Inhaltsbereich)',
+    'Bildgröße des Hintergrundbildes im Inhaltsbereich festlegen.'
+];
+
+$GLOBALS['TL_LANG']['tl_content']['fsBgRightSize'] = [
+    'Bildgröße für Hintergrundbild (Bilderbereich)',
+    'Bildgröße des Hintergrundbildes im Bilderbereich festlegen.'
+];
+
+$GLOBALS['TL_LANG']['tl_content']['fsGallery'] = [
+    'Galerie',
+    'Bilder für die Collage oder Bildergalerie auswählen (Reihenfolge frei anpassbar).'
+];
+
+$GLOBALS['TL_LANG']['tl_content']['fsGallerySize'] = [
+    'Bildgröße für Galerie',
+    'Bildgröße der Galerie- bzw. Collagenbilder festlegen.'
+];
+
+$GLOBALS['TL_LANG']['tl_content']['fsBgColor'] = [
+    'Hintergrundfarbe (Inhaltsbereich)',
+    'Farbe als Hex- oder RGB-Wert angeben.'
+];
+
+$GLOBALS['TL_LANG']['tl_content']['fsBgColorGallery'] = [
+    'Hintergrundfarbe (Bilderbereich)',
+    'Farbe als Hex- oder RGB-Wert angeben.'
+];
+
+$GLOBALS['TL_LANG']['tl_content']['fsColor'] = [
+    'Textfarbe',
+    'Farbe als Hex- oder RGB-Wert angeben.'
+];
+
+$GLOBALS['TL_LANG']['tl_content']['fsOpacityContentBg'] = [
+    'Deckkraft für Hintergrundbild (Inhaltsbereich)',
+    'Gebe einen Wert zwischen 0 und 1 ein (z. B. 0.5).'
+];
+
+$GLOBALS['TL_LANG']['tl_content']['fsOpacityGalleryBg'] = [
+    'Deckkraft für Hintergrundbild (Bilderbereich)',
+    'Gebe einen Wert zwischen 0 und 1 ein (z. B. 0.5).'
+];
+
+$GLOBALS['TL_LANG']['tl_content']['fsColorHeadline'] = [
+    'Textfarbe der Überschrift',
+    'Farbe der Überschrift als Hex- oder RGB-Wert angeben.'
+];
+
+$GLOBALS['TL_LANG']['tl_content']['fsVariant'] = [
+    'Variante',
+    'Wähle die entsprechende Darstellungs-Variante aus.'
+];
+
+$GLOBALS['TL_LANG']['tl_content']['fsVariantOptions'] = [
+    'v1' => 'Variante 1',
+    'v2' => 'Variante 2',
+    'v3' => 'Variante 3',
+    'v4' => 'Variante 4',
+    'v5' => 'Variante 5',
+];

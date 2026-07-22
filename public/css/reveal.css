@@ -1,0 +1,46 @@
+/* alle reveal-Varianten – egal an welcher Position im class-Attribut */
+[class^="reveal"],
+[class*=" reveal"] {
+    --distance: 10px;
+    --duration: 500ms;
+
+    opacity: 0;
+    transition: opacity var(--duration) ease,
+    transform var(--duration) ease;
+    will-change: opacity, transform;
+}
+
+/* Standard (falls nur "reveal" genutzt wird) */
+.reveal {
+    transform: translateY(var(--distance));
+}
+
+/* Richtungen */
+.reveal-left  { transform: translateX(calc(-1 * var(--distance))); }
+.reveal-right { transform: translateX(var(--distance)); }
+.reveal-up  { transform: translateY(calc(-1 * var(--distance))); }
+
+/* Sichtbar */
+[class^="reveal"].is-visible,
+[class*=" reveal"].is-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Geschwindigkeit */
+.reveal-fast  { --duration: 400ms; }
+.reveal-slow  { --duration: 1200ms; }
+
+/* Intensität */
+.reveal-soft   { --distance: 20px; }
+.reveal-strong { --distance: 80px; }
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    [class^="reveal"],
+    [class*=" reveal"] {
+        transition: none;
+        transform: none;
+        opacity: 1;
+    }
+}
