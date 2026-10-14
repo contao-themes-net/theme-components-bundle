@@ -6,7 +6,6 @@ namespace ContaoThemesNet\ThemeComponentsBundle\Controller\FrontendModule;
 
 use Contao\Controller;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsFrontendModule;
-use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
 use Contao\CoreBundle\Routing\ResponseContext\HtmlHeadBag\HtmlHeadBag;
 use Contao\CoreBundle\Routing\ResponseContext\ResponseContextAccessor;
 use Contao\CoreBundle\Routing\ScopeMatcher;
@@ -14,14 +13,26 @@ use Contao\Input;
 use Contao\ModuleBreadcrumb;
 use Contao\ModuleModel;
 use Contao\StringUtil;
+use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\StreamedResponse;
+use Symfony\Component\HttpKernel\Event\ResponseEvent;
+use Symfony\Component\HttpKernel\KernelEvents;
 
 #[AsFrontendModule('breadcrumb', 'navigationMenu', 'mod_breadcrumb', priority: 1)]
 class BreadcrumbController extends ModuleBreadcrumb
 {
     private static array $models = [];
+
+    /**
+     * The head bag of the page, kept for the deferred rendering: when the
+     * placeholders are replaced, the response context has already been
+     * finalized, but the head bag object still holds the final page title
+     * (e.g. the title of a news article set by the reader module).
+     */
+    private static HtmlHeadBag|null $htmlHeadBag = null;
 
     public function __construct(
         private readonly ScopeMatcher $scopeMatcher,
@@ -45,6 +56,7 @@ class BreadcrumbController extends ModuleBreadcrumb
         if (!$mainRequest->attributes->has($attributeVar)) {
             $mainRequest->attributes->set($attributeVar, true);
             self::$models[$model->id] = $model;
+            self::$htmlHeadBag = $this->getHtmlHeadBag();
 
             return new Response('[[render_breadcrumb::' . $model->id . ']]');
         }
@@ -52,31 +64,39 @@ class BreadcrumbController extends ModuleBreadcrumb
         return new Response($this->generate());
     }
 
-    #[AsHook('modifyFrontendPage')]
-    public function onModifyFrontendPage(string $buffer, string $template): string
+    /**
+     * Replaces the placeholders with the rendered breadcrumb once the whole page
+     * has been generated. A response listener works for both the legacy page
+     * layouts (fe_page) and the modern Twig layouts, which do not trigger the
+     * modifyFrontendPage hook.
+     */
+    #[AsEventListener(KernelEvents::RESPONSE, priority: 256)]
+    public function onKernelResponse(ResponseEvent $event): void
     {
-        if (!str_starts_with($template, 'fe_page')) {
-            return $buffer;
+        if (!$event->isMainRequest() || !self::$models || !$this->scopeMatcher->isFrontendRequest($event->getRequest())) {
+            return;
         }
 
-        $mainRequest = $this->requestStack->getMainRequest();
+        $response = $event->getResponse();
 
-        // https://github.com/contao/contao/issues/8255
-        if ($mainRequest->attributes->has(__METHOD__)) {
-            return $buffer;
+        if ($response instanceof StreamedResponse || !\is_string($content = $response->getContent())) {
+            return;
         }
 
-        $mainRequest->attributes->set(__METHOD__, true);
-
-        if (preg_match_all('/\[\[render_breadcrumb::([0-9]+)\]\]/', $buffer, $matches)) {
-            foreach ($matches[1] as $id) {
-                $rendered = Controller::getFrontendModule(self::$models[$id] ?? $id);
-
-                $buffer = str_replace(\sprintf('[[render_breadcrumb::%s]]', $id), $rendered, $buffer);
-            }
+        if (!preg_match_all('/\[\[render_breadcrumb::([0-9]+)\]\]/', $content, $matches)) {
+            return;
         }
 
-        return $buffer;
+        foreach (array_unique($matches[1]) as $id) {
+            $rendered = Controller::getFrontendModule(self::$models[$id] ?? $id);
+
+            $content = str_replace(\sprintf('[[render_breadcrumb::%s]]', $id), $rendered, $content);
+        }
+
+        $response->setContent($content);
+
+        self::$models = [];
+        self::$htmlHeadBag = null;
     }
 
     protected function compile(): void
@@ -93,17 +113,9 @@ class BreadcrumbController extends ModuleBreadcrumb
             return;
         }
 
-        if (!$responseContext = $this->responseContextAccessor->getResponseContext()) {
-            return;
-        }
+        $htmlHeadBag = $this->getHtmlHeadBag() ?? self::$htmlHeadBag;
 
-        if (!$responseContext->has(HtmlHeadBag::class)) {
-            return;
-        }
-
-        $htmlHeadBag = $responseContext->get(HtmlHeadBag::class);
-
-        if (!$htmlHeadBag->getTitle()) {
+        if (!$htmlHeadBag?->getTitle()) {
             return;
         }
 
@@ -117,5 +129,16 @@ class BreadcrumbController extends ModuleBreadcrumb
         }
 
         $this->Template->items = $items;
+    }
+
+    private function getHtmlHeadBag(): HtmlHeadBag|null
+    {
+        $responseContext = $this->responseContextAccessor->getResponseContext();
+
+        if (!$responseContext?->has(HtmlHeadBag::class)) {
+            return null;
+        }
+
+        return $responseContext->get(HtmlHeadBag::class);
     }
 }

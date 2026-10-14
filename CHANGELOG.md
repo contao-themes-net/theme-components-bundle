@@ -13,6 +13,7 @@ Types of changes
 ## [1.10.0](https://github.com/contao-themes-net/theme-components-bundle/tree/1.10.0) – 2026-08-27
 
 - [Added] Allow Contao 6
+- [Fixed] Render the breadcrumb in page layouts of type "modern" (the placeholder is now replaced in a response listener instead of the `modifyFrontendPage` hook)
 
 ## [1.9.0](https://github.com/contao-themes-net/theme-components-bundle/tree/1.9.0) – 2026-07-22
 
