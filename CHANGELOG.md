@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.10.0](https://github.com/contao-themes-net/theme-components-bundle/tree/1.10.0) – 2026-08-27
+
+- [Added] Allow Contao 6
+
 ## [1.9.0](https://github.com/contao-themes-net/theme-components-bundle/tree/1.9.0) – 2026-07-22
 
 - [Added] New content element "Feature Section"
