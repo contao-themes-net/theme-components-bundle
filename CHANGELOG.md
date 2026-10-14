@@ -21,6 +21,10 @@ Types of changes
 - [Changed] All values of the scroll animations are defined as custom properties on `:root` (`--reveal-duration`, `--reveal-distance`, `--reveal-delay-1` etc.), so themes only have to override these tokens
 - [Added] Minimal base styling in the `theme-components` cascade layer (`public/css/elements.css`)
 - [Added] Image support for the Content Box palette
+- [Fixed] The accessibility tools (high contrast, font size) and the scroll animations also work in page layouts of the type "modern": the new `PageAssetsListener` uses the `generatePage` hook for legacy layouts and the `LayoutEvent` for modern layouts and adds the scripts via `TL_HEAD`/`TL_BODY` instead of the `parseFrontendTemplate` hook
+- [Fixed] The stylesheets of the high contrast mode, the Feature Section and the Icon Tile are shipped as compiled CSS (`public/css/theme-components.css`, `feature_section.css`, `icon_tile.css`), because modern layouts do not compile SCSS files and browsers cannot use a linked SCSS file (Icon Tile was unstyled in every layout type)
+- [Changed] The Feature Section loads its stylesheet and script in the template (`style`/`script` blocks) instead of the controller
+- [Fixed] The page hooks were registered twice (attribute and named service), so the scripts could be added twice
 - [Removed] Legacy element classes in `src/Element` and their `.html5` templates
 - [Removed] Content elements `ct_wrapperStart` and `ct_wrapperStop`
 - [Removed] Legacy module class `src/Module/ModalModule.php`

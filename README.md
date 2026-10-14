@@ -288,3 +288,10 @@ der Schriftgrößenänderung**_ und dem Icon festlegen.
 ## run before commit
 
     vendor/bin/ecs check src tests
+
+## rebuild the compiled stylesheets
+The stylesheets in `public/css` (`theme-components.css`, `feature_section.css`, `icon_tile.css`) are compiled from the
+SCSS sources in `public/scss`, so that they work in page layouts of the type "modern" as well (they do not compile SCSS
+files). Rebuild them after changing an SCSS source:
+
+    for f in theme-components feature_section icon_tile; do vendor/bin/pscss public/scss/$f.scss public/css/$f.css; done
