@@ -16,10 +16,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-use Contao\Backend;
-use Contao\DataContainer;
-
-$GLOBALS['TL_DCA']['tl_module']['palettes']['ct_modal'] = '{title_legend},name,type;{modal_link_legend},modal_linkText,modal_linkClass;{modal_headline_legend},headline;{modal_text_legend},modal_text,modal_class;{template_legend:hide},modal_customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['ct_modal'] = '{title_legend},name,type;{modal_link_legend},modal_linkText,modal_linkClass;{modal_headline_legend},headline;{modal_text_legend},modal_text,modal_class;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},cssID';
 
 /*
  * Add fields to tl_module
@@ -53,11 +50,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['modal_text'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['modal_customTpl'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_module']['modal_customTpl'],
-    'exclude' => true,
-    'inputType' => 'select',
-    'options_callback' => ['tl_module_cthemes', 'getModalTemplates'],
-    'eval' => ['includeBlankOption' => true, 'chosen' => true, 'tl_class' => 'w50'],
+    // Legacy template selection, see TemplateSelectionMigration
     'sql' => "varchar(64) NOT NULL default ''",
 ];
 
@@ -68,16 +61,3 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['modal_class'] = [
     'eval' => ['tl_class' => 'w50'],
     'sql' => "varchar(255) NOT NULL default ''",
 ];
-
-class tl_module_cthemes extends Backend
-{
-    /**
-     * Return all content element templates as array.
-     *
-     * @return array
-     */
-    public function getModalTemplates(DataContainer $dc)
-    {
-        return $this->getTemplateGroup('mod_cthemes_modal');
-    }
-}

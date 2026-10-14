@@ -1,0 +1,203 @@
+/*
+ * Base styling of the theme components bundle content elements and modules.
+ *
+ * The rules only cover the layout and live in the "theme-components" cascade
+ * layer, so every unlayered theme rule wins regardless of its specificity.
+ * Themes that use cascade layers themselves should declare the order first,
+ * e.g. "@layer theme-components, my-theme;". Colors and spacings can be
+ * adjusted with the custom properties below.
+ */
+@layer theme-components {
+  :root {
+    --tc-gap: 1rem;
+    --tc-box-padding: 0;
+    --tc-box-radius: 0;
+    --tc-box-background: transparent;
+    --tc-box-border: 0 none;
+    --tc-accent: currentColor;
+    --tc-icon-size: 2rem;
+    --tc-slider-overlay: rgb(0 0 0 / 0.35);
+    --tc-slider-color: #fff;
+    --tc-modal-width: min(40rem, calc(100vw - 2rem));
+    --tc-modal-padding: 1.5rem;
+    --tc-modal-background: Canvas;
+    --tc-modal-color: CanvasText;
+    --tc-modal-backdrop: rgb(0 0 0 / 0.6);
+  }
+
+  /* Content box & teaser box */
+  .content-box,
+  .teaser-box,
+  .price-box {
+    display: flex;
+    flex-direction: column;
+    gap: var(--tc-gap);
+    padding: var(--tc-box-padding);
+    border: var(--tc-box-border);
+    border-radius: var(--tc-box-radius);
+    background: var(--tc-box-background);
+  }
+
+  :is(.content-box, .teaser-box, .price-box) > * {
+    margin-block: 0;
+  }
+
+  :is(.content-box, .teaser-box) :is(h1, h2, h3, h4, h5, h6) a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  :is(.content-box__media, .teaser-box__media) {
+    margin: 0;
+  }
+
+  :is(.content-box__media, .teaser-box__media) img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .teaser-box {
+    overflow: hidden;
+  }
+
+  :is(.content-box__more, .teaser-box__more) {
+    margin-top: auto;
+  }
+
+  /* Price box */
+  .price-box {
+    position: relative;
+    text-align: center;
+  }
+
+  .price-box__badge {
+    align-self: center;
+    padding: 0.25em 0.75em;
+    border: 1px solid var(--tc-accent);
+    border-radius: 999px;
+    font-size: 0.875em;
+  }
+
+  .price-box__price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .price-box__amount {
+    font-size: 2.5em;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .price-box__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: calc(var(--tc-gap) / 2);
+    margin-top: auto;
+  }
+
+  /* Feature element */
+  .feature-element--has-icon {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--tc-gap);
+  }
+
+  .feature-element__icon {
+    flex: 0 0 auto;
+    font-size: var(--tc-icon-size);
+    line-height: 1;
+    color: var(--tc-accent);
+  }
+
+  .feature-element__icon a {
+    color: inherit;
+  }
+
+  .feature-element__body {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .feature-element__body > :first-child {
+    margin-top: 0;
+  }
+
+  /* Slider element */
+  .slider-element {
+    position: relative;
+    display: grid;
+    overflow: hidden;
+  }
+
+  .slider-element > * {
+    grid-area: 1 / 1;
+  }
+
+  .slider-element__media {
+    margin: 0;
+  }
+
+  .slider-element__media :is(img, video) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .slider-element__content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: var(--tc-gap);
+    color: var(--tc-slider-color);
+    background: var(--tc-slider-overlay);
+  }
+
+  .slider-element__content :is(h1, h2, h3, h4, h5, h6, a) {
+    color: inherit;
+  }
+
+  /* Modal (frontend module) */
+  .ct-modal__dialog {
+    width: var(--tc-modal-width);
+    max-height: calc(100dvh - 2rem);
+    padding: 0;
+    border: 0;
+    color: var(--tc-modal-color);
+    background: var(--tc-modal-background);
+  }
+
+  .ct-modal__dialog::backdrop {
+    background: var(--tc-modal-backdrop);
+  }
+
+  .ct-modal__content {
+    padding: var(--tc-modal-padding);
+  }
+
+  .ct-modal__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--tc-gap);
+  }
+
+  .ct-modal__title {
+    margin-top: 0;
+  }
+
+  .ct-modal__close {
+    margin-left: auto;
+    padding: 0 0.25em;
+    border: 0;
+    background: none;
+    color: inherit;
+    font-size: 1.5em;
+    line-height: 1;
+    cursor: pointer;
+  }
+}

@@ -44,7 +44,6 @@ $GLOBALS['TL_LANG']['tl_content']['ct_teaserBox_settings'] = 'Ustawienia ramki t
 $GLOBALS['TL_LANG']['tl_content']['ct_teaserBox_customTpl'] = ['Szablon indywidualny', 'Tutaj można wybrać indywidualny szablon.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_teaserBox_pageTitle'] = ['Tytuł łącza', 'Tytuł linku jest wstawiany jako atrybut title w znaczniku HTML.'];
 
-$GLOBALS['TL_LANG']['tl_content']['ct_wrapper_name'] = ['Oznaczenie', 'Tutaj można wprowadzić oznaczenie, które służy jedynie jako przegląd w backendzie.'];
 
 $GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_page'] = ['Strona, która ma być połączona', 'Wybierz stronę, do której chcesz zamieścić link.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_linkText'] = ['Tekst odnośnika', ''];

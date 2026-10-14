@@ -44,7 +44,6 @@ $GLOBALS['TL_LANG']['tl_content']['ct_teaserBox_settings'] = 'Configuración de 
 $GLOBALS['TL_LANG']['tl_content']['ct_teaserBox_customTpl'] = ['Plantilla individual', 'Aquí puede seleccionar una plantilla individual.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_teaserBox_pageTitle'] = ['Título del enlace', 'El título del enlace se inserta como atributo title en el marcado HTML.'];
 
-$GLOBALS['TL_LANG']['tl_content']['ct_wrapper_name'] = ['Designación', 'Aquí puede introducir una designación que sólo sirve como resumen en el backend.'];
 
 $GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_page'] = ['Página a enlazar', 'Seleccione la página a la que desea enlazar.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_linkText'] = ['Texto del enlace', 'Se muestra el texto del enlace en lugar de la dirección del enlace.'];

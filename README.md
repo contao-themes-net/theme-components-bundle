@@ -1,6 +1,6 @@
 # theme-components-bundle
 
-A collection of elements without styling for our Contao Themes.
+A collection of elements with a minimal base styling for our Contao Themes.
 Contained Elements:
 
 - Contentbox
@@ -8,9 +8,41 @@ Contained Elements:
 - Price Table
 - Feature Element
 - Slider Element
-- Content Wrapper
 - Contrast switcher icon
 - Size icon insert tag with backlink
+
+## Content elements for themes
+
+The content elements are fragment controllers with Twig templates (Contao 5.7 and 6):
+
+| Element | Template | BEM block |
+|---|---|---|
+| Content Box | `content_element/ct_content_box` | `.content-box` |
+| Teaser Box | `content_element/ct_teaser_box` | `.teaser-box` |
+| Price Table | `content_element/ct_price_box` | `.price-box` |
+| Feature Element | `content_element/ct_feature_element` | `.feature-element` |
+| Slider Element | `content_element/ct_slider_element` | `.slider-element` |
+| Modal (frontend module) | `frontend_module/ct_modal` | `.ct-modal` |
+
+A theme can either style these classes or ship template variants, e.g.
+`contao/templates/content_element/ct_content_box/my_theme.html.twig`, that are selectable in the
+"customTpl" field. The minimal base styling (`public/css/elements.css`) lives in the
+`theme-components` cascade layer and can be adjusted with `--tc-*` custom properties; to drop it,
+override the `style` block in a variant.
+
+The modal module uses the native `<dialog>` element and `public/js/modal.js`: the button opens the
+dialog, links to `#ct-modal-<id>` do so as well, and without a link text the dialog opens on page load
+(set `remember_dismissal` to `true` in a variant to open it only once). Legacy `mod_cthemes_modal_*`
+templates selected in the "customTpl" field are still rendered with their former variables.
+
+The former "Content Wrapper" start/stop elements are converted into core "Element group" elements
+(`content_element/element_group`, `.content-element-group`) by `contao:migrate`: the elements in
+between become child elements of the group, CSS ID/classes are kept and the name is moved to the
+"title" field.
+
+Legacy template selections (e.g. `ce_cthemes_contentbox_my_theme`) are migrated to the
+corresponding Twig variant (`content_element/ct_content_box/my_theme`) by `contao:migrate` as soon
+as that variant exists.
 
 ## Available insert tags
 
@@ -59,6 +91,48 @@ The bundle provides several CSS classes for high contrast mode:
 These classes can be used to control how the website behaves when high contrast is applied.
 All classes can be found [here](public/scss/theme-components.scss).
 
+## Animations
+Elements can slide in when they are scrolled into view. Enable the option _**Enable scroll animation effects (slide-in)**_
+under ► _**pages**_ ► _**website start page**_ ► _**Theme component settings**_; the required CSS and JavaScript files are then
+loaded for the entire page tree below.
+
+Afterwards, add one of the following classes to an element, e.g. in the field ► _**CSS ID/class**_:
+
+| Class | Effect |
+|---|---|
+| `reveal` | Slide in when scrolling (from below) |
+| `reveal-left` | Slide in when scrolling (from the left) |
+| `reveal-up` | Slide in when scrolling (from above) |
+| `reveal-right` | Slide in when scrolling (from the right) |
+
+The effect can be adjusted with additional classes:
+
+| Class | Effect |
+|---|---|
+| `reveal-fast` / `reveal-slow` | Shorter (400 ms) or longer (1200 ms) animation, default 500 ms |
+| `reveal-soft` / `reveal-strong` | Distance of 20 px or 80 px, default 10 px |
+| `reveal-delay-1` / `-2` / `-3` | Start the animation after 150, 300 or 450 ms, e.g. to let the boxes of a row appear one after another |
+| `reveal-repeat` | Animate again each time the element is scrolled into view |
+
+Example: `reveal-left reveal-slow reveal-strong reveal-delay-1`. For visitors who prefer reduced motion
+(`prefers-reduced-motion`), the elements are shown without animation.
+
+All values are defined once as custom properties in [reveal.css](public/css/reveal.css), so a theme only has to override the
+tokens it wants to change:
+
+    :root {
+        --reveal-duration: 500ms;         /* default */
+        --reveal-duration-fast: 400ms;    /* reveal-fast */
+        --reveal-duration-slow: 1200ms;   /* reveal-slow */
+        --reveal-distance: 10px;          /* default */
+        --reveal-distance-soft: 20px;     /* reveal-soft */
+        --reveal-distance-strong: 80px;   /* reveal-strong */
+        --reveal-delay-1: 150ms;          /* reveal-delay-1 */
+        --reveal-delay-2: 300ms;          /* reveal-delay-2 */
+        --reveal-delay-3: 450ms;          /* reveal-delay-3 */
+        --reveal-easing: ease;
+    }
+
 ## Configuration
 You have the option to configure the use of _**high contrast**_, _**auto high contrast**_ and _**font size**_ to a small extent.
 This is done in the start point of the website for the entire page tree below.
@@ -74,7 +148,7 @@ font size change**_ and the icon.
 
 # German
 
-Dieses Bundle bringt verschiedene Elemente mit Templates (ohne Styling) für unsere Contao Themes mit.
+Dieses Bundle bringt verschiedene Elemente mit Templates (mit minimalem Grundstyling) für unsere Contao Themes mit.
 Enthaltene Elemente:
 
 - Contentbox
@@ -82,9 +156,28 @@ Enthaltene Elemente:
 - Preistabelle
 - Feature-Element
 - Slider-Element
-- Inhaltscontainer
 - Kontrastwechsler Icon
 - Insert Tag für Schriftgröße mit Backlink-Funktion
+
+## Inhaltselemente für Themes
+
+Die Inhaltselemente sind Fragment-Controller mit Twig-Templates (Contao 5.7 und 6). Ein Theme kann
+die BEM-Klassen (`.content-box`, `.teaser-box`, `.price-box`, `.feature-element`, `.slider-element`, `.ct-modal`) stylen oder Template-Varianten mitbringen, z. B.
+`contao/templates/content_element/ct_content_box/mein_theme.html.twig`, die im Feld
+„Individuelles Template" auswählbar sind. Das minimale Grundstyling (`public/css/elements.css`) liegt
+in der Cascade-Layer `theme-components` und kann über `--tc-*`-Variablen angepasst werden.
+
+Das Modal-Modul nutzt das native `<dialog>`-Element; ohne Link-Text öffnet sich der Dialog beim
+Laden der Seite. Alte `mod_cthemes_modal_*`-Templates funktionieren im Feld „Individuelles Template"
+weiterhin.
+
+Die bisherigen Inhaltscontainer (Anfang/Ende) werden per `contao:migrate` in Kern-Elemente
+„Elementgruppe" (`content_element/element_group`) umgewandelt: Die Elemente dazwischen werden zu
+Kind-Elementen der Gruppe, CSS-ID/-Klassen bleiben erhalten, die Bezeichnung landet im Feld „Titel".
+
+Alte Template-Auswahlen (z. B. `ce_cthemes_contentbox_mein_theme`) werden per `contao:migrate` auf
+die entsprechende Twig-Variante (`content_element/ct_content_box/mein_theme`) umgestellt, sobald diese
+existiert.
 
 ## Verfügbare Insert-Tags
 Das Bundle stellt die zwei Insert-Tags bereit:
@@ -133,6 +226,48 @@ Das Bundle stellt mehrere CSS Klassen für den hohen Kontrast Modus bereit:
 
 Mit diesen Klassen kann gesteuert werden, wie sich die Website bei der Anwendung von hohem Kontrast verhält.
 Alle Klassen sind [hier](public/scss/theme-components.scss) zu finden.
+
+## Animationen
+Elemente können beim Scrollen in den sichtbaren Bereich einfliegen. Dazu die Option _**Animation-Effekte beim Scrollen aktivieren
+(Einfliegen)**_ unter ► _**Seiten**_ ► _**Website-Startseite**_ ► _**Theme-Components-Einstellungen**_ aktivieren; die
+benötigten CSS- und JavaScript-Dateien werden dann für den gesamten darunter liegenden Seitenbaum geladen.
+
+Anschließend einem Element eine der folgenden Klassen zuweisen, z. B. im Feld ► _**CSS-ID/Klasse**_:
+
+| Klasse | Wirkung |
+|---|---|
+| `reveal` | Animation: Einfliegen beim Scrollen (von unten) |
+| `reveal-left` | Animation: Einfliegen beim Scrollen (von links) |
+| `reveal-up` | Animation: Einfliegen beim Scrollen (von oben) |
+| `reveal-right` | Animation: Einfliegen beim Scrollen (von rechts) |
+
+Mit zusätzlichen Klassen lässt sich der Effekt anpassen:
+
+| Klasse | Wirkung |
+|---|---|
+| `reveal-fast` / `reveal-slow` | Kürzere (400 ms) bzw. längere (1200 ms) Animation, Standard 500 ms |
+| `reveal-soft` / `reveal-strong` | Strecke von 20 px bzw. 80 px, Standard 10 px |
+| `reveal-delay-1` / `-2` / `-3` | Animation erst nach 150, 300 bzw. 450 ms starten, z. B. damit die Boxen einer Reihe nacheinander einfliegen |
+| `reveal-repeat` | Bei jedem erneuten Hineinscrollen wieder animieren |
+
+Beispiel: `reveal-left reveal-slow reveal-strong reveal-delay-1`. Für Besucher, die reduzierte Bewegung bevorzugen
+(`prefers-reduced-motion`), werden die Elemente ohne Animation angezeigt.
+
+Alle Werte sind einmalig als Custom Properties in [reveal.css](public/css/reveal.css) definiert. Ein Theme überschreibt nur
+die Werte, die es ändern möchte:
+
+    :root {
+        --reveal-duration: 500ms;         /* Standard */
+        --reveal-duration-fast: 400ms;    /* reveal-fast */
+        --reveal-duration-slow: 1200ms;   /* reveal-slow */
+        --reveal-distance: 10px;          /* Standard */
+        --reveal-distance-soft: 20px;     /* reveal-soft */
+        --reveal-distance-strong: 80px;   /* reveal-strong */
+        --reveal-delay-1: 150ms;          /* reveal-delay-1 */
+        --reveal-delay-2: 300ms;          /* reveal-delay-2 */
+        --reveal-delay-3: 450ms;          /* reveal-delay-3 */
+        --reveal-easing: ease;
+    }
 
 ## Konfiguration
 Es gibt die die Möglichkeit, die Verwendung von _**hohem Kontrast**_, _**automatischem hohem Kontrast**_ und _**Schriftgröße**_ in geringen Umfang zu

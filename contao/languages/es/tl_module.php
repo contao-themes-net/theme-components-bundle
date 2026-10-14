@@ -23,5 +23,4 @@ $GLOBALS['TL_LANG']['tl_module']['modal_text_legend'] = 'Contenido del diálogo 
 $GLOBALS['TL_LANG']['tl_module']['modal_linkText'] = ['Texto del enlace', 'Introduzca aquí el texto del enlace.'];
 $GLOBALS['TL_LANG']['tl_module']['modal_linkClass'] = ['Enlazar clases CSS', 'Aquí puede asignar más clases al enlace.'];
 $GLOBALS['TL_LANG']['tl_module']['modal_text'] = ['Texto', 'Este texto se muestra como contenido en el diálogo modal.'];
-$GLOBALS['TL_LANG']['tl_module']['modal_customTpl'] = ['Plantilla individual', 'Aquí puede seleccionar una plantilla individual.'];
 $GLOBALS['TL_LANG']['tl_module']['modal_class'] = ['Clases CSS para el diálogo modal', 'Aquí puede asignar más clases al diálogo modal.'];

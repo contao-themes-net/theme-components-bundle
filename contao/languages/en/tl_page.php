@@ -26,5 +26,5 @@ $GLOBALS['TL_LANG']['tl_page']['enable_font_size_switcher'] = ['Allow display of
 $GLOBALS['TL_LANG']['tl_page']['font_size_comment_page'] = ['Select here the page on which you carry out your explanations of the font size', 'Since all modern browsers support resizing text on their own, this feature should no longer be implemented through Javascript or stylesheets. Instead, it is easier to provide information about changing the font size on a separate page.'];
 $GLOBALS['TL_LANG']['tl_page']['animateOnScroll'] = [
     'Enable scroll animation effects (slide-in)',
-    'If enabled, the required CSS and JavaScript files will be loaded. Elements can use the classes reveal, reveal-left, reveal-right or reveal-up to create a slide-in effect when scrolling.'
+    'If enabled, the required CSS and JavaScript files will be loaded. Elements can use the classes reveal, reveal-left, reveal-right or reveal-up to create a slide-in effect when scrolling. In addition, reveal-fast/reveal-slow control the duration, reveal-soft/reveal-strong the distance, reveal-delay-1 to reveal-delay-3 the delay and reveal-repeat the repetition.'
 ];

@@ -26,5 +26,5 @@ $GLOBALS['TL_LANG']['tl_page']['enable_font_size_switcher'] = ['Anzeige des Schr
 $GLOBALS['TL_LANG']['tl_page']['font_size_comment_page'] = ['Wählen Sie hier die Seite, auf der Sie Ihre Erläuterungen zur Schriftgröße ausführen', 'Da alle modernen Browser das Ändern der Schriftgröße von sich aus unterstützen, sollte diese Funktion nicht mehr durch Javascript oder Stylesheets realisiert werden. Stattdessen ist es einfacher, Informationen zum Ändern der Schriftgröße auf einer gesonderten Seite anzubieten.'];
 $GLOBALS['TL_LANG']['tl_page']['animateOnScroll'] = [
     'Animation-Effekte beim Scrollen aktivieren (Einfliegen)',
-    'Wenn aktiviert, werden die benötigten CSS- und JavaScript-Dateien geladen. Elementen können die Klassen reveal, reveal-left, reveal-right oder reveal-up zugewiesen werden, um einen Einfliegeffekt beim Scrollen zu erzeugen.'
+    'Wenn aktiviert, werden die benötigten CSS- und JavaScript-Dateien geladen. Elementen können die Klassen reveal, reveal-left, reveal-right oder reveal-up zugewiesen werden, um einen Einfliegeffekt beim Scrollen zu erzeugen. Zusätzlich steuern reveal-fast/reveal-slow die Dauer, reveal-soft/reveal-strong die Strecke, reveal-delay-1 bis reveal-delay-3 die Verzögerung und reveal-repeat die Wiederholung.'
 ];

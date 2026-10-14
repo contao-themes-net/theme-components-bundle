@@ -26,5 +26,5 @@ $GLOBALS['TL_LANG']['tl_page']['enable_font_size_switcher'] = ['Zezwalaj na wyś
 $GLOBALS['TL_LANG']['tl_page']['font_size_comment_page'] = ['Wybierz tutaj stronę, na której przeprowadzisz wyjaśnienia dotyczące wielkości czcionki', 'Ponieważ wszystkie nowoczesne przeglądarki samodzielnie obsługują zmianę rozmiaru czcionki, funkcja ta nie powinna być już realizowana przez Javascript lub arkusze stylów. Zamiast tego łatwiej jest podać informacje o zmianie rozmiaru czcionki na osobnej stronie.'];
 $GLOBALS['TL_LANG']['tl_page']['animateOnScroll'] = [
     'Włącz efekty animacji podczas przewijania (wlot)',
-    'Po włączeniu zostaną załadowane wymagane pliki CSS i JavaScript. Elementom można przypisać klasy reveal, reveal-left, reveal-right lub reveal-up, aby uzyskać efekt wlotu podczas przewijania.'
+    'Po włączeniu zostaną załadowane wymagane pliki CSS i JavaScript. Elementom można przypisać klasy reveal, reveal-left, reveal-right lub reveal-up, aby uzyskać efekt wlotu podczas przewijania. Dodatkowo reveal-fast/reveal-slow określają czas trwania, reveal-soft/reveal-strong odległość, reveal-delay-1 do reveal-delay-3 opóźnienie, a reveal-repeat powtarzanie.'
 ];

@@ -26,5 +26,5 @@ $GLOBALS['TL_LANG']['tl_page']['enable_font_size_switcher'] = ['Permitir la visu
 $GLOBALS['TL_LANG']['tl_page']['font_size_comment_page'] = ['Seleccione aquí la página en la que realizará sus explicaciones sobre el tamaño de letra', 'Dado que todos los navegadores modernos permiten cambiar el tamaño de la fuente por sí mismos, esta función ya no debe realizarse mediante Javascript u hojas de estilo. En su lugar, es más fácil proporcionar información sobre el cambio del tamaño de la fuente en una página aparte.'];
 $GLOBALS['TL_LANG']['tl_page']['animateOnScroll'] = [
     'Activar efectos de animación al desplazarse (entrada)',
-    'Si está activado, se cargarán los archivos CSS y JavaScript necesarios. Los elementos pueden usar las clases reveal, reveal-left, reveal-right o reveal-up para crear un efecto de entrada al desplazarse.'
+    'Si está activado, se cargarán los archivos CSS y JavaScript necesarios. Los elementos pueden usar las clases reveal, reveal-left, reveal-right o reveal-up para crear un efecto de entrada al desplazarse. Además, reveal-fast/reveal-slow controlan la duración, reveal-soft/reveal-strong la distancia, reveal-delay-1 a reveal-delay-3 el retraso y reveal-repeat la repetición.'
 ];

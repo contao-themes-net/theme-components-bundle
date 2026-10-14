@@ -1,0 +1,12 @@
+{% extends '@Contao/content_element/ct_teaser_box.html.twig' %}
+
+{# Variant without a link around the image and the headline (formerly "ce_cthemes_teaserbox_bf") #}
+{% set link_headline = false %}
+
+{% block media_link %}
+    {% if figure.hasLightbox %}
+        {{ parent() }}
+    {% else %}
+        {{ block('media') }}
+    {% endif %}
+{% endblock %}

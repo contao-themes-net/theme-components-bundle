@@ -1,0 +1,78 @@
+{#
+    Shared markup of the "Content Box" and "Teaser Box" elements: an optional
+    image, the headline, the rich text and an optional link to a page.
+
+        <div class="content-box">
+            <figure class="content-box__media">…</figure>
+            <h2><a href="…">Headline</a></h2>
+            <div class="rte">…</div>
+            <p class="content-box__more"><a href="…">Read more</a></p>
+        </div>
+
+    Optional variables:
+        @var string box_class          BEM block name (default: "content-box")
+        @var bool   link_headline      wrap the headline in the page link (default: true)
+        @var \Contao\CoreBundle\String\HtmlAttributes page_link
+        @var string page_link_text
+#}
+
+{% extends '@Contao/content_element/_base.html.twig' %}
+{% use '@Contao/component/_figure.html.twig' %}
+{% use '@Contao/component/_rich_text.html.twig' %}
+{% use '@Contao/component/_stylesheet.html.twig' %}
+
+{% set box_class = box_class|default('content-box') %}
+{% set link_headline = link_headline ?? true %}
+
+{% set attributes = attrs(attributes|default)
+    .addClass(box_class)
+    .addClass(box_class ~ '--has-media', image is not empty)
+%}
+
+{% block inner %}
+    {# Media #}
+    {% block box_media %}
+        {% if image %}
+            {% set figure_attributes = attrs(figure_attributes|default).addClass(box_class ~ '__media') %}
+            {% with {figure: image} %}{{ block('figure_component') }}{% endwith %}
+        {% endif %}
+    {% endblock %}
+
+    {% block box_body %}
+        {% if headline.text %}
+            {{ block('headline_component') }}
+        {% endif %}
+
+        {% block content %}
+            {# Richtext #}
+            {% block text %}
+                {% with {text, attributes: text_attributes|default} %}{{ block('rich_text_component') }}{% endwith %}
+            {% endblock %}
+
+            {# Page link #}
+            {% block page_link %}
+                {% if page_link %}
+                    <p class="{{ box_class }}__more">
+                        <a{{ attrs(page_link).mergeWith(page_link_attributes|default) }}>
+                            {{- page_link_text ? page_link_text|insert_tag : 'MSC.more'|trans({}, 'contao_default') -}}
+                        </a>
+                    </p>
+                {% endif %}
+            {% endblock %}
+        {% endblock %}
+    {% endblock %}
+{% endblock %}
+
+{% block headline_inner -%}
+    {%- if page_link and link_headline and not as_editor_view -%}
+        <a{{ attrs(page_link).mergeWith(headline_link_attributes|default) }}>{{ parent() }}</a>
+    {%- else -%}
+        {{ parent() }}
+    {%- endif -%}
+{%- endblock %}
+
+{% block style %}
+    {% add 'theme_components_elements' to stylesheets %}
+        {% with {file: asset('bundles/themecomponents/css/elements.css')} %}{{ block('stylesheet_component') }}{% endwith %}
+    {% endadd %}
+{% endblock %}

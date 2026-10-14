@@ -1,7 +1,7 @@
 {
   "name": "contao-themes-net/theme-components-bundle",
   "type":"contao-bundle",
-  "description": "theme components bundle for Contao 4",
+  "description": "theme components bundle for Contao 5.7 and 6",
   "keywords":["contao","theme","template"],
   "homepage": "https://contao-themes.net",
   "license": "proprietary",
@@ -29,7 +29,7 @@
   },
   "require": {
     "php": "^8.1",
-    "contao/core-bundle": "^5.3 || ^6.0",
+    "contao/core-bundle": "^5.7 || ^6.0",
     "contao-dd/advanced-classes-bundle": "^1.7"
   },
   "conflict": {

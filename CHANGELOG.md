@@ -10,6 +10,22 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [2.0.0](https://github.com/contao-themes-net/theme-components-bundle/tree/2.0.0) – unreleased
+
+- [Changed] Content Box, Teaser Box, Price Table, Feature Element and Slider Element are now fragment controllers with Twig templates (`content_element/ct_*`) for Contao 5.7 and 6, modelled on the core elements
+- [Changed] New markup with BEM classes (`.content-box`, `.teaser-box`, `.price-box`, `.feature-element`, `.slider-element`); themes have to adjust their styles
+- [Changed] The template selection uses the core field "customTpl" with Twig variants; legacy selections (`ce_cthemes_*`) are migrated as soon as the Twig variant exists
+- [Changed] The "Content wrapper" start/stop elements are replaced by the core "element_group" element; existing wrappers incl. nested ones are converted by a migration (child elements are moved into the group, stop elements are deleted)
+- [Changed] The modal module (`ct_modal`) is now a frontend module controller with the Twig template `frontend_module/ct_modal` based on the native `<dialog>` element (`.ct-modal` BEM block, `public/js/modal.js`); legacy templates selected in "customTpl" keep working, the former selection field "modal_customTpl" is migrated
+- [Added] Delay classes `reveal-delay-1` to `reveal-delay-3` for the scroll animations
+- [Changed] All values of the scroll animations are defined as custom properties on `:root` (`--reveal-duration`, `--reveal-distance`, `--reveal-delay-1` etc.), so themes only have to override these tokens
+- [Added] Minimal base styling in the `theme-components` cascade layer (`public/css/elements.css`)
+- [Added] Image support for the Content Box palette
+- [Removed] Legacy element classes in `src/Element` and their `.html5` templates
+- [Removed] Content elements `ct_wrapperStart` and `ct_wrapperStop`
+- [Removed] Legacy module class `src/Module/ModalModule.php`
+- [Fixed] Headlines with the "subline" override no longer fail in debug mode (`strict_variables`) for frontend modules
+
 ## [1.10.0](https://github.com/contao-themes-net/theme-components-bundle/tree/1.10.0) – 2026-08-27
 
 - [Added] Allow Contao 6

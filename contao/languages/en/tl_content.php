@@ -44,7 +44,6 @@ $GLOBALS['TL_LANG']['tl_content']['ct_teaserBox_settings'] = 'Teaser box setting
 $GLOBALS['TL_LANG']['tl_content']['ct_teaserBox_customTpl'] = ['Custom template', 'Here you can choose a custom template.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_teaserBox_pageTitle'] = ['Link title', 'The link title is added as title attribute in the HTML markup.'];
 
-$GLOBALS['TL_LANG']['tl_content']['ct_wrapper_name'] = ['Label', 'Here you can enter a label that is only used for an overview in the backend.'];
 
 $GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_page'] = ['Link target', 'Please enter a web address (http://…), an e-mail address (mailto:…) or an insert tag.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_linkText'] = ['Link text', 'The link text will be displayed instead of the target URL.'];

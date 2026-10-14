@@ -16,10 +16,8 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-use Contao\Backend;
 use Contao\BackendUser;
 use Contao\CoreBundle\DataContainer\PaletteManipulator;
-use Contao\DataContainer;
 use Contao\System;
 
 PaletteManipulator::create()
@@ -30,13 +28,11 @@ PaletteManipulator::create()
     ->applyToPalette('text', 'tl_content')
 ;
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['ct_contentBox'] = '{type_legend},type,headline,subline,headline_inline;{text_legend},text;{ct_contentBox_settings},ct_contentBox_page,target,ct_contentBox_pageText,ct_contentBox_pageTitle;{template_legend:hide},ct_contentBox_customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop;';
-$GLOBALS['TL_DCA']['tl_content']['palettes']['ct_featureElement'] = '{type_legend},type,headline;{text_legend},text,ct_featureIcon,ct_iconLink,target,titleText;{template_legend:hide},ct_featureElement_customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop;';
-$GLOBALS['TL_DCA']['tl_content']['palettes']['ct_priceBox'] = '{type_legend},type,headline;{text_legend},text,ct_price,ct_priceLabel,ct_priceBox_link1,ct_priceBox_linkText1,ct_priceBox_linkTitle1,ct_priceBox_link2,ct_priceBox_linkText2,ct_priceBox_linkTitle2,ct_popularPriceBox;{template_legend:hide},ct_priceBox_customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
-$GLOBALS['TL_DCA']['tl_content']['palettes']['ct_teaserBox'] = '{type_legend},type,headline,subline,headline_inline;{text_legend},text;{ct_teaserBox_settings},ct_teaserBox_page,target,ct_teaserBox_pageText,ct_teaserBox_pageTitle;{image_legend},addImage;{template_legend:hide},ct_teaserBox_customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop;';
-$GLOBALS['TL_DCA']['tl_content']['palettes']['ct_wrapperStart'] = '{type_legend},type,ct_wrapper_name;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
-$GLOBALS['TL_DCA']['tl_content']['palettes']['ct_wrapperStop'] = '{type_legend},type;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests;{invisible_legend:hide},invisible,start,stop';
-$GLOBALS['TL_DCA']['tl_content']['palettes']['ct_sliderElement'] = '{type_legend},type,headline,ct_sliderElement_subHeadline;{text_legend},text,ct_sliderElement_page,ct_sliderElement_target,ct_sliderElement_linkText;{image_legend},addImage;{video_legend},ct_sliderElement_playerSRC;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop;';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['ct_contentBox'] = '{type_legend},type,headline,subline,headline_inline;{text_legend},text;{ct_contentBox_settings},ct_contentBox_page,target,ct_contentBox_pageText,ct_contentBox_pageTitle;{image_legend},addImage;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},cssID;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['ct_featureElement'] = '{type_legend},type,headline;{text_legend},text,ct_featureIcon,ct_iconLink,target,titleText;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},cssID;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['ct_priceBox'] = '{type_legend},type,headline;{text_legend},text,ct_price,ct_priceLabel,ct_priceBox_link1,ct_priceBox_linkText1,ct_priceBox_linkTitle1,ct_priceBox_link2,ct_priceBox_linkText2,ct_priceBox_linkTitle2,ct_popularPriceBox;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},cssID;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['ct_teaserBox'] = '{type_legend},type,headline,subline,headline_inline;{text_legend},text;{ct_teaserBox_settings},ct_teaserBox_page,target,ct_teaserBox_pageText,ct_teaserBox_pageTitle;{image_legend},addImage;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},cssID;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['ct_sliderElement'] = '{type_legend},type,headline,ct_sliderElement_subHeadline;{text_legend},text,ct_sliderElement_page,ct_sliderElement_target,ct_sliderElement_linkText;{image_legend},addImage;{video_legend},ct_sliderElement_playerSRC;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},cssID;{invisible_legend:hide},invisible,start,stop';
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['feature_section'] = '
     {type_legend},type,headline,fsVariant;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop;
@@ -139,11 +135,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['ct_contentBox_pageTitle'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['ct_contentBox_customTpl'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_content']['ct_contentBox_customTpl'],
-    'exclude' => true,
-    'inputType' => 'select',
-    'options_callback' => ['tl_content_ct', 'getContentBoxTemplates'],
-    'eval' => ['includeBlankOption' => true, 'chosen' => true, 'tl_class' => 'w50'],
+    // Legacy template selection, see TemplateSelectionMigration
     'sql' => "varchar(64) NOT NULL default ''",
 ];
 
@@ -167,11 +159,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['ct_iconLink'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['ct_featureElement_customTpl'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_content']['ct_featureElement_customTpl'],
-    'exclude' => true,
-    'inputType' => 'select',
-    'options_callback' => ['tl_content_ct', 'getFeatureElementTemplates'],
-    'eval' => ['includeBlankOption' => true, 'chosen' => true, 'tl_class' => 'w50'],
+    // Legacy template selection, see TemplateSelectionMigration
     'sql' => "varchar(64) NOT NULL default ''",
 ];
 
@@ -252,11 +240,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['ct_popularPriceBox'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['ct_priceBox_customTpl'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_content']['ct_priceBox_customTpl'],
-    'exclude' => true,
-    'inputType' => 'select',
-    'options_callback' => ['tl_content_ct', 'getPriceBoxTemplates'],
-    'eval' => ['includeBlankOption' => true, 'chosen' => true, 'tl_class' => 'w50'],
+    // Legacy template selection, see TemplateSelectionMigration
     'sql' => "varchar(64) NOT NULL default ''",
 ];
 
@@ -288,21 +272,13 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['ct_teaserBox_pageTitle'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['ct_teaserBox_customTpl'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_content']['ct_teaserBox_customTpl'],
-    'exclude' => true,
-    'inputType' => 'select',
-    'options_callback' => ['tl_content_ct', 'getTeaserBoxTemplates'],
-    'eval' => ['includeBlankOption' => true, 'chosen' => true, 'tl_class' => 'w50'],
+    // Legacy template selection, see TemplateSelectionMigration
     'sql' => "varchar(64) NOT NULL default ''",
 ];
 
-/* Wrapper */
+/* Wrapper (converted into element groups, see WrapperToElementGroupMigration) */
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['ct_wrapper_name'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_content']['ct_wrapper_name'],
-    'exclude' => true,
-    'inputType' => 'text',
-    'eval' => ['tl_class' => 'w50'],
     'sql' => 'text NULL',
 ];
 
@@ -487,36 +463,3 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['fsColorHeadline'] = [
     'eval'      => ['tl_class' => 'w50'],
     'sql'       => "varchar(255) NOT NULL default ''",
 ];
-
-class tl_content_ct extends Backend
-{
-    /**
-     * Return all content element templates as array.
-     *
-     * @return array
-     */
-    public function getContentBoxTemplates(DataContainer $dc)
-    {
-        return $this->getTemplateGroup('ce_cthemes_contentbox');
-    }
-
-    public function getFeatureElementTemplates(DataContainer $dc)
-    {
-        return $this->getTemplateGroup('ce_cthemes_feature_element');
-    }
-
-    public function getPriceBoxTemplates(DataContainer $dc)
-    {
-        return $this->getTemplateGroup('ce_cthemes_pricebox');
-    }
-
-    public function getTeaserBoxTemplates(DataContainer $dc)
-    {
-        return $this->getTemplateGroup('ce_cthemes_teaserbox');
-    }
-
-    public function getWrapperTemplates(DataContainer $dc)
-    {
-        return $this->getTemplateGroup('ce_cthemes_wrapper');
-    }
-}

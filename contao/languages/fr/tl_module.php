@@ -23,5 +23,4 @@ $GLOBALS['TL_LANG']['tl_module']['modal_text_legend'] = 'Contenu du dialogue mod
 $GLOBALS['TL_LANG']['tl_module']['modal_linkText'] = ['Texte du lien', 'Saisissez ici le texte d\'un lien.'];
 $GLOBALS['TL_LANG']['tl_module']['modal_linkClass'] = ['Lien Classes CSS', 'Ici, vous pouvez attribuer d\'autres classes au lien.'];
 $GLOBALS['TL_LANG']['tl_module']['modal_text'] = ['Texte', 'Ce texte est présenté comme contenu dans le dialogue modal.'];
-$GLOBALS['TL_LANG']['tl_module']['modal_customTpl'] = ['Modèle personnalisé', 'Ici, vous pouvez choisir un modèle individuel.'];
 $GLOBALS['TL_LANG']['tl_module']['modal_class'] = ['Classes CSS pour le dialogue modal', 'Vous pouvez ici attribuer d\'autres classes au dialogue modal.'];

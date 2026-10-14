@@ -1,0 +1,76 @@
+{#
+    Price table with an optional highlight label, the price, the rich text and
+    up to two links.
+
+        <div class="price-box price-box--highlight">
+            <p class="price-box__badge">Popular</p>
+            <h2>Headline</h2>
+            <p class="price-box__price">
+                <span class="price-box__amount">19 €</span>
+                <span class="price-box__label">per month</span>
+            </p>
+            <div class="rte">…</div>
+            <p class="price-box__links">
+                <a class="price-box__link price-box__link--primary" href="…">Order now</a>
+                <a class="price-box__link price-box__link--secondary" href="…">Details</a>
+            </p>
+        </div>
+#}
+
+{% extends '@Contao/content_element/_base.html.twig' %}
+{% use '@Contao/component/_rich_text.html.twig' %}
+{% use '@Contao/component/_stylesheet.html.twig' %}
+
+{% set attributes = attrs(attributes|default)
+    .addClass('price-box')
+    .addClass('price-box--highlight', highlight_label is not empty)
+%}
+
+{% block inner %}
+    {% block badge %}
+        {% if highlight_label %}
+            <p class="price-box__badge">{{ highlight_label }}</p>
+        {% endif %}
+    {% endblock %}
+
+    {% if headline.text %}
+        {{ block('headline_component') }}
+    {% endif %}
+
+    {% block content %}
+        {% block price %}
+            {% if price or price_label %}
+                <p class="price-box__price">
+                    {%- if price %}<span class="price-box__amount">{{ price }}</span>{% endif -%}
+                    {%- if price_label %} <span class="price-box__label">{{ price_label }}</span>{% endif -%}
+                </p>
+            {% endif %}
+        {% endblock %}
+
+        {# Richtext #}
+        {% block text %}
+            {% if text %}
+                {% with {text, attributes: text_attributes|default} %}{{ block('rich_text_component') }}{% endwith %}
+            {% endif %}
+        {% endblock %}
+
+        {% block links %}
+            {% if links %}
+                <p class="price-box__links">
+                    {% for link in links %}
+                        {% set link_attributes = attrs(link.attributes)
+                            .addClass(['price-box__link', loop.first ? 'price-box__link--primary' : 'price-box__link--secondary'])
+                        %}
+                        <a{{ link_attributes }}>{{ link.text|insert_tag }}</a>
+                    {% endfor %}
+                </p>
+            {% endif %}
+        {% endblock %}
+    {% endblock %}
+{% endblock %}
+
+{% block style %}
+    {% add 'theme_components_elements' to stylesheets %}
+        {% with {file: asset('bundles/themecomponents/css/elements.css')} %}{{ block('stylesheet_component') }}{% endwith %}
+    {% endadd %}
+{% endblock %}
