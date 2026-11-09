@@ -1,39 +1,72 @@
-/* alle reveal-Varianten – egal an welcher Position im class-Attribut */
+/*
+ * Scroll animations ("reveal") of the theme components bundle.
+ *
+ * All values are defined once as custom properties on :root, so a theme only
+ * has to override these tokens, e.g. ":root { --reveal-duration: 700ms; }".
+ * The classes only refer to the tokens.
+ */
+:root {
+    /* Duration: default, reveal-fast, reveal-slow */
+    --reveal-duration: 500ms;
+    --reveal-duration-fast: 400ms;
+    --reveal-duration-slow: 1200ms;
+
+    /* Distance: default, reveal-soft, reveal-strong */
+    --reveal-distance: 10px;
+    --reveal-distance-soft: 20px;
+    --reveal-distance-strong: 80px;
+
+    /* Delay: reveal-delay-1 to reveal-delay-3 */
+    --reveal-delay-1: 150ms;
+    --reveal-delay-2: 300ms;
+    --reveal-delay-3: 450ms;
+
+    --reveal-easing: ease;
+}
+
+/* All reveal variants, regardless of the position in the class attribute */
 [class^="reveal"],
 [class*=" reveal"] {
-    --distance: 10px;
-    --duration: 500ms;
+    --distance: var(--reveal-distance);
+    --duration: var(--reveal-duration);
+    --delay: 0ms;
 
     opacity: 0;
-    transition: opacity var(--duration) ease,
-    transform var(--duration) ease;
+    transition: opacity var(--duration) var(--reveal-easing),
+    transform var(--duration) var(--reveal-easing);
     will-change: opacity, transform;
 }
 
-/* Standard (falls nur "reveal" genutzt wird) */
+/* Default (from below) */
 .reveal {
     transform: translateY(var(--distance));
 }
 
-/* Richtungen */
+/* Directions */
 .reveal-left  { transform: translateX(calc(-1 * var(--distance))); }
 .reveal-right { transform: translateX(var(--distance)); }
-.reveal-up  { transform: translateY(calc(-1 * var(--distance))); }
+.reveal-up    { transform: translateY(calc(-1 * var(--distance))); }
 
-/* Sichtbar */
+/* Visible: the delay only applies when the element appears */
 [class^="reveal"].is-visible,
 [class*=" reveal"].is-visible {
     opacity: 1;
     transform: translate(0, 0);
+    transition-delay: var(--delay);
 }
 
-/* Geschwindigkeit */
-.reveal-fast  { --duration: 400ms; }
-.reveal-slow  { --duration: 1200ms; }
+/* Speed */
+.reveal-fast { --duration: var(--reveal-duration-fast); }
+.reveal-slow { --duration: var(--reveal-duration-slow); }
 
-/* Intensität */
-.reveal-soft   { --distance: 20px; }
-.reveal-strong { --distance: 80px; }
+/* Intensity */
+.reveal-soft   { --distance: var(--reveal-distance-soft); }
+.reveal-strong { --distance: var(--reveal-distance-strong); }
+
+/* Delay, e.g. to let several boxes of a row appear one after another */
+.reveal-delay-1 { --delay: var(--reveal-delay-1); }
+.reveal-delay-2 { --delay: var(--reveal-delay-2); }
+.reveal-delay-3 { --delay: var(--reveal-delay-3); }
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {

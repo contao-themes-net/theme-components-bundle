@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * theme components bundle for Contao Open Source CMS
  *
- * Copyright (C) 2023 pdir / digital agentur <develop@pdir.de>
+ * Copyright (C) 2026 pdir / digital agentur <develop@pdir.de>
  *
  * @package    contao-themes-net/theme-components-bundle
  * @link       https://github.com/contao-themes-net/theme-components-bundle
@@ -44,7 +44,6 @@ $GLOBALS['TL_LANG']['tl_content']['ct_teaserBox_settings'] = 'Paramètres de la 
 $GLOBALS['TL_LANG']['tl_content']['ct_teaserBox_customTpl'] = ['Modèle personnalisé', 'Ici, vous pouvez choisir un modèle individuel.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_teaserBox_pageTitle'] = ['Titre du lien', 'Le titre du lien est inséré comme attribut title dans le balisage HTML.'];
 
-$GLOBALS['TL_LANG']['tl_content']['ct_wrapper_name'] = ['Désignation', 'Vous pouvez saisir ici une désignation qui ne sert qu\'à l\'aperçu dans le backend.'];
 
 $GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_page'] = ['Page à relier', 'Sélectionnez la page vers laquelle vous souhaitez établir un lien.'];
 $GLOBALS['TL_LANG']['tl_content']['ct_sliderElement_linkText'] = ['Texte du lien', ''];

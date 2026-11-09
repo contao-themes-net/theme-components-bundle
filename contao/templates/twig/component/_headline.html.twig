@@ -24,15 +24,15 @@
         {%- if as_editor_view -%}
             {{ headline.text }}
         {%- else -%}
-            {%- if (data.subline) and (data.subheadline is not same as('1')) -%}
-                <span class="first-headline{%- if data.headline_inline is not same as('1') -%}{{ ' block' }}{%- endif -%}">{{ data.subline }}</span>
-                {%- if data.headline_inline is same as('1') -%}{{ ' ' }}{%- endif -%}
+            {%- if (data.subline|default) and (data.subheadline|default is not same as('1')) -%}
+                <span class="first-headline{%- if data.headline_inline|default is not same as('1') -%}{{ ' block' }}{%- endif -%}">{{ data.subline|default }}</span>
+                {%- if data.headline_inline|default is same as('1') -%}{{ ' ' }}{%- endif -%}
             {%- endif -%}
-            {%- if data.subline -%}<span class="main-headline">{%- endif -%}
+            {%- if data.subline|default -%}<span class="main-headline">{%- endif -%}
             {{ headline.text|insert_tag_raw }}
-            {%- if data.subline -%}</span>{%- endif -%}
-            {%- if data.subheadline -%}
-                <span class="subheadline block">{{ data.subline }}</span>
+            {%- if data.subline|default -%}</span>{%- endif -%}
+            {%- if data.subheadline|default -%}
+                <span class="subheadline block">{{ data.subline|default }}</span>
             {%- endif -%}
         {%- endif -%}
     {%- endblock -%}

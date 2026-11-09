@@ -1,0 +1,94 @@
+{#
+    A modal dialog based on the native <dialog> element. The trigger button
+    opens it; without a link text, the dialog opens when the page is loaded.
+    Links to "#<dialog_id>" open the dialog as well.
+
+        <div class="ct-modal">
+            <button type="button" class="ct-modal__trigger" data-ct-modal-open="ct-modal-1">Open</button>
+            <dialog id="ct-modal-1" class="ct-modal__dialog">
+                <div class="ct-modal__content">
+                    <div class="ct-modal__header">
+                        <h2 id="ct-modal-1-title" class="ct-modal__title">Headline</h2>
+                        <button type="button" class="ct-modal__close" data-ct-modal-close>×</button>
+                    </div>
+                    <div class="ct-modal__body">
+                        <div class="rte">…</div>
+                    </div>
+                </div>
+            </dialog>
+        </div>
+
+    Optional variables:
+        @var bool remember_dismissal  do not open the dialog on page load again
+                                      once it has been closed (default: false)
+#}
+
+{% extends '@Contao/frontend_module/_base.html.twig' %}
+{% use '@Contao/component/_rich_text.html.twig' %}
+{% use '@Contao/component/_stylesheet.html.twig' %}
+
+{% set attributes = attrs(attributes|default).addClass('ct-modal') %}
+
+{% block inner %}
+    {# Trigger #}
+    {% block trigger %}
+        {% if link_text %}
+            {% set trigger_attributes = attrs()
+                .set('type', 'button')
+                .addClass(['ct-modal__trigger', link_class])
+                .set('aria-haspopup', 'dialog')
+                .set('aria-controls', dialog_id)
+                .set('data-ct-modal-open', dialog_id)
+                .mergeWith(trigger_attributes|default)
+            %}
+            <button{{ trigger_attributes }}>{{ link_text|insert_tag }}</button>
+        {% endif %}
+    {% endblock %}
+
+    {# Dialog #}
+    {% block dialog %}
+        {% set dialog_attributes = attrs()
+            .set('id', dialog_id)
+            .addClass(['ct-modal__dialog', modal_class])
+            .set('aria-labelledby', dialog_id ~ '-title', headline.text is not empty)
+            .set('data-ct-modal-autoopen', true, not link_text)
+            .set('data-ct-modal-remember', true, remember_dismissal|default(false))
+            .mergeWith(dialog_attributes|default)
+        %}
+        <dialog{{ dialog_attributes }}>
+            <div class="ct-modal__content">
+                {% block dialog_header %}
+                    <div class="ct-modal__header">
+                        {% if headline.text %}
+                            {% with {headline: headline|merge({attributes: attrs().set('id', dialog_id ~ '-title').addClass('ct-modal__title')})} %}
+                                {{ block('headline_component') }}
+                            {% endwith %}
+                        {% endif %}
+                        <button type="button" class="ct-modal__close" data-ct-modal-close aria-label="{{ 'MSC.close'|trans({}, 'contao_default') }}">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endblock %}
+
+                {% block content %}
+                    <div class="ct-modal__body">
+                        {% with {text, attributes: text_attributes|default} %}{{ block('rich_text_component') }}{% endwith %}
+                    </div>
+                {% endblock %}
+            </div>
+        </dialog>
+    {% endblock %}
+
+    {# Assets (the module base template has no style/script blocks) #}
+    {% block script %}
+        {% add 'theme_components_modal_js' to body %}
+            <script src="{{ asset('bundles/themecomponents/js/modal.js') }}" defer></script>
+        {% endadd %}
+    {% endblock %}
+
+    {% block style %}
+        {% add 'theme_components_elements' to stylesheets %}
+            {% with {file: asset('bundles/themecomponents/css/elements.css')} %}{{ block('stylesheet_component') }}{% endwith %}
+        {% endadd %}
+    {% endblock %}
+{% endblock %}

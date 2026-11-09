@@ -1,0 +1,62 @@
+{#
+    Icon (e.g. Font Awesome classes) with headline and rich text.
+
+        <div class="feature-element">
+            <div class="feature-element__icon">
+                <a href="…"><i class="fas fa-check" aria-hidden="true"></i></a>
+            </div>
+            <div class="feature-element__body">
+                <h3>Headline</h3>
+                <div class="rte">…</div>
+            </div>
+        </div>
+#}
+
+{% extends '@Contao/content_element/_base.html.twig' %}
+{% use '@Contao/component/_rich_text.html.twig' %}
+{% use '@Contao/component/_stylesheet.html.twig' %}
+
+{% set attributes = attrs(attributes|default)
+    .addClass('feature-element')
+    .addClass('feature-element--has-icon', icon_class is not empty)
+%}
+
+{% block inner %}
+    {% block icon %}
+        {% if icon_class %}
+            <div class="feature-element__icon">
+                {%- if icon_link -%}
+                    {# An icon-only link needs an accessible name #}
+                    {% set icon_link_attributes = attrs(icon_link)
+                        .set('aria-label', headline.text|insert_tag|striptags, icon_link['title'] is not defined and headline.text)
+                        .mergeWith(icon_link_attributes|default)
+                    %}
+                    <a{{ icon_link_attributes }}>
+                {%- endif -%}
+                <i class="{{ icon_class }}" aria-hidden="true"></i>
+                {%- if icon_link %}</a>{% endif -%}
+            </div>
+        {% endif %}
+    {% endblock %}
+
+    <div class="feature-element__body">
+        {% if headline.text %}
+            {{ block('headline_component') }}
+        {% endif %}
+
+        {% block content %}
+            {# Richtext #}
+            {% block text %}
+                {% if text %}
+                    {% with {text, attributes: text_attributes|default} %}{{ block('rich_text_component') }}{% endwith %}
+                {% endif %}
+            {% endblock %}
+        {% endblock %}
+    </div>
+{% endblock %}
+
+{% block style %}
+    {% add 'theme_components_elements' to stylesheets %}
+        {% with {file: asset('bundles/themecomponents/css/elements.css')} %}{{ block('stylesheet_component') }}{% endwith %}
+    {% endadd %}
+{% endblock %}

@@ -1,0 +1,131 @@
+/* high contrast from theme-components-bundle */
+:root {
+  --hc-black: black;
+  --hc-black-bis: hsl(0, 0%, 7%);
+  --hc-black-ter: hsl(0, 0%, 14%);
+  --hc-grey-darker: hsl(0, 0%, 21%);
+  --hc-grey-dark: hsl(0, 0%, 29%);
+  --hc-grey: hsl(0, 0%, 48%);
+  --hc-white: white;
+}
+.wcag-square, .wcag-size {
+  transform: scale(0.4);
+}
+.wcag-size:visited {
+  color: var(--hc-black);
+}
+.contrast-size-switcher button {
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+}
+.contrast-size-switcher button:focus {
+  background: none;
+}
+.high-contrast a, .high-contrast a:visited {
+  text-decoration: underline;
+}
+.high-contrast .hc-invert:not(.hc-greyscale), .high-contrast .hc-invert-pictures:not(.hc-greyscale-pictures) img, .high-contrast .hc-invert-pictures:not(.hc-greyscale-pictures) svg {
+  filter: invert(1);
+}
+.high-contrast .hc-greyscale:not(.hc-invert), .high-contrast .hc-greyscale-pictures:not(.hc-invert-pictures) img, .high-contrast .hc-greyscale-pictures:not(.hc-invert-pictures) svg {
+  filter: grayscale(1);
+}
+.high-contrast .hc-invert.hc-greyscale, .high-contrast .hc-invert-pictures.hc-greyscale-pictures img, .high-contrast .hc-invert-pictures.hc-greyscale-pictures svg {
+  filter: invert(1) grayscale(1);
+}
+.high-contrast .hc-bg-black {
+  background: var(--hc-black) !important;
+}
+.high-contrast .hc-bg-black, .high-contrast .hc-bg-black * {
+  color: var(--hc-white) !important;
+}
+.high-contrast .hc-bg-black-bis {
+  background: var(--hc-black-bis) !important;
+}
+.high-contrast .hc-bg-black-bis, .high-contrast .hc-bg-black-bis * {
+  color: var(--hc-white) !important;
+}
+.high-contrast .hc-bg-black-ter {
+  background: var(--hc-black-ter) !important;
+}
+.high-contrast .hc-bg-black-ter, .high-contrast .hc-bg-black-ter * {
+  color: var(--hc-white) !important;
+}
+.high-contrast .hc-bg-grey-darker {
+  background: var(--hc-grey-darker) !important;
+}
+.high-contrast .hc-bg-grey-darker, .high-contrast .hc-bg-grey-darker * {
+  color: var(--hc-white) !important;
+}
+.high-contrast .hc-bg-grey-dark {
+  background: var(--hc-grey-dark) !important;
+}
+.high-contrast .hc-bg-grey-dark, .high-contrast .hc-bg-grey-dark * {
+  color: var(--hc-white) !important;
+}
+.high-contrast .hc-bg-grey {
+  background: var(--hc-grey) !important;
+}
+.high-contrast .hc-bg-grey, .high-contrast .hc-bg-grey * {
+  color: var(--hc-white) !important;
+}
+.high-contrast .hc-bg-white {
+  background: var(--hc-white) !important;
+}
+.high-contrast .hc-bg-white, .high-contrast .hc-bg-white * {
+  color: var(--hc-black) !important;
+}
+.high-contrast .hc-text-white, .high-contrast .hc-text-white * {
+  color: var(--hc-white) !important;
+}
+.high-contrast .hc-hover-text-white:hover, .high-contrast .hc-hover-text-white:hover *, .high-contrast .hc-hover-text-white:focus, .high-contrast .hc-hover-text-white:focus * {
+  color: var(--hc-white) !important;
+}
+.high-contrast .hc-text-black, .high-contrast .hc-text-black * {
+  color: var(--hc-black) !important;
+}
+.high-contrast .hc-hover-text-black:hover, .high-contrast .hc-hover-text-black:hover *, .high-contrast .hc-hover-text-black:focus, .high-contrast .hc-hover-text-black:focus * {
+  color: var(--hc-black) !important;
+}
+.high-contrast .hc-hover-bg-black:hover, .high-contrast .hc-hover-bg-black:focus, .high-contrast .hc-hover-bg-black:focus-visible {
+  background: var(--hc-black) !important;
+}
+.high-contrast .hc-hover-bg-black-bis:hover, .high-contrast .hc-hover-bg-black-bis:focus, .high-contrast .hc-hover-bg-black-bis:focus-visible {
+  background: var(--hc-black-bis) !important;
+}
+.high-contrast .hc-hover-bg-black-ter:hover, .high-contrast .hc-hover-bg-black-ter:focus, .high-contrast .hc-hover-bg-black-ter:focus-visible {
+  background: var(--hc-black-ter) !important;
+}
+.high-contrast .hc-hover-bg-grey-darker:hover, .high-contrast .hc-hover-bg-grey-darker:focus, .high-contrast .hc-hover-bg-grey-darker:focus-visible {
+  background: var(--hc-grey-darker) !important;
+}
+.high-contrast .hc-hover-bg-grey-dark:hover, .high-contrast .hc-hover-bg-grey-dark:focus, .high-contrast .hc-hover-bg-grey-dark:focus-visible {
+  background: var(--hc-grey-dark) !important;
+}
+.high-contrast .hc-hover-bg-grey:hover, .high-contrast .hc-hover-bg-grey:focus, .high-contrast .hc-hover-bg-grey:focus-visible {
+  background: var(--hc-grey) !important;
+}
+.high-contrast .hc-hover-bg-white:hover, .high-contrast .hc-hover-bg-white:focus, .high-contrast .hc-hover-bg-white:focus-visible {
+  background: var(--hc-white) !important;
+}
+.high-contrast .wcag-square, .high-contrast .wcag-size, .high-contrast .wcag-size:visited {
+  color: #fff;
+  fill: #fff;
+}
+.high-contrast .text-decoration-none, .high-contrast .text-decoration-none a {
+  text-decoration: none;
+}
+/* Headline */
+.first-headline.block, .subheadline {
+  font-size: 0.7em;
+  font-weight: 300;
+  display: block;
+}
+.first-headline:not(.block) {
+  font-weight: 300;
+}
+.first-headline:not(.block) + .main-headline {
+  font-weight: 700;
+}

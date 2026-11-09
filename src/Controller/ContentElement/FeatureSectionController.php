@@ -65,9 +65,6 @@ class FeatureSectionController extends AbstractContentElementController
         }
         $template->inlineStyle = 'style="' . implode(';', $inlineStyle) . '"';
 
-        $GLOBALS['TL_CSS'][] = 'bundles/themecomponents/scss/feature_section.scss|static';
-        $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/themecomponents/js/feature_section.js|static';
-
         return $template->getResponse();
     }
 }

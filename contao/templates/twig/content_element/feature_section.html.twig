@@ -1,4 +1,5 @@
 {% extends "@Contao/content_element/_base.html.twig" %}
+{% use "@Contao/component/_stylesheet.html.twig" %}
 
 {% block wrapper %}
     {% set classes = ['feature-section--' ~ (variant|default('v1'))] %}
@@ -96,3 +97,15 @@
 
     </div>
 {% endblock -%}
+
+{% block style %}
+    {% add 'theme_components_feature_section_css' to stylesheets %}
+        {% with {file: asset('bundles/themecomponents/css/feature_section.css')} %}{{ block('stylesheet_component') }}{% endwith %}
+    {% endadd %}
+{% endblock %}
+
+{% block script %}
+    {% add 'theme_components_feature_section_js' to body %}
+        <script src="{{ asset('bundles/themecomponents/js/feature_section.js') }}"></script>
+    {% endadd %}
+{% endblock %}

@@ -9,8 +9,8 @@
 
 {% block content %}
     {# Adds a stylesheet #}
-    {% add "icon_tile_scss" to stylesheets %}
-        {% with {file: asset('bundles/themecomponents/scss/icon_tile.scss')} %}
+    {% add "icon_tile_css" to stylesheets %}
+        {% with {file: asset('bundles/themecomponents/css/icon_tile.css')} %}
             {{ block('stylesheet_component') }}
         {% endwith %}
     {% endadd %}

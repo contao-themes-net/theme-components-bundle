@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * theme components bundle for Contao Open Source CMS
  *
- * Copyright (C) 2023 pdir / digital agentur <develop@pdir.de>
+ * Copyright (C) 2026 pdir / digital agentur <develop@pdir.de>
  *
  * @package    contao-themes-net/theme-components-bundle
  * @link       https://github.com/contao-themes-net/theme-components-bundle
@@ -23,5 +23,4 @@ $GLOBALS['TL_LANG']['tl_module']['modal_text_legend'] = 'Modal content';
 $GLOBALS['TL_LANG']['tl_module']['modal_linkText'] = ['Link text', 'Here you can enter a link text.'];
 $GLOBALS['TL_LANG']['tl_module']['modal_linkClass'] = ['Link classes', 'Here you can add more classes to the link.'];
 $GLOBALS['TL_LANG']['tl_module']['modal_text'] = ['Text', 'Here you can enter the content for the modal.'];
-$GLOBALS['TL_LANG']['tl_module']['modal_customTpl'] = ['Custom template', 'Here you can choose a custom template.'];
 $GLOBALS['TL_LANG']['tl_module']['modal_class'] = ['CSS classes for the modal', 'Here you can add more classes to the modal.'];

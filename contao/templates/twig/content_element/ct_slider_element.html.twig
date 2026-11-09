@@ -1,0 +1,103 @@
+{#
+    A single slide (e.g. inside a theme slider): an image or a background
+    video with an optional text layer. Add the CSS class "only-image" to the
+    element to omit the text layer.
+
+        <div class="slider-element">
+            <figure class="slider-element__media">…</figure>
+            <div class="slider-element__content">
+                <div class="slider-element__inner">
+                    <p class="slider-element__subheadline">Subheadline</p>
+                    <h2>Headline</h2>
+                    <div class="rte">…</div>
+                    <p class="slider-element__more"><a href="…">Read more</a></p>
+                </div>
+            </div>
+        </div>
+#}
+
+{% extends '@Contao/content_element/_base.html.twig' %}
+{% use '@Contao/component/_figure.html.twig' %}
+{% use '@Contao/component/_rich_text.html.twig' %}
+{% use '@Contao/component/_stylesheet.html.twig' %}
+
+{% set attributes = attrs(attributes|default)
+    .addClass('slider-element')
+    .addClass('slider-element--video', video is not empty)
+%}
+
+{% block inner %}
+    {# Media #}
+    {% block slide_media %}
+        {% if image %}
+            {% set figure_attributes = attrs(figure_attributes|default).addClass('slider-element__media') %}
+            {% with {figure: image} %}{{ block('figure_component') }}{% endwith %}
+        {% elseif video %}
+            {% block video %}
+                {% do csp_source('media-src', video.src) %}
+                <figure class="slider-element__media slider-element__media--video">
+                    {% set video_attributes = attrs()
+                        .set('autoplay')
+                        .set('loop')
+                        .set('muted')
+                        .set('playsinline')
+                        .mergeWith(video_attributes|default)
+                    %}
+                    <video{{ video_attributes }}>
+                        <source type="{{ video.type }}" src="{{ video.src }}">
+                    </video>
+                </figure>
+            {% endblock %}
+        {% endif %}
+    {% endblock %}
+
+    {% if not only_image %}
+        {% block slide_content %}
+            <div class="slider-element__content">
+                <div class="slider-element__inner">
+                    {% if subheadline %}
+                        <p class="slider-element__subheadline">{{ subheadline|insert_tag }}</p>
+                    {% endif %}
+
+                    {% if headline.text %}
+                        {{ block('headline_component') }}
+                    {% endif %}
+
+                    {% block content %}
+                        {# Richtext #}
+                        {% block text %}
+                            {% if text %}
+                                {% with {text, attributes: text_attributes|default} %}{{ block('rich_text_component') }}{% endwith %}
+                            {% endif %}
+                        {% endblock %}
+
+                        {# Page link #}
+                        {% block page_link %}
+                            {% if page_link %}
+                                <p class="slider-element__more">
+                                    <a{{ attrs(page_link).mergeWith(page_link_attributes|default) }}>
+                                        {{- page_link_text ? page_link_text|insert_tag : 'MSC.more'|trans({}, 'contao_default') -}}
+                                    </a>
+                                </p>
+                            {% endif %}
+                        {% endblock %}
+                    {% endblock %}
+                </div>
+            </div>
+        {% endblock %}
+    {% endif %}
+{% endblock %}
+
+{% block headline_inner -%}
+    {%- if page_link and not as_editor_view -%}
+        <a{{ attrs(page_link).mergeWith(headline_link_attributes|default) }}>{{ parent() }}</a>
+    {%- else -%}
+        {{ parent() }}
+    {%- endif -%}
+{%- endblock %}
+
+{% block style %}
+    {% add 'theme_components_elements' to stylesheets %}
+        {% with {file: asset('bundles/themecomponents/css/elements.css')} %}{{ block('stylesheet_component') }}{% endwith %}
+    {% endadd %}
+{% endblock %}
