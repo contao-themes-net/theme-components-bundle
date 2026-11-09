@@ -10,7 +10,7 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
-## [2.0.0](https://github.com/contao-themes-net/theme-components-bundle/tree/2.0.0) – unreleased
+## [2.0.0](https://github.com/contao-themes-net/theme-components-bundle/tree/2.0.0) – 2026-11-09
 
 - [Changed] Content Box, Teaser Box, Price Table, Feature Element and Slider Element are now fragment controllers with Twig templates (`content_element/ct_*`) for Contao 5.7 and 6, modelled on the core elements
 - [Changed] New markup with BEM classes (`.content-box`, `.teaser-box`, `.price-box`, `.feature-element`, `.slider-element`); themes have to adjust their styles
